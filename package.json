@@ -2,6 +2,8 @@
   "name": "christopher-brown",
   "description": "My portfolio page",
   "dependencies": {
+    "@polymer/lit-element": "^0.6.2",
+    "@polymer/paper-behaviors": "^3.0.1",
     "@polymer/paper-input": "^3.0.1",
     "@polymer/polymer": "^3.0.0",
     "debug": "^2.6.9",

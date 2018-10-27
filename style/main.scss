@@ -321,7 +321,7 @@ body > section {
 
     paper-input {
       grid-area: span 1;
-      --paper-input-container-input-placeholder-color: #757575;
+      --paper-input-container-input-placeholder-color: #888888;
     }
     paper-textarea {
       grid-area: span 1 / span 2;
@@ -648,7 +648,6 @@ footer {
       grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr auto 6rem;
       min-height: 34rem;
 
-
       > * {
         grid-area: span 1 / span 1 !important;
       }
@@ -810,4 +809,8 @@ body::-webkit-scrollbar-thumb {
 
 .no-break {
   white-space: nowrap;
+}
+
+*[unresolved] {
+  opacity: 0;
 }
