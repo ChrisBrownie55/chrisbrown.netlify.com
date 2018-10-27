@@ -313,18 +313,25 @@ body > section {
     grid-row-gap: 2.5rem;
     grid-column-gap: 3rem;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.5fr 0.5fr 1.5fr 7rem;
+    grid-template-rows: 0.5fr 0.5fr auto 7rem;
 
     max-width: 80rem;
-    height: 28rem;
+    min-height: 28rem;
     margin: 0 auto;
 
-    floating-input {
+    paper-input {
       grid-area: span 1;
+      --paper-input-container-input-placeholder-color: #757575;
+    }
+    paper-textarea {
+      grid-area: span 1 / span 2;
+    }
 
-      &:last-of-type {
-        grid-area: span 1 / span 2;
-      }
+    paper-input,
+    paper-textarea {
+      --paper-input-container-color: var(--light-text);
+      --paper-input-container-focus-color: var(--theme-primary);
+      --paper-input-container-input-color: var(--light-text);
     }
 
     .actions {
@@ -638,8 +645,9 @@ footer {
 
     form {
       grid-template-columns: 1fr;
-      grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1.25fr 6rem;
-      height: 34rem;
+      grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr auto 6rem;
+      min-height: 34rem;
+
 
       > * {
         grid-area: span 1 / span 1 !important;

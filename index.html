@@ -26,10 +26,13 @@
 
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
+  <!-- Polymer Components -->
+  <script type='module' src='/node_modules/@polymer/paper-input/paper-input.js' crossorigin></script>
+  <script type='module' src='/node_modules/@polymer/paper-input/paper-textarea.js' crossorigin></script>
+
   <!-- Components -->
   <script type='module' src='/src/theme-button.js' crossorigin></script>
   <script type='module' src='/src/flat-button.js' crossorigin></script>
-  <script type='module' src='/src/floating-input.js' crossorigin></script>
   <script type='module' src='/src/menu-bar.js' crossorigin></script>
   <script type='module' src='/src/flip-card.js' crossorigin></script>
 </head>
@@ -295,16 +298,19 @@
     <h1 class='hire__title title'>Contact Form</h1>
     <p class='hire__subtitle'>Get in touch about a project</p>
     <form accept-charset='utf-8' action='https://usebasin.com/f/a8eea5a304e0' method='post' onreset='resetForm(event)'>
-      <floating-input label='Name *' placeholder='Josephine Smalls' type='text' name='name' aria-required='true'
-        required></floating-input>
-      <floating-input label='Email *' placeholder='josephine.smalls@soylent.com' type='email' name='email' spellcheck='false'
-        aria-required='true' required></floating-input>
-      <floating-input label='Phone' placeholder='(432) 861-7975' type='tel' name='phone' pattern="^\d{3}-\d{3}-\d{4}$|^\d{10}$|^\(\d{3}\) \d{3}-\d{4}$|^\(\d{3}\) \d{3} \d{4}$|^\d{3} \d{3} \d{4}$"
-        spellcheck='false' aria-required='false'></floating-input>
-      <floating-input label='Website' placeholder='https://soylent.com' type='url' name='website' spellcheck='false'
-        aria-required='false'></floating-input>
-      <floating-input label='Message' placeholder='Leave a message for me about what you want to talk about.' type='textarea'
-        name='message' aria-required='false'></floating-input>
+      <paper-input label='Name *' placeholder='Josephine Smalls' type='text' name='name' aria-required='true' required='true'></paper-input>
+
+      <paper-input label='Email *' placeholder='josephine.smalls@soylent.com' type='email' name='email' spellcheck='false'
+        aria-required='true' required='true' auto-validate></paper-input>
+
+      <paper-input label='Phone' placeholder='(432) 861-7975' type='tel' name='phone' pattern="^\d{3}-\d{3}-\d{4}$|^\d{10}$|^\(\d{3}\) \d{3}-\d{4}$|^\(\d{3}\) \d{3} \d{4}$|^\d{3} \d{3} \d{4}$"
+        spellcheck='false' aria-required='false' auto-validate error-message='Please enter a valid phone number.'></paper-input>
+
+      <paper-input label='Website' placeholder='https://soylent.com' type='url' name='website' spellcheck='false'
+        aria-required='false' auto-validate error-message='Please enter a valid website url.'></paper-input>
+
+      <paper-textarea label='Message' placeholder='Leave a message for me about what you want to talk about.'
+        name='message' aria-required='false' rows='4'></paper-textarea>
 
       <section role='group' class='actions'>
         <button is='theme-button' type='submit' class='submit-button'>SUBMIT INFORMATION</button>

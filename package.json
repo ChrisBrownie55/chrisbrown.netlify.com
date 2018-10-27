@@ -2,7 +2,7 @@
   "name": "christopher-brown",
   "description": "My portfolio page",
   "dependencies": {
-    "@polymer/paper-button": "^3.0.0-pre.20",
+    "@polymer/paper-input": "^3.0.1",
     "@polymer/polymer": "^3.0.0",
     "debug": "^2.6.9",
     "growl": "^1.10.0",
