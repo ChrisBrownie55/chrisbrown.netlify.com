@@ -1,0 +1,1 @@
+import smoothscroll from 'smoothscroll'
