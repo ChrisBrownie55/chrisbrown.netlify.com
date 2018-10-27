@@ -3,6 +3,7 @@
   "description": "My portfolio page",
   "dependencies": {
     "@polymer/polymer": "^3.0.0",
+    "debug": "^2.6.9",
     "lodash": "^4.17.5"
   },
   "devDependencies": {
