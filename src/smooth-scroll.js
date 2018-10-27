@@ -1,4 +1,6 @@
 import { PolymerElement, html } from '@polymer/polymer'
+import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
+
 import ScrollModule from '../node_modules/smooth-scroll-module/src/scroll-module'
 
 const scroller = new ScrollModule()
@@ -6,7 +8,7 @@ const scroller = new ScrollModule()
 class SmoothScroll extends PolymerElement {
   constructor() {
     super()
-    this.addEventListener('click', this.smoothScroll.bind(this))
+    afterNextRender(this, () => this.addEventListener('click', this.smoothScroll.bind(this)))
   }
 
   smoothScroll() {
@@ -21,6 +23,12 @@ class SmoothScroll extends PolymerElement {
       <style>
         :host {
           display: contents;
+        }
+
+        @supports not (display: contents) {
+          :host {
+            display: flex;
+          }
         }
       </style>
 
