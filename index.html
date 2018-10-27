@@ -26,13 +26,12 @@
 
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
-  <!-- <script type="module" src="/src/portfolio-app.js" crossorigin></script> -->
   <!-- Components -->
-  <script src='/src/theme-button.js' crossorigin></script>
-  <script src='/src/flat-button.js' crossorigin></script>
-  <script src='/src/floating-input.js' crossorigin></script>
-  <script src='/src/menu-bar.js' crossorigin></script>
-  <script src='/src/flip-card.js' crossorigin></script>
+  <script type='module' src='/src/theme-button.js' crossorigin></script>
+  <script type='module' src='/src/flat-button.js' crossorigin></script>
+  <script type='module' src='/src/floating-input.js' crossorigin></script>
+  <script type='module' src='/src/menu-bar.js' crossorigin></script>
+  <script type='module' src='/src/flip-card.js' crossorigin></script>
 </head>
 
 <body>
@@ -48,7 +47,6 @@
       <br />
       I engineer websites.
     </h1>
-    <paper-button>Test</paper-button>
     <button is='theme-button' class='header__hire-button' scroll-target='.hire'>
       Yes, I'm available for hire
     </button>
@@ -140,7 +138,7 @@
         </svg>
       </flip-card>
     </section>
-    <button is='flat-button' class='expertise__flip-button' onclick='flipAllCards()'>Flip all cards</button>
+    <flat-button class='expertise__flip-button' onclick='flipAllCards()'>Flip all cards</flat-button>
   </section>
 
   <section class='challenge-solution'>
@@ -310,7 +308,7 @@
 
       <section role='group' class='actions'>
         <button is='theme-button' type='submit' class='submit-button'>SUBMIT INFORMATION</button>
-        <button is='flat-button' light round type='reset' class='reset-button'>CLEAR FORM</button>
+        <flat-button light round type='reset' class='reset-button'>CLEAR FORM</flat-button>
       </section>
     </form>
   </section>
