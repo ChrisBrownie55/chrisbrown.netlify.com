@@ -1,0 +1,7 @@
+{
+  "name": "christopher-brown",
+  "short_name": "christopher-brown",
+  "description": "My portfolio page",
+  "start_url": "/",
+  "display": "standalone"
+}
