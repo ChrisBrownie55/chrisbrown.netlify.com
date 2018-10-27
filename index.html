@@ -297,8 +297,9 @@
   <section class='hire'>
     <h1 class='hire__title title'>Contact Form</h1>
     <p class='hire__subtitle'>Get in touch about a project</p>
-    <form accept-charset='utf-8' action='https://usebasin.com/f/a8eea5a304e0' method='post' onreset='resetForm(event)'>
-      <paper-input label='Name *' placeholder='Josephine Smalls' type='text' name='name' aria-required='true' required='true'></paper-input>
+    <form is='iron-form' accept-charset='utf-8' action='https://usebasin.com/f/a8eea5a304e0' method='post' onreset='resetForm(event)'>
+      <paper-input label='Name *' placeholder='Josephine Smalls' type='text' name='name' aria-required='true' required='true'
+        auto-validate></paper-input>
 
       <paper-input label='Email *' placeholder='josephine.smalls@soylent.com' type='email' name='email' spellcheck='false'
         aria-required='true' required='true' auto-validate></paper-input>
@@ -309,8 +310,8 @@
       <paper-input label='Website' placeholder='https://soylent.com' type='url' name='website' spellcheck='false'
         aria-required='false' auto-validate error-message='Please enter a valid website url.'></paper-input>
 
-      <paper-textarea label='Message' placeholder='Leave a message for me about what you want to talk about.'
-        name='message' aria-required='false' rows='4'></paper-textarea>
+      <paper-textarea label='Message' placeholder='Leave a message for me about what you want to talk about.' name='message'
+        aria-required='false' rows='4'></paper-textarea>
 
       <section role='group' class='actions'>
         <button is='theme-button' type='submit' class='submit-button'>SUBMIT INFORMATION</button>
