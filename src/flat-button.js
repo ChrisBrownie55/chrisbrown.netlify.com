@@ -1,12 +1,17 @@
-import { PolymerElement, html } from '@polymer/polymer'
+import { LitElement, html } from '@polymer/lit-element'
+import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class.js'
+import { PaperButtonBehavior } from '@polymer/paper-behaviors/paper-button-behavior'
 
-class FlatButton extends PolymerElement {
-  static get template() {
+class FlatButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
+  render() {
     return html`
       <slot></slot>
 
       <style>
         :host {
+          position: relative;
+          overflow: hidden;
+
           width: fit-content;
           padding: 0.3rem 0.45rem;
 
