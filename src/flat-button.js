@@ -1,8 +1,17 @@
 import { LitElement, html } from '@polymer/lit-element'
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class.js'
+import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js'
+
 import { PaperButtonBehavior } from '@polymer/paper-behaviors/paper-button-behavior'
 
+
 class FlatButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
+  constructor() {
+    super()
+
+    afterNextRender(this, () => this.removeAttribute('unresolved'))
+  }
+
   render() {
     return html`
       <slot></slot>
