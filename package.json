@@ -2,7 +2,8 @@
   "name": "christopher-brown",
   "description": "My portfolio page",
   "dependencies": {
-    "@polymer/polymer": "^3.0.0"
+    "@polymer/polymer": "^3.0.0",
+    "lodash": "^4.17.5"
   },
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "^2.0.0",
