@@ -1,6 +1,12 @@
-import { PolymerElement, html } from '@polymer/polymer'
+import { LitElement, html } from '@polymer/lit-element'
+import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js'
 
-class FlipCard extends PolymerElement {
+class FlipCard extends LitElement {
+  constructor() {
+    super()
+    afterNextRender(this, () => this.removeAttribute('unresolved'))
+  }
+
   static get properties() {
     return {
       years: Number,
@@ -12,25 +18,28 @@ class FlipCard extends PolymerElement {
     }
   }
 
-  static get template() {
+  toggleFlip() {
+    this.flipped = !this.flipped
+  }
+
+  render() {
     return html`
-      <input id='checkbox' class='checkbox' type='checkbox' role='switch' checked='{{flipped}}' aria-checked='[[flipped]]' />
-      <figure class='content'>
+      <figure class='content' role='switch' @click=${this.toggleFlip.bind(this)} ?flipped=${this.flipped} .aria-checked=${this.flipped}>
         <slot>
           <!-- SVG goes in default slot -->
         </slot>
         <figcaption class='content-back'>
           <p>
             <span class='years'>
-              [[years]]
+              ${this.years}
             </span>
             <sup>yrs</sup>
           </p>
         </figcaption>
       </figure>
-      <label for='checkbox' class='name'>
-        [[name]]
-      </label>
+      <p for='checkbox' class='name'>
+        ${this.name}
+      </p>
 
       <style>
         :host {
