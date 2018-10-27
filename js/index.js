@@ -1,12 +1,3 @@
-document.querySelectorAll('*[scroll-target]')
-  .forEach(node =>
-    node.addEventListener('click', () =>
-      smoothScroll(
-        document.querySelector(node.getAttribute('scroll-target'))
-      )
-    )
-  )
-
 document.addEventListener('DOMContentLoaded', () => {
   const image = new Image()
   image.onload = () => {
