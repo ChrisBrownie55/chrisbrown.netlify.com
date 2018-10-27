@@ -7,7 +7,7 @@
     "debug": "^2.6.9",
     "growl": "^1.10.0",
     "lodash": "^4.17.5",
-    "smoothscroll": "^0.4.0"
+    "smooth-scroll-module": "^2.0.1"
   },
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "^2.0.0",
