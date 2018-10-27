@@ -4,6 +4,7 @@
   "dependencies": {
     "@polymer/polymer": "^3.0.0",
     "debug": "^2.6.9",
+    "growl": "^1.10.0",
     "lodash": "^4.17.5"
   },
   "devDependencies": {
