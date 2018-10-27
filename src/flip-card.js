@@ -18,13 +18,27 @@ class FlipCard extends LitElement {
     }
   }
 
-  toggleFlip() {
+  toggle() {
     this.flipped = !this.flipped
   }
 
   render() {
     return html`
-      <figure class='content' role='switch' @click=${this.toggleFlip.bind(this)} ?flipped=${this.flipped} .aria-checked=${this.flipped}>
+      <figure class='content' role='switch' tabindex='0'
+        @click=${this.toggle.bind(this)}
+        @keyup=${event => {
+        if (event.key === ' ') {
+          this.toggle()
+        }
+      }}
+        @keydown=${event => {
+        if (event.key === ' ') {
+          event.preventDefault()
+        }
+      }}
+        ?flipped=${this.flipped}
+        .aria-checked=${this.flipped}
+      >
         <slot>
           <!-- SVG goes in default slot -->
         </slot>
@@ -53,28 +67,6 @@ class FlipCard extends LitElement {
           margin: 0;
         }
 
-        .checkbox {
-          position: absolute;
-          top: 0;
-          left: 0;
-
-          width: 100%;
-          height: calc(100% - 2rem);
-          margin: 0;
-
-          opacity: 0;
-          cursor: pointer;
-          z-index: 2;
-        }
-
-        .checkbox:active {
-          -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-        }
-
-        .checkbox:checked+.content {
-          transform: rotateY(180deg) translateY(var(--translateY));
-        }
-
         .content {
           position: relative;
 
@@ -97,16 +89,26 @@ class FlipCard extends LitElement {
           transform-style: preserve-3d;
           transition: transform 0.3s, box-shadow 0.3s;
           will-change: transform;
+
+          cursor: pointer;
         }
 
-        .checkbox:active+.content,
-        .checkbox:focus+.content {
+        .content[flipped] {
+          transform: rotateY(180deg) translateY(var(--translateY));
+        }
+
+        .content:active,
+        .content:focus {
           --translateY: -0.1rem;
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
         }
 
+        .content:focus {
+          outline: none;
+        }
+
         @media (hover: hover) {
-          .checkbox:hover+.content {
+          .content:hover {
             --translateY: -0.1rem;
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
           }
