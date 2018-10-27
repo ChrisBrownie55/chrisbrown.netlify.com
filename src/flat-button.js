@@ -62,8 +62,12 @@ class FlatButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
         }
 
         :host(:focus) {
-          /* TODO: Add style to replace outline */
           outline: none;
+          background-color: rgba(0, 0, 0, 0.15)
+        }
+
+        :host([light]:focus) {
+          background-color: rgba(255, 255, 255, 0.15);
         }
       </style>
     `
