@@ -26,7 +26,6 @@ class MenuDrawer extends LitElement {
 
   toggle() {
     this.open = !this.open
-    console.log('toggling')
   }
 
   render() {
