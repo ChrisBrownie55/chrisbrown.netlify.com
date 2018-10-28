@@ -1,5 +1,5 @@
 import { PolymerElement, html } from '@polymer/polymer'
-import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
+import { afterNextRender } from '@polymer/polymer/lib/utils/render-status';
 
 import ScrollModule from '../node_modules/smooth-scroll-module/src/scroll-module'
 
