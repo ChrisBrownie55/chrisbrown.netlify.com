@@ -813,4 +813,10 @@ body::-webkit-scrollbar-thumb {
 
 *[unresolved] {
   opacity: 0;
+  transition: opacity 0.2s;
+}
+
+flip-card svg {
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 }
