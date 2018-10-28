@@ -27,7 +27,7 @@ class MenuDrawer extends LitElement {
       if (!window.IntersectionObserver || true) {
         window.addEventListener(
           'scroll',
-          throttle(this.vanillaUpdateColorOnScroll.bind(this), 50)
+          throttle(this.vanillaUpdateColorOnScroll.bind(this), 100)
         )
       } else {
         this.__io = new window.IntersectionObserver(
