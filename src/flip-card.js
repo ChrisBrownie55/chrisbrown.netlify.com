@@ -22,22 +22,27 @@ class FlipCard extends LitElement {
     this.flipped = !this.flipped
   }
 
+  _handleKeyUp(event) {
+    // if key is a space
+    if (event.key === ' ') {
+      this.toggle()
+    }
+  }
+
+  _handleKeyDown(event) {
+    if (event.key === ' ') {
+      event.preventDefault()
+    }
+  }
+
   render() {
     return html`
       <figure class='content' role='switch' tabindex='0'
         @click=${this.toggle.bind(this)}
-        @keyup=${event => {
-        if (event.key === ' ') {
-          this.toggle()
-        }
-      }}
-        @keydown=${event => {
-        if (event.key === ' ') {
-          event.preventDefault()
-        }
-      }}
+        @keyup=${this._handleKeyUp.bind(this)}
+        @keydown=${this._handleKeyDown.bind(this)}
         ?flipped=${this.flipped}
-        .aria-checked=${this.flipped}
+        aria-checked=${!!this.flipped}
       >
         <slot>
           <!-- SVG goes in default slot -->
