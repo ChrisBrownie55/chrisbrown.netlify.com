@@ -9,6 +9,7 @@
     "debug": "^2.6.9",
     "growl": "^1.10.0",
     "lodash": "^4.17.5",
+    "lodash-es": "^4.17.11",
     "smooth-scroll-module": "^2.0.1"
   },
   "devDependencies": {

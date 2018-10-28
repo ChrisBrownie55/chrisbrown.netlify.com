@@ -1,6 +1,8 @@
 import { LitElement, html } from '@polymer/lit-element'
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status'
 
+import throttle from 'lodash-es/throttle'
+
 import { brightnessFromElementBackground } from '../js/utils'
 
 class MenuDrawer extends LitElement {
@@ -29,7 +31,7 @@ class MenuDrawer extends LitElement {
       if (!window.IntersectionObserver || true) {
         window.addEventListener(
           'scroll',
-          this.vanillaUpdateColorOnScroll.bind(this)
+          throttle(this.vanillaUpdateColorOnScroll.bind(this), 200)
         )
       } else {
         this.__io = new window.IntersectionObserver(
