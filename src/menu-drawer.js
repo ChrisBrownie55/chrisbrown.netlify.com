@@ -12,66 +12,51 @@ class MenuDrawer extends LitElement {
       this.removeAttribute('unresolved')
       this._links = this.shadowRoot.getElementById('links')
 
-      // get position and size of nav button
+      /* SETUP FOR CHANGING COLOR OF NAV BUTTON */
+      // get and save position and size of nav button
       this.__navButton = this.shadowRoot.children[2].children[0]
       this.__navButtonBoundingRect = this.__navButton.getBoundingClientRect()
 
+      const sections = Array.from(document.querySelectorAll(`
+        body > header,
+        body > section,
+        body > footer
+      `))
+
       // map colors to specific sections
       this.__sectionColors = new Map(
-        Array.from(document.querySelectorAll(`
-          body > header,
-          body > section,
-          body > footer
-        `)).map(el => [el, brightnessFromElementBackground(el) > 200 ? 'black' : 'white'])
+        sections.map(el => [el, brightnessFromElementBackground(el) > 200 ? 'black' : 'white'])
       )
 
-      console.log(this.__sectionColors)
-
-      // if IntersectionObserver doesn't exist just check every bounding rect
-      if (!window.IntersectionObserver || true) {
-        window.addEventListener(
-          'scroll',
-          throttle(this.vanillaUpdateColorOnScroll.bind(this), 200)
-        )
-      } else {
-        this.__io = new window.IntersectionObserver(
-          entries => {
-
-          }
-        )
-      }
+      window.addEventListener(
+        'scroll',
+        throttle(this.updateColorOnScroll.bind(this), 200)
+      )
     })
   }
 
   updateColorOnScroll() {
-
-  }
-
-  vanillaUpdateColorOnScroll() {
     const sections = Array.from(document.querySelectorAll(`
-    body > header,
-    body > section,
-    body > footer
+      body > header,
+      body > section,
+      body > footer
     `))
 
-    sections.some(section => {
-      this.updateColorIfIntersected(section, section.getBoundingClientRect())
-    })
-  }
-
-  // returns true if section intersects nav button
-  updateColorIfIntersected(section, { y: sectionY, height: sectionHeight }) {
     const { y, height } = this.__navButtonBoundingRect
 
-    if (y >= sectionY && y + height < sectionY + sectionHeight) {
-      const color = this.__sectionColors.get(section)
-      if (!color) { return false }
+    sections.some(section => {
+      const { y: sectionY, height: sectionHeight } = section.getBoundingClientRect()
 
-      this.__navButton.style.color = color
-      return true
-    }
+      if (y >= sectionY && y + height < sectionY + sectionHeight) {
+        const color = this.__sectionColors.get(section)
+        if (!color) { return false }
 
-    return false
+        this.__navButton.style.color = color
+        return true
+      }
+
+      return false
+    })
   }
 
   static get properties() {
