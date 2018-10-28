@@ -120,6 +120,7 @@ class FlipCard extends LitElement {
           width: 100%;
 
           backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
           z-index: 1;
         }
 
