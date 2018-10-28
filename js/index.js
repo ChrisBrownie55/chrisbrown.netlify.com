@@ -62,13 +62,13 @@ function lazyLoadImagesFromDataSrc() {
   const io = new window.IntersectionObserver(
     entries => entries.forEach(entry => {
       // the image's parent has shown up on screen
-      if (entry.intersectionRatio >= 0.1) {
+      if (entry.intersectionRatio >= 0.05) {
         io.unobserve(entry.target)
 
         imagesByParents.get(entry.target).forEach(load)
       }
     }),
-    { threshold: [0.1] }
+    { threshold: [0.05] }
   )
 
   imagesByParents.forEach((images, imageParent) => io.observe(imageParent))
