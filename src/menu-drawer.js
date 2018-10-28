@@ -1,6 +1,7 @@
 import { LitElement, html } from '@polymer/lit-element'
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status'
-import './smooth-scroll'
+
+import { throttle, brightnessFromElementBackground } from '../js/utils'
 
 class MenuDrawer extends LitElement {
   constructor() {
@@ -8,7 +9,65 @@ class MenuDrawer extends LitElement {
     afterNextRender(this, () => {
       this.removeAttribute('unresolved')
       this._links = this.shadowRoot.getElementById('links')
+
+      // get position and size of nav button
+      this.__navButton = this.shadowRoot.children[2].children[0]
+      this.__navButtonBoundingRect = this.__navButton.getBoundingClientRect()
+
+      // map colors to specific sections
+      this.__sectionColors = new Map([
+        Array.from(document.querySelectorAll(`
+        body > header,
+        body > section,
+        body > footer
+      `)).map(el => [el, brightnessFromElementBackground(el) > 200 ? 'black' : 'white'])
+      ])
+
+      // if IntersectionObserver doesn't exist just check every bounding rect
+      if (!window.IntersectionObserver || true) {
+        window.addEventListener(
+          'scroll',
+          throttle(this.vanillaUpdateColorOnScroll.bind(this), 50)
+        )
+      } else {
+        this.__io = new window.IntersectionObserver(
+          entries => {
+
+          }
+        )
+      }
     })
+  }
+
+  updateColorOnScroll() {
+
+  }
+
+  vanillaUpdateColorOnScroll() {
+    const sections = Array.from(document.querySelectorAll(`
+      body > header,
+      body > section,
+      body > footer
+    `))
+
+    sections.some(section => {
+      this.updateColorIfIntersected(section, section.getBoundingClientRect())
+    })
+  }
+
+  // returns true if section intersects nav button
+  updateColorIfIntersected(section, { y: sectionY, height: sectionHeight }) {
+    const { y, height } = this.__navButtonBoundingRect
+
+    if (y >= sectionY && y + height < sectionY + sectionHeight) {
+      const color = this.__sectionColors.get(section)
+      if (!color) { return false }
+
+      this.__navButton.style.color = color
+      return true
+    }
+
+    return false
   }
 
   static get properties() {
