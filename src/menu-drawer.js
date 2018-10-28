@@ -15,13 +15,15 @@ class MenuDrawer extends LitElement {
       this.__navButtonBoundingRect = this.__navButton.getBoundingClientRect()
 
       // map colors to specific sections
-      this.__sectionColors = new Map([
+      this.__sectionColors = new Map(
         Array.from(document.querySelectorAll(`
           body > header,
           body > section,
           body > footer
         `)).map(el => [el, brightnessFromElementBackground(el) > 200 ? 'black' : 'white'])
-      ])
+      )
+
+      console.log(this.__sectionColors)
 
       // if IntersectionObserver doesn't exist just check every bounding rect
       if (!window.IntersectionObserver || true) {
@@ -45,9 +47,9 @@ class MenuDrawer extends LitElement {
 
   vanillaUpdateColorOnScroll() {
     const sections = Array.from(document.querySelectorAll(`
-      body > header,
-      body > section,
-      body > footer
+    body > header,
+    body > section,
+    body > footer
     `))
 
     sections.some(section => {
