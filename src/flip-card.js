@@ -154,6 +154,12 @@ class FlipCard extends LitElement {
           margin: 0.25rem auto 0;
           font-family: Roboto, var(--default-fonts);
         }
+
+        @media print {
+          .content-back {
+            display: none;
+          }
+        }
       </style>
     `
   }
