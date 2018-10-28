@@ -41,8 +41,8 @@ class FlatButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
         }
 
         :host([round]) {
-          padding-left: 0.5rem;
-          padding-right: 0.5rem;
+          padding-left: 0.65rem;
+          padding-right: 0.65rem;
 
           border-radius: 13px;
         }
