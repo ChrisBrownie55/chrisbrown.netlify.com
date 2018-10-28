@@ -33,13 +33,19 @@
   <!-- Components -->
   <script type='module' src='/src/theme-button.js' crossorigin></script>
   <script type='module' src='/src/flat-button.js' crossorigin></script>
-  <script type='module' src='/src/menu-bar.js' crossorigin></script>
+  <script type='module' src='/src/menu-drawer.js' crossorigin></script>
   <script type='module' src='/src/flip-card.js' crossorigin></script>
   <script type='module' src='/src/smooth-scroll.js' crossorigin></script>
 </head>
 
 <body>
-  <nav is='side-menu' links='["About", "Expertise", "My Work", "Hire", "Contact"]'></nav>
+  <menu-drawer unresolved>
+    <button>About</button>
+    <button>Expertise</button>
+    <button>My Work</button>
+    <button>Hire</button>
+    <button>Contact</button>
+  </menu-drawer>
 
   <header id='main-header' class='header'>
     <svg class='logo primary' aria-label='My logo, the letter C in a square' xmlns='http://www.w3.org/2000/svg'
