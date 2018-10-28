@@ -159,6 +159,10 @@ class FlipCard extends LitElement {
           .content-back {
             display: none;
           }
+
+          .content {
+            transform: unset !important;
+          }
         }
       </style>
     `
