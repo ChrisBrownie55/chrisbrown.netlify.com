@@ -17,10 +17,10 @@ class MenuDrawer extends LitElement {
       // map colors to specific sections
       this.__sectionColors = new Map([
         Array.from(document.querySelectorAll(`
-        body > header,
-        body > section,
-        body > footer
-      `)).map(el => [el, brightnessFromElementBackground(el) > 200 ? 'black' : 'white'])
+          body > header,
+          body > section,
+          body > footer
+        `)).map(el => [el, brightnessFromElementBackground(el) > 200 ? 'black' : 'white'])
       ])
 
       // if IntersectionObserver doesn't exist just check every bounding rect
