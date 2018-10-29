@@ -121,36 +121,6 @@ class MenuDrawer extends LitElement {
 
         }
 
-        .menu__links>button {
-          width: 10rem;
-          padding: 0.75rem 0;
-          margin-bottom: 5vh;
-
-          color: var(--dark-text);
-          background-color: transparent;
-
-          font-weight: bold;
-          font-size: 1.3rem;
-          font-family: Montserrat, var(--default-fonts);
-          text-decoration: none;
-          text-align: center;
-
-          border: solid 2px #222;
-
-          transition: background-color 0.2s, color 0.2s;
-          will-change: background-color, color;
-          cursor: pointer;
-        }
-
-        .menu__links>button:hover {
-          background-color: #222;
-          color: var(--theme-primary);
-        }
-
-        .menu__links>button:focus {
-          outline: none;
-        }
-
         #menu__checkbox {
           display: none;
         }
