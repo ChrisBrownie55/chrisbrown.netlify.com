@@ -815,6 +815,13 @@ body::-webkit-scrollbar-thumb {
   opacity: 0;
   transition: opacity 0.2s;
 }
+menu-drawer[unresolved] {
+  position: absolute;
+}
+theme-button[unresolved] {
+  display: block;
+  padding: 0.85rem 1.75rem;
+}
 
 flip-card svg {
   backface-visibility: hidden;
@@ -840,13 +847,13 @@ menu-drawer button {
   transition: background-color 0.2s, color 0.2s;
   will-change: background-color, color;
   cursor: pointer;
-}
 
-menu-drawer button:hover {
-  background-color: #222;
-  color: var(--theme-primary);
-}
+  &:hover {
+    background-color: #222;
+    color: var(--theme-primary);
+  }
 
-menu-drawer button:focus {
-  outline: none;
+  &:focus {
+    outline: none;
+  }
 }

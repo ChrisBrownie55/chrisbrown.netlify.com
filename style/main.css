@@ -857,6 +857,15 @@ body::-webkit-scrollbar-thumb {
   transition: opacity 0.2s;
 }
 
+menu-drawer[unresolved] {
+  position: absolute;
+}
+
+theme-button[unresolved] {
+  display: block;
+  padding: 0.85rem 1.75rem;
+}
+
 flip-card svg {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
