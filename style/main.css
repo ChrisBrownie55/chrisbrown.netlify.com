@@ -313,7 +313,7 @@ body > section {
 
 .hire form paper-input {
   grid-area: span 1;
-  --paper-input-container-input-placeholder-color: #888888;
+  --paper-input-container-input-placeholder-color: #757575;
 }
 
 .hire form paper-textarea {
