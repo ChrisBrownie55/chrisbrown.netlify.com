@@ -862,4 +862,31 @@ flip-card svg {
           backface-visibility: hidden;
   -moz-backface-visibility: hidden;
 }
+
+menu-drawer button {
+  width: 10rem;
+  padding: 0.75rem 0;
+  margin-bottom: 5vh;
+  color: var(--dark-text);
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 1.3rem;
+  font-family: Montserrat, var(--default-fonts);
+  text-decoration: none;
+  text-align: center;
+  border: solid 2px #222;
+  -webkit-transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
+  will-change: background-color, color;
+  cursor: pointer;
+}
+
+menu-drawer button:hover {
+  background-color: #222;
+  color: var(--theme-primary);
+}
+
+menu-drawer button:focus {
+  outline: none;
+}
 /*# sourceMappingURL=main.css.map */
