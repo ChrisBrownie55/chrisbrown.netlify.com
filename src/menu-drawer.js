@@ -65,9 +65,7 @@ class MenuDrawer extends LitElement {
 
   static get properties() {
     return {
-      open: {
-        type: Boolean
-      }
+      open: Boolean
     }
   }
 
