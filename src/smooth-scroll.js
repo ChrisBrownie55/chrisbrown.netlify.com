@@ -1,11 +1,11 @@
-import { PolymerElement, html } from '@polymer/polymer'
+import { LitElement, html } from '@polymer/lit-element'
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status';
 
 import ScrollModule from '../node_modules/smooth-scroll-module/src/scroll-module'
 
 const scroller = new ScrollModule()
 
-class SmoothScroll extends PolymerElement {
+class SmoothScroll extends LitElement {
   constructor() {
     super()
     afterNextRender(this, () => this.addEventListener('click', this.smoothScroll.bind(this)))
@@ -18,7 +18,7 @@ class SmoothScroll extends PolymerElement {
     scroller.scrollTo(element)
   }
 
-  static get template() {
+  render() {
     return html`
       <style>
         :host {

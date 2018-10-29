@@ -1,1 +1,1 @@
-import { PolymerElement } from '@polymer/polymer'
+import { LitElement } from '@polymer/lit-element'
