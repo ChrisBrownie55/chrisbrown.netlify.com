@@ -8,6 +8,9 @@ import { brightnessFromElementBackground } from '../js/utils'
 class MenuDrawer extends LitElement {
   constructor() {
     super()
+
+    this.open = false
+
     afterNextRender(this, () => {
       this.removeAttribute('unresolved')
       this._links = this.shadowRoot.getElementById('links')
@@ -32,6 +35,7 @@ class MenuDrawer extends LitElement {
         'scroll',
         throttle(this.updateColorOnScroll.bind(this), 200)
       )
+      this.updateColorOnScroll()
     })
   }
 
@@ -66,9 +70,16 @@ class MenuDrawer extends LitElement {
         value: []
       },
       open: {
-        type: Boolean,
-        value: false
+        type: Boolean
       }
+    }
+  }
+
+  updated(changedProperties) {
+    super.updated(changedProperties)
+
+    if (changedProperties.has('open')) {
+      document.body.style.overflow = !changedProperties.get('open') ? 'hidden' : ''
     }
   }
 
