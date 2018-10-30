@@ -38,9 +38,9 @@ class FlipCard extends LitElement {
   render() {
     return html`
       <figure class='content' role='switch' tabindex='0'
-        @click=${this.toggle.bind(this)}
-        @keyup=${this._handleKeyUp.bind(this)}
-        @keydown=${this._handleKeyDown.bind(this)}
+        @click=${this.toggle}
+        @keyup=${this._handleKeyUp}
+        @keydown=${this._handleKeyDown}
         ?flipped=${this.flipped}
         aria-checked=${!!this.flipped}
       >
