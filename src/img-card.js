@@ -45,7 +45,6 @@ class ImgCard extends LitElement {
 
           object-fit: cover;
         }
-
         :host(:hover) .image {
           filter: brightness(50%);
         }
@@ -70,11 +69,9 @@ class ImgCard extends LitElement {
           opacity: 0;
           transition: opacity 0.25s;
         }
-
         :host(:hover) .content {
           opacity: 1;
         }
-
         :host(:last-child) .content {
           --slide-padding: 1.5rem;
         }
@@ -88,7 +85,6 @@ class ImgCard extends LitElement {
           font-family: var(--default-fonts);
           font-size: 0.8rem;
         }
-
         .description > ul {
           margin-top: 0.15rem;
           padding-left: 1.5rem;
@@ -113,7 +109,6 @@ class ImgCard extends LitElement {
           color: #222;
           background-color: var(--theme-primary);
         }
-
       </style>
     `
   }
