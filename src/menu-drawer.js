@@ -69,19 +69,13 @@ class MenuDrawer extends LitElement {
     }
   }
 
-  updated(changedProperties) {
-    super.updated(changedProperties)
-
-    if (changedProperties.has('open')) {
-      document.body.style.overflow = !changedProperties.get('open') ? 'hidden' : ''
-    }
-  }
-
   toggle() {
     this.open = !this.open
   }
 
   render() {
+    document.body.style.overflow = this.open === true ? 'hidden' : ''
+
     return html`
       <input type='checkbox' id='menu__checkbox'
         @change=${e => this.open = e.target.checked}
