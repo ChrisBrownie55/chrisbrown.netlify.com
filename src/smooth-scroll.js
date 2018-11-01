@@ -11,11 +11,12 @@ class SmoothScroll extends LitElement {
     afterNextRender(this, () => this.addEventListener('click', this.smoothScroll.bind(this)))
   }
 
-  smoothScroll() {
+  async smoothScroll() {
     const element = document.querySelector(this.getAttribute('target'))
     if (!element) { return }
 
-    scroller.scrollTo(element)
+    await scroller.scrollTo(element)
+    element.focus()
   }
 
   render() {
