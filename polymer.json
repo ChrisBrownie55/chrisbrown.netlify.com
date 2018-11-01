@@ -12,8 +12,8 @@
     "node_modules/@webcomponents/webcomponentsjs/**"
   ],
   "builds": [
-    { "preset": "es5-bundled" },
-    { "preset": "es6-bundled" }
+    { "preset": "es5-unbundled" },
+    { "preset": "es6-unbundled" }
   ],
   "moduleResolution": "node",
   "npm": true,
