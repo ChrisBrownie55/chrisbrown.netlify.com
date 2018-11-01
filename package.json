@@ -18,7 +18,7 @@
     "wct-browser-legacy": "^1.0.0"
   },
   "scripts": {
-    "build": "polymer build",
+    "build": "polymer build --npm",
     "serve": "polymer serve"
   }
 }
