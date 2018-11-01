@@ -54,22 +54,14 @@ class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
           transition: width 0.2s;
         }
 
-        :host(:active) {
+        :host(:active),
+        :host(:hover) {
           padding: 0.85rem 2.75rem;
 
           color: var(--dark-text);
           background-color: var(--theme-primary);
 
           -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-        }
-
-        @media (hover: hover) {
-          :host(:hover) {
-            padding: 0.85rem 2.75rem;
-
-            color: var(--dark-text);
-            background-color: var(--theme-primary);
-          }
         }
 
         :host(:focus) {
