@@ -5,7 +5,6 @@
     "@polymer/lit-element": "^0.6.2",
     "@polymer/paper-behaviors": "^3.0.1",
     "@polymer/paper-input": "^3.0.1",
-    "@polymer/polymer": "^3.0.0",
     "debug": "^2.6.9",
     "flickity": "^2.1.2",
     "growl": "^1.10.0",
@@ -15,6 +14,11 @@
   },
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "^2.0.0",
+    "polymer-cli": "^1.8.1",
     "wct-browser-legacy": "^1.0.0"
+  },
+  "scripts": {
+    "build": "polymer build",
+    "serve": "polymer serve"
   }
 }
