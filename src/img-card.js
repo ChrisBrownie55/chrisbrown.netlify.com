@@ -93,6 +93,7 @@ class ImgCard extends LitElement {
         .explore-link {
           width: fit-content;
           padding: 0.25rem 0.65rem;
+          margin-right: auto;
 
           color: #fafafa;
 
