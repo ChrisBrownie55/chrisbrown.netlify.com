@@ -18,8 +18,7 @@
   "npm": true,
   "lint": {
     "rules": [
-      "polymer-3",
-      "lit"
+      "polymer-3"
     ]
   }
 }
