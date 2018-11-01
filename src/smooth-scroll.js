@@ -9,7 +9,8 @@ class SmoothScroll extends LitElement {
   constructor() {
     super()
     afterNextRender(this, () => {
-      this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion)').matches
+      // as of 2018, only supported in Firefox Desktop and both Safaris
+      this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       this.addEventListener('click', this.smoothScroll.bind(this))
     })
   }
@@ -18,8 +19,10 @@ class SmoothScroll extends LitElement {
     const element = document.querySelector(this.getAttribute('target'))
     if (!element) { return }
 
+    console.log('scrolling...')
     await scroller.scrollTo(element, this.prefersReducedMotion)
-    element.focus()
+    console.log('done scrolling, focusing...')
+    requestAnimationFrame(() => element.focus())
   }
 
   render() {
