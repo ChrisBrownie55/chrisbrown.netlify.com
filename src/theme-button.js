@@ -32,30 +32,14 @@ class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
           font-family: Montserrat, var(--default-fonts);
           text-transform: uppercase;
 
-          transition: padding 0.2s, color 0.2s, background-color 0.2s;
-          will-change: padding, color, background-color;
+          transition: padding 0.2s, color 0.2s, background-color 0.2s, box-shadow 0.2s;
+          will-change: padding, color, background-color, box-shadow;
           cursor: pointer;
         }
 
-        :host(::after) {
-          content: '';
-
-          position: absolute;
-          top: calc(100% + 4px);
-          left: 50%;
-
-          width: 0;
-          height: 2px;
-          border-radius: 14px;
-
-          background-color: rgba(254, 215, 102, 0.8);
-
-          transform: translateX(-50%);
-          transition: width 0.2s;
-        }
-
         :host(:active),
-        :host(:hover) {
+        :host(:hover),
+        :host(:focus) {
           padding: 0.85rem 2.75rem;
 
           color: var(--dark-text);
@@ -66,10 +50,7 @@ class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
 
         :host(:focus) {
           outline: none;
-        }
-
-        :host(:focus:not(:active)::after) {
-          width: 80%;
+          box-shadow: 0px 0px 0px 4px rgba(102, 201, 254, 0.6);
         }
       </style>
 
