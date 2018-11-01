@@ -8,14 +8,17 @@ const scroller = new ScrollModule()
 class SmoothScroll extends LitElement {
   constructor() {
     super()
-    afterNextRender(this, () => this.addEventListener('click', this.smoothScroll.bind(this)))
+    afterNextRender(this, () => {
+      this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion)').matches
+      this.addEventListener('click', this.smoothScroll.bind(this))
+    })
   }
 
   async smoothScroll() {
     const element = document.querySelector(this.getAttribute('target'))
     if (!element) { return }
 
-    await scroller.scrollTo(element)
+    await scroller.scrollTo(element, this.prefersReducedMotion)
     element.focus()
   }
 
