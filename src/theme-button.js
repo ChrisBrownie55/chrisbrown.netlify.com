@@ -10,6 +10,7 @@ class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
     super()
 
     this.type = 'button'
+    this.noink = true
     afterNextRender(this, () => {
       this.addEventListener('click', this.handleClick.bind(this))
       this.removeAttribute('unresolved')
