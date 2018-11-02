@@ -52,9 +52,12 @@ class MenuDrawer extends LitElement {
       const { y: sectionY, height: sectionHeight } = section.getBoundingClientRect()
 
       if (y >= sectionY && y + height < sectionY + sectionHeight) {
-        const color = this.__sectionColors.get(section)
+        let color = this.__sectionColors.get(section)
         if (!color) { return false }
 
+        if (section.classList.contains('hire') && window.innerWidth > 800) {
+          color = 'black'
+        }
         this.__navButton.style.color = color
         return true
       }

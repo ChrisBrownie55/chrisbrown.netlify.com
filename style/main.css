@@ -255,8 +255,8 @@ body > section {
 
 .hire {
   position: relative;
-  width: calc(calc(98vw - 14rem) - 4rem);
-  margin-left: 2rem;
+  width: calc(calc(98vw - 14rem) - 8rem);
+  margin-left: 4rem;
   border-radius: 0.5rem;
   -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #293347;
           box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #293347;
@@ -267,7 +267,7 @@ body > section {
 .hire::before {
   content: "";
   position: absolute;
-  left: -2rem;
+  left: -4rem;
   bottom: 0;
   width: 100vw;
   height: 20rem;
