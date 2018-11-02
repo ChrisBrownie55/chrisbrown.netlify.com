@@ -23,6 +23,7 @@ class MenuDrawer extends LitElement {
       const sections = Array.from(document.querySelectorAll(`
         body > header,
         body > section,
+        body > section > .before,
         body > footer
       `))
 
@@ -43,12 +44,13 @@ class MenuDrawer extends LitElement {
     const sections = Array.from(document.querySelectorAll(`
       body > header,
       body > section,
+      body > section > .before,
       body > footer
     `))
 
     const { y, height } = this.__navButtonBoundingRect
 
-    sections.some(section => {
+    sections.reverse().some(section => {
       const { y: sectionY, height: sectionHeight } = section.getBoundingClientRect()
 
       if (y >= sectionY && y + height < sectionY + sectionHeight) {

@@ -264,8 +264,7 @@ body > section {
   color: #fff;
 }
 
-.hire::before {
-  content: "";
+.hire .before {
   position: absolute;
   left: -4rem;
   bottom: 0;
@@ -658,7 +657,7 @@ footer article a[href]:hover svg path, footer article a[href]:focus svg path {
     width: calc(calc(99vw - 8rem) - 2rem);
     margin-left: 1rem;
   }
-  .hire::before {
+  .hire__before {
     left: -1rem;
   }
   .hire .subtitle {

@@ -266,9 +266,7 @@ body > section {
   background-color: #222;
   color: #fff;
 
-  &::before {
-    content: "";
-
+  .before {
     position: absolute;
     left: -4rem;
     bottom: 0;
@@ -628,7 +626,7 @@ footer {
     width: calc(calc(99vw - 8rem) - 2rem);
     margin-left: 1rem;
 
-    &::before {
+    &__before {
       left: -1rem;
     }
 
