@@ -5,6 +5,7 @@
    "src/**",
    "js/**",
    "assets/**",
+   "style/**",
    "package.json"
   ],
   "extraDependencies": [

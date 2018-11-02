@@ -19,7 +19,7 @@ class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
   connectedCallback(...args) {
     super.connectedCallback(...args)
     if (['submit', 'reset'].includes(this.type)) {
-      this.form = traverseUpUntil(node => node.tagName === 'FORM', this)
+      this.form = traverseUpUntil(node => node.tagName === 'IRON-FORM', this)
     }
   }
 
