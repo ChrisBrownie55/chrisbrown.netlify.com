@@ -2,6 +2,7 @@
   "name": "christopher-brown",
   "description": "My portfolio page",
   "dependencies": {
+    "@polymer/iron-form": "^3.0.1",
     "@polymer/lit-element": "^0.6.2",
     "@polymer/paper-behaviors": "^3.0.1",
     "@polymer/paper-input": "^3.0.1",

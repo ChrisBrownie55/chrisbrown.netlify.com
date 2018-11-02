@@ -1,19 +1,54 @@
 import { LitElement, html } from '@polymer/lit-element'
-import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class.js'
+import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class'
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status'
 
-
 import { PaperButtonBehavior } from '@polymer/paper-behaviors/paper-button-behavior'
+import { traverseUpUntil } from '../js/utils'
 
 class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
   constructor() {
     super()
 
-    afterNextRender(this, () => this.removeAttribute('unresolved'))
+    this.type = 'button'
+    afterNextRender(this, () => {
+      this.addEventListener('click', this.handleClick.bind(this))
+      this.removeAttribute('unresolved')
+    })
+  }
+
+  connectedCallback(...args) {
+    super.connectedCallback(...args)
+    if (['submit', 'reset'].includes(this.type)) {
+      this.form = traverseUpUntil(node => node.tagName === 'FORM', this)
+    }
+  }
+
+  static get properties() {
+    return {
+      type: String
+    }
+  }
+
+  async handleClick(event) {
+    if (this.form) {
+      switch (this.type) {
+        case 'submit':
+          this.form.submit()
+          break
+        case 'reset':
+          this.form.reset()
+          break
+        default:
+          break
+      }
+    }
   }
 
   render() {
     return html`
+      <slot>
+      </slot>
+
       <style>
         :host {
           position: relative;
@@ -53,8 +88,6 @@ class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
           box-shadow: 0px 0px 0px 4px rgba(102, 201, 254, 0.6);
         }
       </style>
-
-      <slot></slot>
     `
   }
 }

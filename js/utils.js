@@ -7,3 +7,13 @@ export const brightnessFromElementBackground = el => brightnessFromRGB(
     .split(',')
     .map(x => parseInt(x))
 )
+
+export const traverseUpUntil = (condition, node) => {
+  if (!node.parentNode) {
+    return
+  }
+  if (!condition(node)) {
+    return traverseUpUntil(condition, node.parentNode)
+  }
+  return node
+}
