@@ -1,10 +1,10 @@
 import { LitElement, html } from '@polymer/lit-element'
-import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class.js'
+import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class'
 
 import { PaperButtonBehavior } from '@polymer/paper-behaviors/paper-button-behavior'
+import ButtonType from '../mixins/button-type'
 
-
-class FlatButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
+class FlatButton extends mixinBehaviors([PaperButtonBehavior], ButtonType(LitElement)) {
   constructor() {
     super()
   }

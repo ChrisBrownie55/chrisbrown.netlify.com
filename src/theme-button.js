@@ -2,7 +2,7 @@ import { LitElement, html } from '@polymer/lit-element'
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class'
 
 import { PaperButtonBehavior } from '@polymer/paper-behaviors/paper-button-behavior'
-import ButtonType from '../mixins/button-type.js'
+import ButtonType from '../mixins/button-type'
 
 class ThemeButton extends mixinBehaviors([PaperButtonBehavior], ButtonType(LitElement)) {
   constructor() {
