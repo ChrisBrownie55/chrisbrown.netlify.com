@@ -848,19 +848,30 @@ body::-webkit-scrollbar-thumb {
   white-space: nowrap;
 }
 
-*[unresolved] {
+:not(:defined) {
   opacity: 0;
 }
-menu-drawer[unresolved] {
+
+menu-drawer:not(:defined) {
   position: absolute;
 }
-theme-button[unresolved] {
+
+theme-button:not(:defined) {
   display: block;
 
   width: 309.67px;
   height: 50.52px;
 
   margin-bottom: 144px;
+}
+
+paper-input {
+  transition: opacity 4s;
+  will-change: var(--load-will-change);
+  opacity: 1;
+}
+paper-input:not(:defined) {
+  opacity: 0;
 }
 
 flip-card svg {

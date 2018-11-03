@@ -1,12 +1,6 @@
 import { LitElement, html } from '@polymer/lit-element'
-import { afterNextRender } from '@polymer/polymer/lib/utils/render-status'
 
 class FlipCard extends LitElement {
-  constructor() {
-    super()
-    afterNextRender(this, () => this.removeAttribute('unresolved'))
-  }
-
   static get properties() {
     return {
       years: Number,

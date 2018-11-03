@@ -1,6 +1,5 @@
 import { LitElement, html } from '@polymer/lit-element'
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class.js'
-import { afterNextRender } from '@polymer/polymer/lib/utils/render-status'
 
 import { PaperButtonBehavior } from '@polymer/paper-behaviors/paper-button-behavior'
 
@@ -8,8 +7,6 @@ import { PaperButtonBehavior } from '@polymer/paper-behaviors/paper-button-behav
 class FlatButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
   constructor() {
     super()
-
-    afterNextRender(this, () => this.removeAttribute('unresolved'))
   }
 
   render() {
@@ -35,8 +32,8 @@ class FlatButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
           font-family: Montserrat, var(--default-fonts);
           text-transform: uppercase;
 
-          transition: color 0.2s, background-color 0.2s;
-          will-change: color, background-color;
+          transition: color 0.2s, background-color 0.2s, var(--load-transition);
+          will-change: color, background-color, var(--load-will-change);
           cursor: pointer;
         }
 

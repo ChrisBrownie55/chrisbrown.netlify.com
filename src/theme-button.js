@@ -10,10 +10,9 @@ class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
     super()
 
     this.type = 'button'
-    this.noink = true
     afterNextRender(this, () => {
+      this.noink = true
       this.addEventListener('click', this.handleClick.bind(this))
-      this.removeAttribute('unresolved')
     })
   }
 
@@ -68,6 +67,8 @@ class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
           transition: padding 0.2s, color 0.2s, background-color 0.2s, box-shadow 0.2s, var(--load-transition);
           will-change: padding, color, background-color, box-shadow, var(--load-will-change);
           cursor: pointer;
+
+          opacity: 1;
         }
 
         :host(:active),

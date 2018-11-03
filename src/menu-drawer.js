@@ -12,7 +12,6 @@ class MenuDrawer extends LitElement {
     this.open = false
 
     afterNextRender(this, () => {
-      this.removeAttribute('unresolved')
       this._links = this.shadowRoot.getElementById('links')
 
       /* SETUP FOR CHANGING COLOR OF NAV BUTTON */
