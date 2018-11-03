@@ -47,9 +47,6 @@ class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
 
   render() {
     return html`
-      <slot>
-      </slot>
-
       <style>
         :host {
           position: relative;
@@ -89,6 +86,8 @@ class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
           box-shadow: 0px 0px 0px 4px rgba(102, 201, 254, 0.6);
         }
       </style>
+      <slot>
+      </slot>
     `
   }
 }

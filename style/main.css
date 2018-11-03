@@ -6,7 +6,7 @@
   --theme-secondary: #66c9fe;
   --light-text: white;
   --dark-text: #222;
-  --load-transition: opacity 0.5s;
+  --load-transition: opacity 0.5s 0.25s;
   --load-will-change: opacity;
 }
 
@@ -854,8 +854,6 @@ body::-webkit-scrollbar-thumb {
 
 *[unresolved] {
   opacity: 0;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
 }
 
 menu-drawer[unresolved] {
