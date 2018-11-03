@@ -1,46 +1,20 @@
 import { LitElement, html } from '@polymer/lit-element'
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class'
-import { afterNextRender } from '@polymer/polymer/lib/utils/render-status'
 
 import { PaperButtonBehavior } from '@polymer/paper-behaviors/paper-button-behavior'
-import { traverseUpUntil } from '../js/utils'
+import ButtonType from '../mixins/button-type.mjs'
 
-class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
+class ThemeButton extends mixinBehaviors([PaperButtonBehavior], ButtonType(LitElement)) {
   constructor() {
     super()
 
     this.type = 'button'
-    afterNextRender(this, () => {
-      this.noink = true
-      this.addEventListener('click', this.handleClick.bind(this))
-    })
-  }
-
-  connectedCallback(...args) {
-    super.connectedCallback(...args)
-    if (['submit', 'reset'].includes(this.type)) {
-      this.form = traverseUpUntil(node => node.tagName === 'IRON-FORM', this)
-    }
+    this.noink = true
   }
 
   static get properties() {
     return {
       type: String
-    }
-  }
-
-  async handleClick(event) {
-    if (this.form) {
-      switch (this.type) {
-        case 'submit':
-          this.form.submit()
-          break
-        case 'reset':
-          this.form.reset()
-          break
-        default:
-          break
-      }
     }
   }
 
