@@ -76,7 +76,20 @@ class MenuDrawer extends LitElement {
   updated(changedProperties) {
     super.updated(changedProperties)
     if (changedProperties.has('open')) {
-      document.body.style.overflow = this.open === true ? 'hidden' : ''
+      document.body.style.overflow = this.open ? 'hidden' : ''
+      this.updateChildrenTabindex(this.open ? 0 : -1)
+    }
+  }
+
+  connectedCallback(...args) {
+    super.connectedCallback(...args)
+    this.updateChildrenTabindex(-1)
+  }
+
+  updateChildrenTabindex(tabindex) {
+    for (let child of this.children) {
+      if (child.tagName === 'SMOOTH-SCROLL') { child = child.children[0] }
+      child.setAttribute('tabindex', tabindex)
     }
   }
 
@@ -265,7 +278,7 @@ class MenuDrawer extends LitElement {
       </label>
 
       <section class='menu__links' id='links'
-        @click=${e => e.target !== this._links && this.toggle()}
+        @click=${e => e.target !== this._links && this.toggle()}'
       >
         <slot></slot>
       </section>
