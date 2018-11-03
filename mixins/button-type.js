@@ -11,6 +11,12 @@ export default superClass => class extends superClass {
     })
   }
 
+  static get properties() {
+    return {
+      type: String
+    }
+  }
+
   connectedCallback(...args) {
     super.connectedCallback(...args)
     if (this.type === 'submit' || this.type === 'reset') {

@@ -4,18 +4,12 @@ import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class'
 import { PaperButtonBehavior } from '@polymer/paper-behaviors/paper-button-behavior'
 import ButtonType from '../mixins/button-type'
 
-class ThemeButton extends mixinBehaviors([PaperButtonBehavior], ButtonType(LitElement)) {
+class ThemeButton extends ButtonType(mixinBehaviors([PaperButtonBehavior], LitElement)) {
   constructor() {
     super()
 
     this.type = 'button'
     this.noink = true
-  }
-
-  static get properties() {
-    return {
-      type: String
-    }
   }
 
   render() {
