@@ -1,7 +1,7 @@
 import { LitElement, html } from '@polymer/lit-element'
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status';
 
-import ScrollModule from '../node_modules/smooth-scroll-module/src/scroll-module'
+import ScrollModule from 'smooth-scroll-module/src/scroll-module'
 
 const scroller = new ScrollModule()
 
