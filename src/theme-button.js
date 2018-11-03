@@ -68,8 +68,8 @@ class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
           font-family: Montserrat, var(--default-fonts);
           text-transform: uppercase;
 
-          transition: padding 0.2s, color 0.2s, background-color 0.2s, box-shadow 0.2s;
-          will-change: padding, color, background-color, box-shadow;
+          transition: padding 0.2s, color 0.2s, background-color 0.2s, box-shadow 0.2s, var(--load-transition);
+          will-change: padding, color, background-color, box-shadow, var(--load-will-change);
           cursor: pointer;
         }
 
