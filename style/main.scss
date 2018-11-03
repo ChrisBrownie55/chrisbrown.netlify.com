@@ -9,6 +9,9 @@
 
   --light-text: white;
   --dark-text: #222;
+
+  --load-transition: opacity 0.5s;
+  --load-will-change: opacity;
 }
 
 .mywork {
@@ -869,6 +872,9 @@ slide-list {
   max-height: calc(100vh - 2rem);
   margin: 0 auto;
   padding: 0 4rem 4rem;
+
+  transition: var(--load-transition);
+  will-change: var(--load-will-change);
 
   &:focus {
     outline: none;
