@@ -108,6 +108,9 @@ class MenuDrawer extends LitElement {
       <style>
         :host {
           contain: strict;
+
+          transition: var(--load-transition);
+          will-change: var(--load-will-change);
         }
 
         .menu__links {
