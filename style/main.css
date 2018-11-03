@@ -931,7 +931,7 @@ menu-drawer button {
   cursor: pointer;
 }
 
-menu-drawer button:hover {
+menu-drawer button:hover, menu-drawer button:active, menu-drawer button:focus {
   background-color: #222;
   color: var(--theme-primary);
 }

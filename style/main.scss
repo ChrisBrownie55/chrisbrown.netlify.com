@@ -900,7 +900,9 @@ menu-drawer button {
   will-change: background-color, color;
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus {
     background-color: #222;
     color: var(--theme-primary);
   }
