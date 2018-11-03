@@ -2,7 +2,8 @@
   "root": ".",
   "entrypoint": "index.html",
   "sources": [
-   "src/**",
+   "components/**",
+   "mixins/**",
    "js/**",
    "assets/**",
    "style/**",
