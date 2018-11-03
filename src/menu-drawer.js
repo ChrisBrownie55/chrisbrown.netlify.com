@@ -87,24 +87,6 @@ class MenuDrawer extends LitElement {
 
   render() {
     return html`
-      <input type='checkbox' id='menu__checkbox'
-        @change=${e => this.open = e.target.checked}
-        .checked=${this.open}
-      />
-      <label class='hamburger' for='menu__checkbox' aria-label='menu'>
-        <svg class='hamburger__icon' xmlns='https://www.w3.org/2000/svg' viewBox='0 0 24 24'>
-          <path class='bar' d='M4,8h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z' />
-          <path class='bar' d='M0,10h4c-1,0,-2,0,-2,2s1,2,2,2h16c1,0,2,0,2,-2s-1,-2,-2,-2z' />
-          <path class='bar' d='M4,20h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z' />
-        </svg>
-      </label>
-
-      <section class='menu__links' id='links'
-        @click=${e => e.target !== this._links && this.toggle()}
-      >
-        <slot></slot>
-      </section>
-
       <style>
         :host {
           contain: strict;
@@ -146,10 +128,10 @@ class MenuDrawer extends LitElement {
           top: 1rem;
           left: 1rem;
 
+          display: block;
+
           width: 3rem;
           height: 3rem;
-
-          display: block;
 
           transition: left 0.2s, transform 0.2s;
           cursor: pointer;
@@ -270,6 +252,24 @@ class MenuDrawer extends LitElement {
         }
 
       </style>
+
+      <input type='checkbox' id='menu__checkbox'
+        @change=${e => this.open = e.target.checked}
+        .checked=${this.open}
+      />
+      <label class='hamburger' for='menu__checkbox' aria-label='menu'>
+        <svg class='hamburger__icon' xmlns='https://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+          <path class='bar' d='M4,8h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z' />
+          <path class='bar' d='M0,10h4c-1,0,-2,0,-2,2s1,2,2,2h16c1,0,2,0,2,-2s-1,-2,-2,-2z' />
+          <path class='bar' d='M4,20h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z' />
+        </svg>
+      </label>
+
+      <section class='menu__links' id='links'
+        @click=${e => e.target !== this._links && this.toggle()}
+      >
+        <slot></slot>
+      </section>
     `
   }
 }
