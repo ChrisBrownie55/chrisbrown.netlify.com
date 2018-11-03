@@ -51,6 +51,8 @@ class ThemeButton extends mixinBehaviors([PaperButtonBehavior], LitElement) {
           position: relative;
           overflow: hidden;
 
+          display: block;
+
           padding: 0.85rem 1.75rem;
 
           background: none;
