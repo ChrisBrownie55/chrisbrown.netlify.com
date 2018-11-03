@@ -37,7 +37,9 @@ function loadImage(src) {
 async function loadHeaderImage() {
   const image = await loadImage('assets/header-background-min.jpg')
   const header = document.getElementById('main-header')
+
   header.setAttribute('loaded', '')
+  header.addEventListener('transitionend', () => header.style.background = 'unset')
 }
 
 function lazyLoadImagesFromDataSrc() {

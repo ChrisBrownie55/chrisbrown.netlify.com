@@ -91,8 +91,8 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0;
-  -webkit-transition: opacity 0.5s 2s;
-  transition: opacity 0.5s 2s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
   will-change: opacity;
   z-index: 0;
 }
@@ -890,7 +890,9 @@ menu-drawer[unresolved] {
 
 theme-button[unresolved] {
   display: block;
-  padding: 0.85rem 1.75rem;
+  width: 309.67px;
+  height: 50.52px;
+  margin-bottom: 144px;
 }
 
 flip-card svg {
