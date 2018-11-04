@@ -1031,16 +1031,20 @@ slide-list .flickity-page-dots .dot {
   width: 1rem;
   height: 0.15rem;
   border-radius: 8px;
-  -webkit-transition: width 0.3s 0.05s ease-in-out, height 0.3s 0.05s ease-in-out, opacity 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
-  transition: width 0.3s 0.05s ease-in-out, height 0.3s 0.05s ease-in-out, opacity 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
-  transition: width 0.3s 0.05s ease-in-out, height 0.3s 0.05s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  transition: width 0.3s 0.05s ease-in-out, height 0.3s 0.05s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  -webkit-transform: translateY(-0.425rem);
+          transform: translateY(-0.425rem);
+  -webkit-transition: width 0.2s, height 0.2s, opacity 0.2s, -webkit-box-shadow 0.2s, -webkit-transform 0.2s;
+  transition: width 0.2s, height 0.2s, opacity 0.2s, -webkit-box-shadow 0.2s, -webkit-transform 0.2s;
+  transition: width 0.2s, height 0.2s, box-shadow 0.2s, opacity 0.2s, transform 0.2s;
+  transition: width 0.2s, height 0.2s, box-shadow 0.2s, opacity 0.2s, transform 0.2s, -webkit-box-shadow 0.2s, -webkit-transform 0.2s;
 }
 
 slide-list:focus .flickity-page-dots .dot {
-  width: 1.5rem;
-  height: 0.45rem;
-  border-radius: 12px;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 slide-list:focus .flickity-page-dots .dot.is-selected {
