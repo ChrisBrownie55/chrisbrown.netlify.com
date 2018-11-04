@@ -1,7 +1,15 @@
 import { LitElement, html } from '@polymer/lit-element'
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
+import { afterNextRender } from '@polymer/polymer/lib/utils/render-status';
 
 class ImgCard extends LitElement {
+  constructor() {
+    super()
+    afterNextRender(this, () => {
+      this.setAttribute('tabindex', '-1')
+    })
+  }
+
   static get properties() {
     return {
       src: String,
@@ -72,6 +80,7 @@ class ImgCard extends LitElement {
         :host(:hover) .content {
           opacity: 1;
         }
+
         :host(:last-child) .content {
           --slide-padding: 1.5rem;
         }
