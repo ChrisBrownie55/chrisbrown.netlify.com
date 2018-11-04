@@ -80,6 +80,9 @@ main {
   background-position: center;
   background-repeat: no-repeat;
 
+  // allows menu to show up on firefox
+  z-index: 0;
+
   &::before {
     content: '';
 
@@ -869,17 +872,20 @@ theme-button:not(:defined) {
 }
 
 paper-input {
-  transition: opacity 4s;
+  transition: var(--load-transition);
   will-change: var(--load-will-change);
-  opacity: 1;
 }
-paper-input:not(:defined) {
-  opacity: 0;
+paper-input:defined {
+  opacity: 1;
 }
 
 flip-card svg {
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
+}
+
+menu-drawer {
+  z-index: 999;
 }
 
 menu-drawer button {

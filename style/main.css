@@ -78,6 +78,7 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: 0;
 }
 
 .header::before {
@@ -900,20 +901,23 @@ theme-button:not(:defined) {
 }
 
 paper-input {
-  -webkit-transition: opacity 4s;
-  transition: opacity 4s;
+  -webkit-transition: var(--load-transition);
+  transition: var(--load-transition);
   will-change: var(--load-will-change);
-  opacity: 1;
 }
 
-paper-input:not(:defined) {
-  opacity: 0;
+paper-input:defined {
+  opacity: 1;
 }
 
 flip-card svg {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -moz-backface-visibility: hidden;
+}
+
+menu-drawer {
+  z-index: 999;
 }
 
 menu-drawer button {
