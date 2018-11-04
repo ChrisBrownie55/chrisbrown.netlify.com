@@ -5,10 +5,6 @@ import { PaperButtonBehavior } from '@polymer/paper-behaviors/paper-button-behav
 import ButtonType from '../mixins/button-type'
 
 class FlatButton extends ButtonType(mixinBehaviors([PaperButtonBehavior], LitElement)) {
-  constructor() {
-    super()
-  }
-
   render() {
     return html`
       <style>
