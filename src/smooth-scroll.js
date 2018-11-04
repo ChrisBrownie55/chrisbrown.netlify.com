@@ -8,6 +8,7 @@ const scroller = new ScrollModule()
 class SmoothScroll extends LitElement {
   constructor() {
     super()
+
     afterNextRender(this, () => {
       // as of 2018, only supported in Firefox Desktop and both Safaris
       this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -20,6 +21,7 @@ class SmoothScroll extends LitElement {
     if (!element) { return }
 
     await scroller.scrollTo(element, this.prefersReducedMotion)
+
     const focusableElement = element.querySelector(`
       *:not([tabindex='-1'])[tabindex],
       input,
@@ -28,6 +30,7 @@ class SmoothScroll extends LitElement {
       button,
       iframe
     `)
+
     if (focusableElement && focusableElement.disabled !== true) {
       // disabled could be undefined, hence, the strict check for true
       focusableElement.focus()
