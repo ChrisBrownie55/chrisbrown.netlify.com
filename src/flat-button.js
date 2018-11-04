@@ -11,8 +11,6 @@ class FlatButton extends ButtonType(mixinBehaviors([PaperButtonBehavior], LitEle
 
   render() {
     return html`
-      <slot></slot>
-
       <style>
         :host {
           position: relative;
@@ -78,6 +76,7 @@ class FlatButton extends ButtonType(mixinBehaviors([PaperButtonBehavior], LitEle
           background-color: rgba(255, 255, 255, 0.15);
         }
       </style>
+      <slot></slot>
     `
   }
 }

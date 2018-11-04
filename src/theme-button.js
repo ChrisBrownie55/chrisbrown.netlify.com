@@ -8,7 +8,6 @@ class ThemeButton extends ButtonType(mixinBehaviors([PaperButtonBehavior], LitEl
   constructor() {
     super()
 
-    this.type = 'button'
     this.noink = true
   }
 
