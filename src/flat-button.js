@@ -18,6 +18,8 @@ class FlatButton extends ButtonType(mixinBehaviors([PaperButtonBehavior], LitEle
           position: relative;
           overflow: hidden;
 
+          display: block;
+
           width: fit-content;
           padding: 0.3rem 0.45rem;
 

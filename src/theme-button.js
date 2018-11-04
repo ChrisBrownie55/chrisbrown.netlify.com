@@ -21,6 +21,7 @@ class ThemeButton extends ButtonType(mixinBehaviors([PaperButtonBehavior], LitEl
 
           display: block;
 
+          width: fit-content;
           padding: 0.85rem 1.75rem;
 
           background: none;
@@ -37,8 +38,6 @@ class ThemeButton extends ButtonType(mixinBehaviors([PaperButtonBehavior], LitEl
           transition: padding 0.2s, color 0.2s, background-color 0.2s, box-shadow 0.2s, var(--load-transition);
           will-change: padding, color, background-color, box-shadow, var(--load-will-change);
           cursor: pointer;
-
-          opacity: 1;
         }
 
         :host(:active),
