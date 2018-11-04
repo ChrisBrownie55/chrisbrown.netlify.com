@@ -17,3 +17,18 @@ export const traverseUpUntil = (condition, node) => {
   }
   return node
 }
+
+// cool concept but better replaced with `element.querySelector('selector[is="awesome"]')`
+
+// export const traverseDownUntil = (condition, node) => {
+//   for (const child of node.children) {
+//     if (!condition(child)) {
+//       const resultNode = traverseDownUntil(condition, child)
+//       if (resultNode) {
+//         return resultNode
+//       }
+//     }
+//   }
+
+//   return
+// }
