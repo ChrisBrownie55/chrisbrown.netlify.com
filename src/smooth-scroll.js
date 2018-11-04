@@ -19,10 +19,21 @@ class SmoothScroll extends LitElement {
     const element = document.querySelector(this.getAttribute('target'))
     if (!element) { return }
 
-    console.log('scrolling...')
     await scroller.scrollTo(element, this.prefersReducedMotion)
-    console.log('done scrolling, focusing...')
-    requestAnimationFrame(() => element.focus())
+    const focusableElement = element.querySelector(`
+      *:not([tabindex='-1'])[tabindex],
+      input,
+      a[href],
+      area[href]
+      button,
+      iframe
+    `)
+    if (focusableElement && focusableElement.disabled !== true) {
+      // disabled could be undefined, hence, the strict check for true
+      focusableElement.focus()
+    } else {
+      console.log(focusableElement, focusableElement.disabled)
+    }
   }
 
   render() {
