@@ -405,6 +405,10 @@ body > section {
   text-align: center;
 }
 
+.about__title:focus {
+  outline: none;
+}
+
 .about article {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -413,6 +413,9 @@ body > section {
 
   &__title {
     text-align: center;
+    &:focus {
+      outline: none;
+    }
   }
 
   article {

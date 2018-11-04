@@ -2,6 +2,7 @@ import { LitElement, html } from '@polymer/lit-element'
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status';
 
 import ScrollModule from 'smooth-scroll-module/src/scroll-module'
+import { traverseDownUntil } from '../js/utils';
 
 const scroller = new ScrollModule()
 
@@ -22,20 +23,36 @@ class SmoothScroll extends LitElement {
 
     await scroller.scrollTo(element, this.prefersReducedMotion)
 
-    const focusableElement = element.querySelector(`
-      *:not([tabindex='-1'])[tabindex],
-      input,
-      a[href],
-      area[href]
-      button,
-      iframe
-    `)
+    const focusableElement = traverseDownUntil(node => {
+      if (node.disabled) {
+        return false
+      }
 
-    if (focusableElement && focusableElement.disabled !== true) {
+      const tabIndex = parseInt(node.getAttribute('tabindex'))
+      if (tabIndex < 0) {
+        return false
+      } else if (!isNaN(tabIndex)) {
+        return true
+      }
+
+      switch (node.tagName) {
+        case 'INPUT':
+        case 'BUTTON':
+        case 'IFRAME':
+          return true
+        case 'A':
+        case 'AREA':
+          return !!node.getAttribute('href')
+        default:
+          return false
+      }
+    }, element)
+
+    if (focusableElement) {
       // disabled could be undefined, hence, the strict check for true
       focusableElement.focus()
     } else {
-      console.log(focusableElement, focusableElement.disabled)
+      console.log(focusableElement)
     }
   }
 

@@ -18,17 +18,22 @@ export const traverseUpUntil = (condition, node) => {
   return node
 }
 
-// cool concept but better replaced with `element.querySelector('selector[is="awesome"]')`
+export const traverseDownUntil = (condition, node) => {
+  const children = [...node.children]
+  if (node.shadowRoot) {
+    children.push(...node.shadowRoot.children)
+  }
 
-// export const traverseDownUntil = (condition, node) => {
-//   for (const child of node.children) {
-//     if (!condition(child)) {
-//       const resultNode = traverseDownUntil(condition, child)
-//       if (resultNode) {
-//         return resultNode
-//       }
-//     }
-//   }
+  for (const child of children) {
+    if (!condition(child)) {
+      const resultNode = traverseDownUntil(condition, child)
+      if (resultNode) {
+        return resultNode
+      }
+    } else {
+      return child
+    }
+  }
 
-//   return
-// }
+  return
+}
