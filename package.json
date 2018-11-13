@@ -1,27 +1,25 @@
 {
-  "name": "christopher-brown",
-  "description": "My portfolio page",
+  "name": "christopher",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@polymer/iron-form": "^3.0.1",
-    "@polymer/lit-element": "^0.6.2",
-    "@polymer/paper-behaviors": "^3.0.1",
-    "@polymer/paper-input": "^3.0.1",
-    "debug": "^2.6.9",
-    "flickity": "^2.1.2",
-    "growl": "^1.10.5",
-    "lodash": "^4.17.11",
-    "lodash-es": "^4.17.11",
-    "smooth-scroll-module": "^2.0.1"
-  },
-  "devDependencies": {
-    "@webcomponents/webcomponentsjs": "^2.0.0",
-    "polymer-cli": "^1.8.1",
-    "replace-in-file": "^3.4.2",
-    "wct-browser-legacy": "^1.0.0"
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-scripts": "2.1.1"
   },
   "scripts": {
-    "build": "polymer build",
-    "serve": "polymer serve",
-    "serve-production": "serve build/es6-unbundled/"
-  }
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

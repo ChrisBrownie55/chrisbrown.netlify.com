@@ -1,8 +1,0 @@
-{
-  "name": "christopher-brown",
-  "short_name": "chris-b",
-  "description": "My portfolio page",
-  "start_url": "/",
-  "display": "standalone",
-  "theme-color": "#fed766"
-}
