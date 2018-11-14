@@ -47,11 +47,11 @@
 }
 .base-input input.notempty:not(:focus):invalid,
 .base-input textarea.notempty:not(:focus):invalid {
-  border-bottom-color: #f00;
+  border-bottom-color: hsl(0, 100%, 71%);
 }
 .base-input input.notempty:not(:focus):valid,
 .base-input textarea.notempty:not(:focus):valid {
-  border-bottom-color: #008000;
+  border-bottom-color: hsl(120, 83%, 65%);
 }
 .base-input input.notempty:not(:focus):valid,
 .base-input textarea.notempty:not(:focus):valid,
