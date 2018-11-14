@@ -60,9 +60,9 @@
 .base-input textarea:-webkit-autofill {
   /* Removes autofill yellow color on Chrome */
   transition: background-color 999999s;
-  -webkit-text-fill-color: #fff;
-  text-fill-color: #fff;
-  caret-color: #fff;
+  -webkit-text-fill-color: currentColor;
+  text-fill-color: currentColor;
+  caret-color: currentColor;
 }
 
 .base-input input.notempty:not(:focus):invalid,
