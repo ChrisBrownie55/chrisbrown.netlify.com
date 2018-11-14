@@ -56,10 +56,6 @@
   opacity: 0;
 }
 
-.base-input input:-webkit-autofill:hover,
-.base-input textarea:-webkit-autofill:hover,
-.base-input input:-webkit-autofill:focus,
-.base-input textarea:-webkit-autofill:focus,
 .base-input input:-webkit-autofill,
 .base-input textarea:-webkit-autofill {
   /* Removes autofill yellow color on Chrome */
