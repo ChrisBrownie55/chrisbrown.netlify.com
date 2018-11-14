@@ -1,8 +1,10 @@
 .base-input {
   position: relative;
+  padding-top: 0.75rem;
 }
 
 .base-input::after {
+  /* The "bottom border" */
   content: '';
 
   position: absolute;
@@ -12,7 +14,7 @@
   width: 0;
   height: 1px;
 
-  background-color: var(--theme-primary), currentColor;
+  background-color: var(--theme-primary, currentColor);
 
   transition: width 0.25s ease-in-out;
 }
