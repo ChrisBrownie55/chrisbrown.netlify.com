@@ -99,21 +99,21 @@
 .base-input textarea.notempty ~ label {
   /* Move label up when focused or if input has text */
   top: -15%;
-  color: LightGrey;
+  color: grey;
   font-size: 0.8rem;
 }
 .base-input input:-webkit-autofill~label,
 .base-input textarea:-webkit-autofill~label {
   /* Move label up if input was autofilled */
   top: -15%;
-  color: LightGrey;
+  color: grey;
   font-size: 0.8rem;
 }
 .base-input input:autofill~label,
 .base-input textarea:autofill~label {
   /* Same as above but without prefix */
   top: -15%;
-  color: LightGrey;
+  color: grey;
   font-size: 0.8rem;
 }
 
