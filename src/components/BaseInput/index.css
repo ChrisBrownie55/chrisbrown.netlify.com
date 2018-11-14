@@ -1,8 +1,8 @@
-.float-input {
+.base-input.base-input {
   position: relative;
   display: flex;
 }
-.float-input::after {
+.base-input::after {
   position: absolute;
   content: '';
   width: 0;
@@ -12,20 +12,20 @@
   background-color: theme-color;
   transition: width 0.25s ease-in-out;
 }
-.float-input.float-textarea::after {
+.base-input.float-textarea::after {
   bottom: -5px;
 }
-.float-input:focus-within::after {
+.base-input:focus-within::after {
   width: 100%;
 }
-.float-input input,
-.float-input textarea,
-.float-input label {
+.base-input input,
+.base-input textarea,
+.base-input label {
   font-family: Questrial, default-fonts;
   font-size: 1.125rem;
 }
-.float-input input,
-.float-input textarea {
+.base-input input,
+.base-input textarea {
   width: 100%;
   height: 100%;
   background-color: transparent;
@@ -34,39 +34,39 @@
   color: #fff;
   resize: none;
 }
-.float-input input:-webkit-autofill:hover,
-.float-input textarea:-webkit-autofill:hover,
-.float-input input:-webkit-autofill:focus,
-.float-input textarea:-webkit-autofill:focus,
-.float-input input:-webkit-autofill,
-.float-input textarea:-webkit-autofill {
+.base-input input:-webkit-autofill:hover,
+.base-input textarea:-webkit-autofill:hover,
+.base-input input:-webkit-autofill:focus,
+.base-input textarea:-webkit-autofill:focus,
+.base-input input:-webkit-autofill,
+.base-input textarea:-webkit-autofill {
   transition: background-color 999999s;
   -webkit-text-fill-color: #fff;
   text-fill-color: #fff;
   caret-color: #fff;
 }
-.float-input input.notempty:not(:focus):invalid,
-.float-input textarea.notempty:not(:focus):invalid {
+.base-input input.notempty:not(:focus):invalid,
+.base-input textarea.notempty:not(:focus):invalid {
   border-bottom-color: #f00;
 }
-.float-input input.notempty:not(:focus):valid,
-.float-input textarea.notempty:not(:focus):valid {
+.base-input input.notempty:not(:focus):valid,
+.base-input textarea.notempty:not(:focus):valid {
   border-bottom-color: #008000;
 }
-.float-input input.notempty:not(:focus):valid,
-.float-input textarea.notempty:not(:focus):valid,
-.float-input input.notempty:not(:focus):invalid,
-.float-input textarea.notempty:not(:focus):invalid {
+.base-input input.notempty:not(:focus):valid,
+.base-input textarea.notempty:not(:focus):valid,
+.base-input input.notempty:not(:focus):invalid,
+.base-input textarea.notempty:not(:focus):invalid {
   border-bottom-width: 2px;
 }
-.float-input input:focus,
-.float-input textarea:focus {
+.base-input input:focus,
+.base-input textarea:focus {
   outline: none;
 }
-.float-input input:focus ~ label,
-.float-input textarea:focus ~ label,
-.float-input input.notempty ~ label,
-.float-input textarea.notempty ~ label {
+.base-input input:focus ~ label,
+.base-input textarea:focus ~ label,
+.base-input input.notempty ~ label,
+.base-input textarea.notempty ~ label {
   top: -15%;
   color: LightGrey;
   font-size: 0.8rem;
