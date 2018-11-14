@@ -52,6 +52,7 @@
 
 .base-input input:not(:focus)::placeholder,
 .base-input textarea:not(:focus)::placeholder {
+  /* Hide placeholder when label is on top of it */
   opacity: 0;
 }
 
@@ -70,12 +71,13 @@
 
 .base-input input.notempty:not(:focus):invalid,
 .base-input textarea.notempty:not(:focus):invalid {
-  /* If input is invalid */
+  /* If input is invalid, red */
   border-bottom-color: hsl(0, 100%, 71%);
 }
 
 .base-input input.notempty:not(:focus):valid,
 .base-input textarea.notempty:not(:focus):valid {
+  /* If input is valid, green */
   border-bottom-color: hsl(120, 83%, 65%);
 }
 
