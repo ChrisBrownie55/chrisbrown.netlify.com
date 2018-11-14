@@ -109,13 +109,6 @@
   color: grey;
   font-size: 0.8rem;
 }
-.base-input input:autofill~label,
-.base-input textarea:autofill~label {
-  /* Same as above but without prefix */
-  top: -15%;
-  color: grey;
-  font-size: 0.8rem;
-}
 
 .base-input label {
   position: absolute;
