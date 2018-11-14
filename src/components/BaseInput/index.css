@@ -16,7 +16,7 @@
 
   background-color: var(--theme-primary, currentColor);
 
-  transition: width 1s;
+  transition: width 0.25s;
 }
 
 .base-input.is-textarea::after {
@@ -31,6 +31,7 @@
 .base-input textarea,
 .base-input label {
   font-size: 1.125rem;
+  font-family: Questrial, system-ui;
 }
 
 .base-input input,
@@ -67,14 +68,14 @@
   caret-color: currentColor;
 }
 
-.base-input input.notempty:not(:focus):invalid,
-.base-input textarea.notempty:not(:focus):invalid {
+.base-input input.notempty:invalid,
+.base-input textarea.notempty:invalid {
   /* If input is invalid, red */
   border-bottom-color: hsl(0, 100%, 71%);
 }
 
-.base-input input.notempty:not(:focus):valid,
-.base-input textarea.notempty:not(:focus):valid {
+.base-input input.notempty:valid,
+.base-input textarea.notempty:valid {
   /* If input is valid, green */
   border-bottom-color: hsl(120, 83%, 65%);
 }
