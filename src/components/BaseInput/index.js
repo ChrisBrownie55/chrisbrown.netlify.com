@@ -5,12 +5,26 @@ import './index.css';
 
 let counter = 0;
 
-const BaseInput = ({ label, ...props }) => (
-  <div className="base-input">
-    {label ? <label htmlFor={"base-input-"+counter}>{label}</label> : null}
-    <input id={"base-input-"+(counter++)} {...props} />
-  </div>
-);
+const BaseInput = ({ label, ...props }) => {
+  const onChange = event => {
+    if (event.target.value) {
+      event.target.classList.add('notempty')
+    } else {
+      event.target.classList.remove('notempty')
+    }
+
+    if (props.onChange) {
+      props.onChange(event)
+    }
+  }
+
+  return (
+    <div className="base-input">
+      <input id={"base-input-"+(counter++)} {...props} onChange={onChange} />
+      {label ? <label htmlFor={"base-input-"+counter}>{label}</label> : null}
+    </div>
+  )
+};
 
 BaseInput.propTypes = {
   label: PropTypes.string.isRequired
