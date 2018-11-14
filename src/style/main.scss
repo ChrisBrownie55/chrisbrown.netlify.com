@@ -56,7 +56,7 @@ body {
   background-color: #eee;
 }
 
-main {
+main.app-container {
   position: relative;
   overflow: hidden;
 }
@@ -84,7 +84,7 @@ main {
   z-index: 0;
 
   &::before {
-    content: '';
+    content: "";
 
     position: absolute;
     top: 0;
@@ -106,7 +106,7 @@ main {
   }
 
   &[loaded]::before {
-    content: '';
+    content: "";
     background-image: url(../assets/header-background-min.jpg);
     opacity: 1;
   }
@@ -1004,8 +1004,8 @@ slide-list {
 
       transform: translateY(-0.425rem);
 
-      transition: width 0.2s, height 0.2s,
-        box-shadow 0.2s, opacity 0.2s, transform 0.2s;
+      transition: width 0.2s, height 0.2s, box-shadow 0.2s, opacity 0.2s,
+        transform 0.2s;
     }
   }
   &:focus .flickity-page-dots .dot {
