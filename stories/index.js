@@ -15,7 +15,7 @@ storiesOf('BaseInput', module)
     <BaseInput label="Name" placeholder="Chris Brown" name="name"></BaseInput>
   ))
   .add('with bound value', () => (
-    <ButtonWithHooks></ButtonWithHooks>
+    <InputWithHooks></InputWithHooks>
   ))
   .add('dark theme', () => (
     <ThemeContext.Provider value="dark">
@@ -25,7 +25,7 @@ storiesOf('BaseInput', module)
     </ThemeContext.Provider>
   ))
 
-function ButtonWithHooks() {
+function InputWithHooks() {
   const [value, setValue] = useState('');
   function handleChange(event) {
     action('text changed')(event);
