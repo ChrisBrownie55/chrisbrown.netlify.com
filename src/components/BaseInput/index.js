@@ -5,7 +5,7 @@ import './index.css';
 
 let counter = 0;
 
-const BaseInput = ({ label, ...props }) => {
+const BaseInput = ({ label, theme, ...props }) => {
   const onChange = event => {
     if (event.target.value) {
       event.target.classList.add('notempty')
@@ -19,7 +19,7 @@ const BaseInput = ({ label, ...props }) => {
   }
 
   return (
-    <div className="base-input">
+    <div className="base-input" theme={theme}>
       <input id={"base-input-"+(counter++)} {...props} onChange={onChange} />
       {label ? <label htmlFor={"base-input-"+counter}>{label}</label> : null}
     </div>

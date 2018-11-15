@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from '@storybook/addon-a11y';
 
 import BaseInput from '../src/components/BaseInput';
+import ThemeContext from '../src/contexts/theme.js';
 
 storiesOf('BaseInput', module)
   .addDecorator(checkA11y)
@@ -15,6 +16,13 @@ storiesOf('BaseInput', module)
   ))
   .add('with bound value', () => (
     <ButtonWithHooks></ButtonWithHooks>
+  ))
+  .add('dark theme', () => (
+    <ThemeContext.Provider value="dark">
+      <div style={{backgroundColor: "#222", padding: "2rem"}}>
+        <ThemedInput></ThemedInput>
+      </div>
+    </ThemeContext.Provider>
   ))
 
 function ButtonWithHooks() {
@@ -28,4 +36,11 @@ function ButtonWithHooks() {
     <BaseInput key={0} label="Name" name="name" value={value} onChange={handleChange}></BaseInput>,
     <p key={1}>Value: "{value}"</p>
   ]
+}
+
+function ThemedInput() {
+  const theme = useContext(ThemeContext);
+  return (
+    <BaseInput label="Name" name="name" theme={theme}></BaseInput>
+  )
 }
