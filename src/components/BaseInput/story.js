@@ -17,12 +17,17 @@ storiesOf('BaseInput', module)
   .add('with bound value', () => (
     <InputWithHooks></InputWithHooks>
   ))
-  .add('dark theme', () => (
+  .add('with dark theme', () => (
     <ThemeContext.Provider value="dark">
-      <div style={{backgroundColor: "#222", padding: "2rem"}}>
+      <div style={{"background-color": "#222", padding: "2rem"}}>
         <ThemedInput></ThemedInput>
       </div>
     </ThemeContext.Provider>
+  ))
+  .add('with theme color', () => (
+    <div style={{"--theme-primary": "#fed766"}}>
+      <BaseInput label="Name" name="name"></BaseInput>
+    </div>
   ))
 
 function InputWithHooks() {
