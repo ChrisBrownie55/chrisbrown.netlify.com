@@ -18,18 +18,18 @@ storiesOf('BaseInput', module)
   ), {
     onBeforeRender() {
       return `
-      function InputWithHooks() {
-        const [value, setValue] = useState('');
-        function handleChange(event) {
-          action('text changed')(event);
-          setValue(event.target.value);
-        }
+function InputWithHooks() {
+  const [value, setValue] = useState('');
+  function handleChange(event) {
+    action('text changed')(event);
+    setValue(event.target.value);
+  }
 
-        return [
-          <BaseInput key={0} label="Name" name="name" value={value} onChange={handleChange}></BaseInput>,
-          <p key={1}>Value: "{value}"</p>
-        ]
-      }`
+  return [
+    <BaseInput key={0} label="Name" name="name" value={value} onChange={handleChange}></BaseInput>,
+    <p key={1}>Value: "{value}"</p>
+  ]
+}`
     }
   })
   .addWithJSX('with dark theme', () => (
@@ -39,7 +39,19 @@ storiesOf('BaseInput', module)
       </div>
     </ThemeContext.Provider>
   ), {
-    notes: { markdown: 'The dark theme is passed in with `<BaseInput theme="dark"></BaseInput>' }
+    notes: { markdown: 'The dark theme is passed in with `<BaseInput theme="dark"></BaseInput>' },
+    onBeforeRender(domString) {
+      const functionString = `
+function ThemedInput() {
+  const theme = useContext(ThemeContext);
+  return (
+    <BaseInput label="Name" name="name" theme={theme}></BaseInput>
+  )
+}
+
+`
+      return functionString + domString.replace(/\[object Object\]/g, 'ThemeContext.Provider')
+    }
   })
   .addWithJSX('with theme color', () => (
     <div style={{"--theme-primary": "#fed766"}}>
