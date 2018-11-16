@@ -1,47 +1,62 @@
 .flat-button {
   position: relative;
   overflow: hidden;
+
   display: block;
   width: fit-content;
   padding: 0.3rem 0.45rem;
-  background-color: transparent;
+
   color: black;
+  background-color: transparent;
+
   border: none;
   border-radius: 2px;
+
   font-size: 0.8rem;
   font-weight: 700;
   font-family: Montserrat, system-ui;
   text-transform: uppercase;
+
   transition: color 0.2s, background-color 0.2s;
   will-change: color, background-color;
+
   cursor: pointer;
 }
+
 .flat-button[round] {
   padding-left: 0.65rem;
   padding-right: 0.65rem;
+
   border-radius: 13px;
 }
+
 .flat-button[theme="dark"] {
   color: white;
 }
+
 .flat-button:active {
   background-color: rgba(0, 0, 0, 0.15);
 }
+
 .flat-button[theme="dark"]:active {
   background-color: rgba(255, 255, 255, 0.15);
 }
+
 @media(hover: hover) {
   .flat-button:hover {
     background-color: rgba(0, 0, 0, 0.15);
   }
+
   .flat-button[theme="dark"]:hover {
     background-color: rgba(255, 255, 255, 0.15);
   }
 }
+
 .flat-button:focus {
   outline: none;
   background-color: rgba(0, 0, 0, 0.15)
 }
+
 .flat-button[theme="dark"]:focus {
   background-color: rgba(255, 255, 255, 0.15);
 }
