@@ -8,6 +8,6 @@ import ThemeContext from '../../contexts/theme.js';
 
 storiesOf('FlatButton', module)
   .addDecorator(centered)
-  .addWithJSX('basic setup', () =>(
-    <FlatButton onClick={action('clicked')}>Lorem Ipsum</FlatButton>
+  .addWithJSX('basic setup', () => (
+    <FlatButton onClick={action('clicked')}>Lorem Ip Sum</FlatButton>
   ));
