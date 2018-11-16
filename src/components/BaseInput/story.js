@@ -29,7 +29,7 @@ function InputWithHooks() {
     <BaseInput key={0} label="Name" name="name" value={value} onChange={handleChange}></BaseInput>,
     <p key={1}>Value: "{value}"</p>
   ]
-}`
+}`;
     }
   })
   .addWithJSX('with dark theme', () => (
@@ -49,8 +49,8 @@ function ThemedInput() {
   )
 }
 
-`
-      return functionString + domString.replace(/\[object Object\]/g, 'ThemeContext.Provider')
+`;
+      return functionString + domString.replace(/\[object Object\]/g, 'ThemeContext.Provider');
     }
   })
   .addWithJSX('with theme color', () => (
@@ -69,12 +69,12 @@ function InputWithHooks() {
   return [
     <BaseInput key={0} label="Name" name="name" value={value} onChange={handleChange}></BaseInput>,
     <p key={1}>Value: "{value}"</p>
-  ]
+  ];
 }
 
 function ThemedInput() {
   const theme = useContext(ThemeContext);
   return (
     <BaseInput label="Name" name="name" theme={theme}></BaseInput>
-  )
+  );
 }
