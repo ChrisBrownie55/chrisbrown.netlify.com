@@ -1,0 +1,40 @@
+.theme-button {
+  position: relative;
+  overflow: hidden;
+
+  display: block;
+  width: fit-content;
+  padding: 0.85rem 1.75rem;
+
+  color: black;
+  background: none;
+
+  border: solid 2px var(--theme-primary, black);
+  border-radius: 50px;
+
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: Montserrat, system-ui;
+  text-transform: uppercase;
+
+  transition: padding 0.2s, color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  will-change: padding, color, background-color, box-shadow;
+
+  cursor: pointer;
+}
+
+.theme-button:active,
+.theme-button:hover,
+.theme-button:focus {
+  padding: 0.85rem 2.75rem;
+
+  color: white;
+  background-color: var(--theme-primary, black);
+
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+.theme-button:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 4px rgba(102, 201, 254, 0.6);
+}
