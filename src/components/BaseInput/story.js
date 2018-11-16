@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from '@storybook/addon-a11y';
 
-import BaseInput from '../src/components/BaseInput';
-import ThemeContext from '../src/contexts/theme.js';
+import React, { useState, useContext } from 'react';
+import BaseInput from './';
+import ThemeContext from '../../contexts/theme.js';
 
 storiesOf('BaseInput', module)
   .addDecorator(checkA11y)

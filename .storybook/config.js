@@ -2,9 +2,10 @@ import { configure } from '@storybook/react';
 import { setConfig } from 'react-hot-loader';
 setConfig({ pureSFC: true });
 
+const req = require.context('../src/components/', true, /story\.js$/);
+
 function loadStories() {
-  require('../stories/index.js');
-  // You can require as many stories as you need.
+  req.keys().forEach(filename => req(filename));
 }
 
 configure(loadStories, module);
