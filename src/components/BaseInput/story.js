@@ -1,13 +1,11 @@
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import React, { useState, useContext } from 'react';
 import BaseInput from './';
 import ThemeContext from '../../contexts/theme.js';
 
 storiesOf('BaseInput', module)
-  .addDecorator(checkA11y)
   .add('basic setup', () => (
     <BaseInput label="Name" name="name"></BaseInput>
   ))
@@ -19,7 +17,7 @@ storiesOf('BaseInput', module)
   ))
   .add('with dark theme', () => (
     <ThemeContext.Provider value="dark">
-      <div style={{"background-color": "#222", padding: "2rem"}}>
+      <div style={{backgroundColor: "#222", padding: "2rem"}}>
         <ThemedInput></ThemedInput>
       </div>
     </ThemeContext.Provider>
