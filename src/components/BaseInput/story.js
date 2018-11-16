@@ -5,7 +5,6 @@ import React, { useState, useContext } from 'react';
 import BaseInput from './';
 import ThemeContext from '../../contexts/theme.js';
 
-
 storiesOf('BaseInput', module)
   .addWithJSX('basic setup', () => (
     <BaseInput label="Name" name="name"></BaseInput>
