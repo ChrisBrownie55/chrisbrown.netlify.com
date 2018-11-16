@@ -6,7 +6,7 @@ import React, { useContext } from 'react';
 import FlatButton from './';
 import ThemeContext from '../../contexts/theme.js';
 
-storiesOf('ThemeButon', module)
+storiesOf('FlatButton', module)
   .addDecorator(centered)
   .addWithJSX('basic setup', () =>(
     <FlatButton onClick={action('clicked')}>Lorem Ipsum</FlatButton>
