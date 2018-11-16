@@ -1,4 +1,5 @@
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered';
 
 import React, { useContext } from 'react';
@@ -8,7 +9,7 @@ import ThemeContext from '../../contexts/theme.js';
 storiesOf('ThemeButon', module)
   .addDecorator(centered)
   .addWithJSX('basic setup', () => (
-    <ThemeButton>Lorem Ipsum</ThemeButton>
+    <ThemeButton onClick={action('clicked')}>Lorem Ipsum Dolor Sit</ThemeButton>
   ))
   .addWithJSX('with dark theme', () => (
     <ThemeContext.Provider value="dark">
@@ -34,7 +35,7 @@ function ThemedThemeButton() {
   })
   .addWithJSX('with theme color', () => (
     <div style={{backgroundColor: "#222", padding: "2rem"}}>
-      <ThemeButton style={{"--theme-primary": "#fed766"}} theme="dark">Lorem Ipsum</ThemeButton>
+      <ThemeButton style={{"--theme-primary": "#fed766"}} theme="dark">Lorem Ipsum Dolor Sit</ThemeButton>
     </div>
   ));
 
@@ -42,6 +43,6 @@ function ThemedThemeButton() {
 function ThemedThemeButton() {
   const theme = useContext(ThemeContext);
   return (
-    <ThemeButton theme={theme}>Lorem Ipsum</ThemeButton>
+    <ThemeButton theme={theme}>Lorem Ipsum Dolor Sit</ThemeButton>
   );
 }
