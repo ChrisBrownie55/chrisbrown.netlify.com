@@ -23,6 +23,11 @@
   cursor: pointer;
 }
 
+.theme-button[theme="dark"] {
+  color: white;
+  border: solid 2px var(--theme-primary, white);
+}
+
 .theme-button:active,
 .theme-button:hover,
 .theme-button:focus {
@@ -32,6 +37,13 @@
   background-color: var(--theme-primary, black);
 
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+.theme-button[theme="dark"]:active,
+.theme-button[theme="dark"]:hover,
+.theme-button[theme="dark"]:focus {
+  color: black;
+  background-color: var(--theme-primary, white);
 }
 
 .theme-button:focus {
