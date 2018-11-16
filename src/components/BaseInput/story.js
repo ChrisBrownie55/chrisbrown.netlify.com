@@ -7,7 +7,7 @@ import ThemeContext from '../../contexts/theme.js';
 
 storiesOf('BaseInput', module)
   .addWithJSX('basic setup', () => (
-    <BaseInput label="Name" name="name"></BaseInput>
+    <BaseInput label="Name" name="name" onChange={action('input changed')}></BaseInput>
   ))
   .addWithJSX('with placeholder', () => (
     <BaseInput label="Name" placeholder="Chris Brown" name="name"></BaseInput>
@@ -61,7 +61,6 @@ function ThemedInput() {
 function InputWithHooks() {
   const [value, setValue] = useState('');
   function handleChange(event) {
-    action('text changed')(event);
     setValue(event.target.value);
   }
 
