@@ -20,8 +20,8 @@ const BaseInput = ({ label, theme, ...props }) => {
 
   return (
     <div className="base-input" theme={theme}>
-      <input id={"base-input-"+(counter++)} {...props} onChange={onChange} />
-      {label ? <label htmlFor={"base-input-"+counter}>{label}</label> : null}
+      <input id={"base-input-"+(counter)} {...props} onChange={onChange} />
+      {label ? <label htmlFor={"base-input-"+counter++}>{label}</label> : null}
     </div>
   )
 };

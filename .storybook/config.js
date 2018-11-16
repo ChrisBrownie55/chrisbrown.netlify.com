@@ -1,6 +1,8 @@
 import { configure, addDecorator, setAddon } from '@storybook/react';
+
 import { checkA11y } from '@storybook/addon-a11y';
-import JSXAddon from 'storybook-addon-jsx/register';
+import JSXAddon from 'storybook-addon-jsx';
+
 import { setConfig } from 'react-hot-loader';
 
 setConfig({ pureSFC: true });

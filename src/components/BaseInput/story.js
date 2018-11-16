@@ -15,14 +15,32 @@ storiesOf('BaseInput', module)
   ))
   .addWithJSX('with bound value', () => (
     <InputWithHooks></InputWithHooks>
-  ))
+  ), {
+    onBeforeRender() {
+      return `
+      function InputWithHooks() {
+        const [value, setValue] = useState('');
+        function handleChange(event) {
+          action('text changed')(event);
+          setValue(event.target.value);
+        }
+
+        return [
+          <BaseInput key={0} label="Name" name="name" value={value} onChange={handleChange}></BaseInput>,
+          <p key={1}>Value: "{value}"</p>
+        ]
+      }`
+    }
+  })
   .addWithJSX('with dark theme', () => (
     <ThemeContext.Provider value="dark">
       <div style={{backgroundColor: "#222", padding: "2rem"}}>
         <ThemedInput></ThemedInput>
       </div>
     </ThemeContext.Provider>
-  ))
+  ), {
+    notes: { markdown: 'The dark theme is passed in with `<BaseInput theme="dark"></BaseInput>' }
+  })
   .addWithJSX('with theme color', () => (
     <div style={{"--theme-primary": "#fed766"}}>
       <BaseInput label="Name" name="name"></BaseInput>
