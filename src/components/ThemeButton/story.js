@@ -8,32 +8,18 @@ import ThemeContext from '../../contexts/theme.js';
 
 storiesOf('ThemeButon', module)
   .addDecorator(centered)
-  .addWithJSX('basic setup', () => (
+  .add('basic setup', () => (
     <ThemeButton onClick={action('clicked')}>Lorem Ipsum Dolor Sit</ThemeButton>
   ))
-  .addWithJSX('with dark theme', () => (
+  .add('with dark theme', () => (
     <ThemeContext.Provider value="dark">
       <div style={{backgroundColor: "#222", padding: "2rem"}}>
         <ThemedThemeButton>
         </ThemedThemeButton>
       </div>
     </ThemeContext.Provider>
-  ), {
-    onBeforeRender(domString) {
-      const functionString = `
-function ThemedThemeButton() {
-  const theme = useContext(ThemeContext);
-  return (
-    <ThemeButton theme={theme}>Lorem Ipsum</ThemeButton>
-  );
-}
-
-`;
-
-      return functionString + domString.replace(/\[object Object\]/g, 'ThemeContext.Provider');
-    }
-  })
-  .addWithJSX('with theme color', () => (
+  ))
+  .add('with theme color', () => (
     <div style={{backgroundColor: "#222", padding: "2rem"}}>
       <ThemeButton style={{"--theme-primary": "#fed766"}} theme="dark">Lorem Ipsum Dolor Sit</ThemeButton>
     </div>

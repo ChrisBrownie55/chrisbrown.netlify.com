@@ -1,26 +1,26 @@
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import centered from '@storybook/addon-centered';
 
 import React, { useContext } from 'react';
 import FlatButton from './';
 import ThemeContext from '../../contexts/theme.js';
 
 storiesOf('FlatButton', module)
-  .addDecorator(centered)
-  .addWithJSX('basic setup', () => (
+  .add('basic setup', () => (
     <FlatButton onClick={action('clicked')}>Lorem Ip Sum</FlatButton>
   ))
-  .addWithJSX('with dark theme', () => (
+  .add('with dark theme', () => (
     <ThemeContext.Provider value="dark">
       <div style={{backgroundColor: "#222", padding: "2rem"}}>
         <ThemedFlatButton></ThemedFlatButton>
       </div>
     </ThemeContext.Provider>
   ))
-  .addWithJSX('with round attribute', () => (
+  .add('with round attribute', () => (
     <FlatButton round="">Lorem Ip Sum</FlatButton>
-  ));
+  ), {
+    notes: 'Here '
+  });
 
 function ThemedFlatButton() {
   const theme = useContext(ThemeContext);

@@ -1,14 +1,14 @@
-import { configure, addDecorator, setAddon } from '@storybook/react';
+import { configure, addDecorator } from '@storybook/react';
 
 import { checkA11y } from '@storybook/addon-a11y';
-import JSXAddon from 'storybook-addon-jsx';
+import { withNotes } from '@storybook/addon-notes';
 
 import { setConfig } from 'react-hot-loader';
 
 setConfig({ pureSFC: true });
 
 addDecorator(checkA11y);
-setAddon(JSXAddon);
+addDecorator(withNotes);
 
 const req = require.context('../src/components/', true, /story\.js$/);
 
