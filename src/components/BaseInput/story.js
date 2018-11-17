@@ -23,8 +23,8 @@ storiesOf('BaseInput', module)
     </ThemeContext.Provider>
   ))
   .add('with theme color', () => (
-    <div style={{"--theme-primary": "#fed766"}}>
-      <BaseInput label="Name" name="name"></BaseInput>
+    <div style={{"--theme-primary": "#fed766", backgroundColor: "#222", padding: "2rem"}}>
+      <BaseInput label="Name" name="name" theme="dark"></BaseInput>
     </div>
   ));
 
