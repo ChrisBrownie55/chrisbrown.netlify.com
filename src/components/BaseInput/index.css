@@ -3,6 +3,7 @@
 .base-input {
   position: relative;
   padding-top: 0.75rem;
+  color: black;
 }
 
 .base-input[theme="dark"] {
@@ -69,9 +70,16 @@
 .base-input textarea:-webkit-autofill {
   /* Removes autofill yellow color on Chrome */
   transition: background-color 999999s;
-  -webkit-text-fill-color: currentColor;
-  text-fill-color: currentColor;
-  caret-color: currentColor;
+  -webkit-text-fill-color: black;
+  text-fill-color: black;
+  caret-color: black;
+}
+
+.base-input[theme="dark"] input:-webkit-autofill,
+.base-input textarea:-webkit-autofill {
+  -webkit-text-fill-color: white;
+  text-fill-color: white;
+  caret-color: white;
 }
 
 .baseinput input.notempty:invalid,
