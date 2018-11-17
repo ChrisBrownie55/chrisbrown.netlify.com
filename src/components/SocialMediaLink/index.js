@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 import './index.css';
 
-const SocialMediaButton = props => <a {...props}></a>;
+const SocialMediaLink = props => <a className="social-media-link" {...props}></a>;
 
-SocialMediaButton.propTypes = {
+SocialMediaLink.propTypes = {
   href: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
 };
 
-export default SocialMediaButton;
+export default SocialMediaLink;
