@@ -1,12 +1,10 @@
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import centered from '@storybook/addon-centered';
 
 import React, { useContext } from 'react';
 import ThemeButton from './';
 
 storiesOf('ThemeButon', module)
-  .addDecorator(centered)
   .add('basic setup', () => (
     <ThemeButton onClick={action('clicked')}>Lorem Ipsum Dolor Sit</ThemeButton>
   ))
