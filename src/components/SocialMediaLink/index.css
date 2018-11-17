@@ -23,7 +23,7 @@
   }
 
 .social-media-link svg path {
-  fill: black;
+  fill: #222;
 
   stroke-linecap: round;
   transition: fill 0.25s ease-in-out, stroke-width 0.25s ease-in-out;
@@ -32,7 +32,7 @@
 .social-media-link:hover,
 .social-media-link:focus {
   outline: none;
-  background-color: black;
+  background-color: #222;
 }
 
 .social-media-link:hover svg path,
@@ -56,5 +56,5 @@
 
 .social-media-link[theme="dark"]:hover svg path,
 .social-media-link[theme="dark"]:focus svg path {
-  fill: var(--theme-secondary, black);
+  fill: var(--theme-secondary, #222);
 }
