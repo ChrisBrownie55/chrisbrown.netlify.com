@@ -3,7 +3,6 @@ import { action } from '@storybook/addon-actions';
 
 import React, { useState, useContext } from 'react';
 import BaseInput from './';
-import ThemeContext from '../../contexts/theme.js';
 
 storiesOf('BaseInput', module)
   .add('basic setup', () => (
@@ -16,11 +15,14 @@ storiesOf('BaseInput', module)
     <InputWithHooks></InputWithHooks>
   ))
   .add('with dark theme', () => (
-    <ThemeContext.Provider value="dark">
-      <div style={{backgroundColor: "#222", padding: "2rem"}}>
-        <ThemedInput></ThemedInput>
-      </div>
-    </ThemeContext.Provider>
+    <div style={{backgroundColor: "#222", padding: "2rem"}}>
+      <BaseInput theme="dark" label="Name" name="name"></BaseInput>
+    </div>
+  ))
+  .add('with dark theme and placeholder', () => (
+    <div style={{backgroundColor: "#222", padding: "2rem"}}>
+      <BaseInput theme="dark" label="Name" placeholder="Chris Brown" name="name"></BaseInput>
+    </div>
   ))
   .add('with theme color', () => (
     <div style={{"--theme-primary": "#fed766", backgroundColor: "#222", padding: "2rem"}}>
@@ -38,11 +40,4 @@ function InputWithHooks() {
     <BaseInput key={0} label="Name" name="name" value={value} onChange={handleChange}></BaseInput>,
     <p key={1}>Value: "{value}"</p>
   ];
-}
-
-function ThemedInput() {
-  const theme = useContext(ThemeContext);
-  return (
-    <BaseInput label="Name" name="name" theme={theme}></BaseInput>
-  );
 }
