@@ -3,28 +3,22 @@ import { action } from '@storybook/addon-actions';
 
 import React, { useContext } from 'react';
 import FlatButton from './';
-import ThemeContext from '../../contexts/theme.js';
 
 storiesOf('FlatButton', module)
   .add('basic setup', () => (
     <FlatButton onClick={action('clicked')}>Lorem Ip Sum</FlatButton>
   ))
   .add('with dark theme', () => (
-    <ThemeContext.Provider value="dark">
-      <div style={{backgroundColor: "#222", padding: "2rem"}}>
-        <ThemedFlatButton></ThemedFlatButton>
-      </div>
-    </ThemeContext.Provider>
+    <div style={{backgroundColor: "#222", padding: "2rem"}}>
+      <FlatButton theme="dark">Lorem Ip Sum</FlatButton>
+    </div>
   ))
   .add('with round attribute', () => (
     <FlatButton round="">Lorem Ip Sum</FlatButton>
   ), {
-    notes: 'Here '
+    notes: `
+      When you use the round attribute make sure to pass it an empty
+      string (or any string), otherwise, React won't correctly pass down the
+      attribute to the button.
+    `
   });
-
-function ThemedFlatButton() {
-  const theme = useContext(ThemeContext);
-  return (
-    <FlatButton theme={theme}>Lorem Ip Sum</FlatButton>
-  );
-}
