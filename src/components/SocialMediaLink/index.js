@@ -10,4 +10,4 @@ SocialMediaLink.propTypes = {
   title: PropTypes.string.isRequired
 };
 
-export default SocialMediaLink;
+export default React.memo(SocialMediaLink);

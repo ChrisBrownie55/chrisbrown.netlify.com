@@ -30,4 +30,4 @@ BaseInput.propTypes = {
   label: PropTypes.string.isRequired
 };
 
-export default BaseInput;
+export default React.memo(BaseInput);
