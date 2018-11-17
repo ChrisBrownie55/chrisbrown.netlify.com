@@ -17,6 +17,9 @@ storiesOf('FlatButton', module)
         <ThemedFlatButton></ThemedFlatButton>
       </div>
     </ThemeContext.Provider>
+  ))
+  .addWithJSX('with round attribute', () => (
+    <FlatButton round="">Lorem Ip Sum</FlatButton>
   ));
 
 function ThemedFlatButton() {
