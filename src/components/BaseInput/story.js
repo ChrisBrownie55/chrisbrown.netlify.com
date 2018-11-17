@@ -7,7 +7,9 @@ import BaseInput from './';
 storiesOf('BaseInput', module)
   .add('basic setup', () => (
     <BaseInput label="Name" name="name" onChange={action('input changed')}></BaseInput>
-  ))
+  ), {
+    notes: 'The attribute <code>label</code> is required.'
+  })
   .add('with placeholder', () => (
     <BaseInput label="Name" placeholder="Chris Brown" name="name"></BaseInput>
   ))
