@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { WithFigma } from 'storybook-addon-figma';
 
 import React, { useContext } from 'react';
 import ThemeButton from './';
@@ -14,7 +15,9 @@ storiesOf('ThemeButon', module)
     </div>
   ))
   .add('with theme color', () => (
-    <div style={{backgroundColor: "#222", padding: "2rem"}}>
-      <ThemeButton style={{"--theme-primary": "#fed766"}} theme="dark">Lorem Ipsum Dolor Sit</ThemeButton>
-    </div>
+    <WithFigma url='https://www.figma.com/file/UYOrWiOvCbpVseyanA2bh9XZ/Theme-Button'>
+      <div style={{backgroundColor: "#222", padding: "2rem"}}>
+        <ThemeButton style={{"--theme-primary": "#fed766"}} theme="dark">Lorem Ipsum Dolor Sit</ThemeButton>
+      </div>
+    </WithFigma>
   ));
