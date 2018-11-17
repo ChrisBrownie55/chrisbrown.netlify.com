@@ -10,4 +10,18 @@ storiesOf('FlatButton', module)
   .addDecorator(centered)
   .addWithJSX('basic setup', () => (
     <FlatButton onClick={action('clicked')}>Lorem Ip Sum</FlatButton>
+  ))
+  .addWithJSX('with dark theme', () => (
+    <ThemeContext.Provider value="dark">
+      <div style={{backgroundColor: "#222", padding: "2rem"}}>
+        <ThemedFlatButton></ThemedFlatButton>
+      </div>
+    </ThemeContext.Provider>
   ));
+
+function ThemedFlatButton() {
+  const theme = useContext(ThemeContext);
+  return (
+    <FlatButton theme={theme}>Lorem Ip Sum</FlatButton>
+  );
+}
