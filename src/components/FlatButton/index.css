@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
+
 .flat-button {
   position: relative;
   overflow: hidden;
@@ -34,22 +36,20 @@
   color: white;
 }
 
-.flat-button:active {
+.flat-button:hover {
   background-color: rgba(0, 0, 0, 0.15);
 }
 
-.flat-button[theme="dark"]:active {
+.flat-button[theme="dark"]:hover {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-@media(hover: hover) {
-  .flat-button:hover {
-    background-color: rgba(0, 0, 0, 0.15);
-  }
+.flat-button:active {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+}
 
-  .flat-button[theme="dark"]:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-  }
+.flat-button[theme="dark"]:active {
+  background-color: rgba(255, 255, 255, 0.25) !important;
 }
 
 .flat-button:focus {
