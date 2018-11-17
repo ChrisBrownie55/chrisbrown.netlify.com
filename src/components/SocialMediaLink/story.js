@@ -20,7 +20,7 @@ storiesOf('SocialMediaLink', module)
     notes: 'The attributes <code>href</code> and <code>title</code> are required.'
   })
   .add('with dark theme', () => (
-    <div style={{backgroundColor: "#222", padding: "2rem"}}
+    <div style={{backgroundColor: "#222", padding: "2rem"}}>
       <SocialMediaLink
         href="#"
         title="Check out my Facebook"
