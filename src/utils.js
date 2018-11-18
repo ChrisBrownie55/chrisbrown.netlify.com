@@ -18,7 +18,11 @@ export const traverseUpUntil = (condition, node) => {
   return node
 }
 
-export const traverseDownUntil = (condition, node) => {
+export const traverseDownUntil = (condition, node, isStartNode=true) => {
+  if (isStartNode && condition(node)) {
+    return node
+  }
+
   const children = [...node.children]
   if (node.shadowRoot) {
     children.push(...node.shadowRoot.children)
@@ -26,7 +30,7 @@ export const traverseDownUntil = (condition, node) => {
 
   for (const child of children) {
     if (!condition(child)) {
-      const resultNode = traverseDownUntil(condition, child)
+      const resultNode = traverseDownUntil(condition, child, false)
       if (resultNode) {
         return resultNode
       }
