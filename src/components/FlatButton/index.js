@@ -6,7 +6,7 @@ import './index.css';
 const FlatButton = props => <button className="flat-button" {...props}></button>;
 
 FlatButton.propTypes = {
-  theme: PropTypes.string
+  theme: PropTypes.oneOf(['dark'])
 }
 
 export default React.memo(FlatButton);

@@ -6,7 +6,7 @@ import './index.css';
 const ThemeButton = props => <button className="theme-button" {...props}></button>;
 
 ThemeButton.propTypes = {
-  theme: PropTypes.string
+  theme: PropTypes.oneOf(['dark'])
 }
 
 export default React.memo(ThemeButton);

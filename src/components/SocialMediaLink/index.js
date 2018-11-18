@@ -7,7 +7,8 @@ const SocialMediaLink = props => <a className="social-media-link" {...props}></a
 
 SocialMediaLink.propTypes = {
   href: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  theme: PropTypes.oneOf(['dark'])
 };
 
 export default React.memo(SocialMediaLink);
