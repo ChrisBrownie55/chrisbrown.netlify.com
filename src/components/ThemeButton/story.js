@@ -5,7 +5,7 @@ import { WithFigma } from 'storybook-addon-figma';
 import React, { useContext } from 'react';
 import ThemeButton from './';
 
-storiesOf('ThemeButon', module)
+storiesOf('ThemeButton', module)
   .add('basic setup', () => (
     <ThemeButton onClick={action('clicked')}>Lorem Ipsum Dolor Sit</ThemeButton>
   ))
