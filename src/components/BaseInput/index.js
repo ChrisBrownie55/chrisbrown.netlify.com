@@ -27,7 +27,8 @@ const BaseInput = ({ label, theme, ...props }) => {
 };
 
 BaseInput.propTypes = {
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
+  theme: PropTypes.string
 };
 
 export default React.memo(BaseInput);
