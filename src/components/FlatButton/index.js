@@ -7,6 +7,6 @@ const FlatButton = props => <button className="flat-button" {...props}></button>
 
 FlatButton.propTypes = {
   theme: PropTypes.oneOf(['dark'])
-}
+};
 
 export default React.memo(FlatButton);

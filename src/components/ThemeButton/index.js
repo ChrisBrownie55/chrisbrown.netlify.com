@@ -7,6 +7,6 @@ const ThemeButton = props => <button className="theme-button" {...props}></butto
 
 ThemeButton.propTypes = {
   theme: PropTypes.oneOf(['dark'])
-}
+};
 
 export default React.memo(ThemeButton);
