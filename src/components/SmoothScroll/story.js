@@ -19,5 +19,5 @@ storiesOf('SmoothScroll', module)
           <h1>I should have been smoothly scrolled into view!</h1>
         </div>
       </div>
-    )
+    );
   });
