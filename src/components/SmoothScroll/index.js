@@ -10,8 +10,10 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 const SmoothScroll = ({ target, children: element }) => {
   async function onClick() {
     const element = target instanceof HTMLElement
-      ? document.querySelector(target)
-      : target;
+      ? target
+      : target.current instanceof HTMLElement
+        ? target.current
+        : document.querySelector(target);
     if (!element) { return; }
 
     await scroller.scrollTo(element, prefersReducedMotion);
@@ -59,7 +61,10 @@ const SmoothScroll = ({ target, children: element }) => {
 SmoothScroll.propTypes = {
   target: PropTypes.oneOfType([
     PropTypes.instanceOf(HTMLElement),
-    PropTypes.string
+    PropTypes.string,
+    PropTypes.shape({
+      current: PropTypes.any.isRequired
+    })
   ]).isRequired,
   children: PropTypes.element.isRequired
 };

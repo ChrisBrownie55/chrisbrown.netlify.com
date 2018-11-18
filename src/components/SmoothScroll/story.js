@@ -28,7 +28,7 @@ storiesOf('SmoothScroll', module)
   }, {
     notes: '<b>SmoothScroll</b> must take a <code>target</code> attribute (as a string, or HTMLElement) and exactly one <code>children</code> element.'
   })
-  .add('with HTMLElement target', () => {
+  .add('with HTMLElement target via useRef', () => {
     setup();
 
     return (
@@ -37,11 +37,11 @@ storiesOf('SmoothScroll', module)
   });
 
   function ScrollWithElementTarget() {
-    const scrollTargetRef = useRef("");
+    const scrollTargetRef = useRef(null);
 
     return (
       <div>
-        <SmoothScroll target={scrollTargetRef.current}>
+        <SmoothScroll target={scrollTargetRef}>
           <button>CLICK TO SCROLL</button>
         </SmoothScroll>
         <ScrollTarget _ref={scrollTargetRef}></ScrollTarget>
