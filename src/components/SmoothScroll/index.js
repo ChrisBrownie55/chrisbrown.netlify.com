@@ -9,7 +9,9 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
 const SmoothScroll = ({ target, children: element }) => {
   async function onClick() {
-    const element = document.querySelector(target);
+    const element = target instanceof HTMLElement
+      ? document.querySelector(target)
+      : target;
     if (!element) { return; }
 
     await scroller.scrollTo(element, prefersReducedMotion);
