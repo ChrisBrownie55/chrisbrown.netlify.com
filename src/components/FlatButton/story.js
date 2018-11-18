@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import React, { useContext } from 'react';
+import React from 'react';
 import FlatButton from './';
 
 storiesOf('FlatButton', module)

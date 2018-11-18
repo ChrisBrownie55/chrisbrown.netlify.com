@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { WithFigma } from 'storybook-addon-figma';
 
-import React, { useContext } from 'react';
+import React from 'react';
 import SocialMediaLink from './';
 
 storiesOf('SocialMediaLink', module)

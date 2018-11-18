@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import BaseInput from './';
 
 storiesOf('BaseInput', module)
