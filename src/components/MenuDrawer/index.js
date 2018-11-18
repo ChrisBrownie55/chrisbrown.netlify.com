@@ -2,13 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { throttle } from 'lodash';
+import { brightnessFromElementBackground } from '../../utils.js';
 
 import './index.css';
 
 const MenuDrawer = ({ children, sections }) => {
   const burgerRef = useRef();
   let burgerRect;
-  let sectionElements = sections
+
+  let sectionElements = sections;
+  const colorMap = new Map();
 
   const { 0: isOpen, 1: setOpen } = useState(false);
   function toggleOpen() {
@@ -21,11 +24,18 @@ const MenuDrawer = ({ children, sections }) => {
 
   useEffect(() => {
     burgerRect = burgerRef.current.getBoundingClientRect();
-
-    if (!Array.isArray(sectionElements)) {
-      sectionElements = sections
-    }
   });
+
+  useEffect(() => {
+    if (!Array.isArray(sectionElements)) {
+      sectionElements = document.querySelector(sections)
+    }
+
+    colorMap.clear();
+    sectionElements.forEach(el => {
+      colorMap.set(el, brightnessFromElementBackground(el) > 200 ? 'black' : 'white');
+    });
+  }, [sections]);
 
   useEffect(() => {
     window.addEventListener('scroll', scrollListener);
@@ -59,7 +69,7 @@ MenuDrawer.propTypes = {
   ]).isRequired,
   sections: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.instanceOf(HTMLElement)
+    PropTypes.arrayOf(PropTypes.instanceOf(HTMLElement))
   ])
 };
 
