@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import { throttle } from 'lodash';
+import throttle from 'lodash.throttle';
 import { brightnessFromElementBackground } from '../../utils.js';
 
 import './index.css';
@@ -27,14 +27,16 @@ const MenuDrawer = ({ children, sections }) => {
   });
 
   useEffect(() => {
-    if (!Array.isArray(sectionElements)) {
-      sectionElements = document.querySelector(sections)
-    }
+    if (sections) {
+        if (!Array.isArray(sectionElements)) {
+        sectionElements = document.querySelector(sections)
+      }
 
-    colorMap.clear();
-    sectionElements.forEach(el => {
-      colorMap.set(el, brightnessFromElementBackground(el) > 200 ? 'black' : 'white');
-    });
+      colorMap.clear();
+      sectionElements.forEach(el => {
+        colorMap.set(el, brightnessFromElementBackground(el) > 200 ? 'black' : 'white');
+      });
+    }
   }, [sections]);
 
   useEffect(() => {
