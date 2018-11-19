@@ -18,8 +18,25 @@ const MenuDrawer = ({ children, sections }) => {
     setOpen(!isOpen);
   }
 
-  const scrollListener = throttle(() => {
+  const updateColor = throttle(() => {
+    const { y, height } = burgerRect;
 
+    sectionElements.some(section => {
+      const { y: sectionY, height: sectionHeight } = section.getBoundingClientRect();
+
+      if (y >= sectionY && y + height < sectionY + sectionHeight) {
+        let color = colorMap.get(section);
+        if (!color) { return false; }
+
+        if (section.classList.contains('hire') && window.innerWidth > 800) {
+          color = 'black';
+        }
+        burgerRef.current.style.color = color;
+        return true;
+      }
+
+      return false;
+    })
   }, 200);
 
   useEffect(() => {
@@ -28,23 +45,23 @@ const MenuDrawer = ({ children, sections }) => {
 
   useEffect(() => {
     if (sections) {
-        if (!Array.isArray(sectionElements)) {
+      if (typeof sectionElements === 'string') {
         sectionElements = document.querySelector(sections)
       }
+
+      sectionElements = Array.from(sectionElements);
 
       colorMap.clear();
       sectionElements.forEach(el => {
         colorMap.set(el, brightnessFromElementBackground(el) > 200 ? 'black' : 'white');
       });
+
+      window.addEventListener('scroll', updateColor);
+      return () => {
+        window.removeListener('scroll', updateColor);
+      }
     }
   }, [sections]);
-
-  useEffect(() => {
-    window.addEventListener('scroll', scrollListener);
-    return () => {
-      window.removeListener('scroll', scrollListener);
-    }
-  })
 
   return (
     <React.Fragment>
@@ -71,7 +88,9 @@ MenuDrawer.propTypes = {
   ]).isRequired,
   sections: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.arrayOf(PropTypes.instanceOf(HTMLElement))
+    PropTypes.arrayOf(PropTypes.instanceOf(HTMLElement)),
+    PropTypes.instanceOf(HTMLCollection),
+    PropTypes.instanceOf(NodeList)
   ])
 };
 
