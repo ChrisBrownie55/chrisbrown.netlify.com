@@ -64,20 +64,20 @@ const MenuDrawer = ({ children, sections }) => {
   }, [sections]);
 
   return (
-    <React.Fragment>
-      <button className="burger" aria-label="menu" onClick={toggleOpen}>
-        <svg ref={burgerRef} className="burger-icon" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path className="bar" d="M4,8h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z" />
-          <path className="bar" d="M0,10h4c-1,0,-2,0,-2,2s1,2,2,2h16c1,0,2,0,2,-2s-1,-2,-2,-2z" />
-          <path className="bar" d="M4,20h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z" />
-        </svg>
-      </button>
-
-      { /** onClick will only be fired when a child is clicked because of `pointer-events: none;` **/ }
-      <section className="menu" onClick={toggleOpen}>
+      <nav className="menu" role="navigation" onClick={toggleOpen}>
+        { /**
+          onClick will only be fired when a child (including <button>)
+          is clicked because of `pointer-events: none;`.
+        **/ }
+        <button className="burger" aria-label="menu" title="menu">
+          <svg ref={burgerRef} className="burger-icon" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path className="bar" d="M4,8h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z" />
+            <path className="bar" d="M0,10h4c-1,0,-2,0,-2,2s1,2,2,2h16c1,0,2,0,2,-2s-1,-2,-2,-2z" />
+            <path className="bar" d="M4,20h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z" />
+          </svg>
+        </button>
         { children }
-      </section>
-    </React.Fragment>
+      </nav>
   );
 };
 
