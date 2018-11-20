@@ -24,13 +24,11 @@ const FlipCard = ({ years, label, ...props }) => {
   return (
     <div className="FlipCard">
       <figure className="FlipCard-content"
-        role="switch"
         tabIndex="0"
         onClick={toggleFlipped}
         onKeyUp={handleKeyUp}
         onKeyDown={handleKeyDown}
-        flipped={isFlipped ? "" : undefined}
-        aria-checked={isFlipped}>
+        flipped={isFlipped ? "" : undefined}>
         {props.children}
         <figcaption className="FlipCard-content-back">
           <p>
@@ -53,4 +51,4 @@ FlipCard.propTypes = {
   label: PropTypes.string.isRequired
 };
 
-export default FlipCard;
+export default React.memo(FlipCard);
