@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const FlipCard = ({ years, label, ...props }) => {
@@ -21,7 +21,8 @@ const FlipCard = ({ years, label, ...props }) => {
 
   return (
     <div>
-      <figure class="content" role="switch"
+      <figure className="content"
+        role="switch"
         tabindex="0"
         onClick={toggleFlipped}
         onKeyup={handleKeyUp}
