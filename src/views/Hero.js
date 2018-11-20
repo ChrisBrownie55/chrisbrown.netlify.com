@@ -36,7 +36,7 @@ const Hero = () => {
       </SmoothScroll>
 
       <SmoothScroll target=".about">
-        <button class='header__learn-more'>
+        <button className='header__learn-more'>
           Learn More About What I Do
           <br />
           <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 448'>
