@@ -17,4 +17,9 @@ const FlickitySlider = ({ options, tag='div', ...props }) => {
   );
 };
 
+FlickitySlider.propTypes = {
+  options: PropTypes.object,
+  tag: PropTypes.string
+}
+
 export default FlickitySlider;
