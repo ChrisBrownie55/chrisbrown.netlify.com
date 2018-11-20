@@ -20,8 +20,8 @@ const FlipCard = ({ years, label, ...props }) => {
   }
 
   return (
-    <div>
-      <figure className="content"
+    <div className="FlipCard">
+      <figure className="FlipCard-content"
         role="switch"
         tabindex="0"
         onClick={toggleFlipped}
@@ -30,16 +30,16 @@ const FlipCard = ({ years, label, ...props }) => {
         flipped={isFlipped}
         aria-checked={isFlipped}>
         {props.children}
-        <figcaption className="content-back">
+        <figcaption className="FlipCard-content-back">
           <p>
-            <span className="years">
+            <span className="FlipCard-years">
               {years}
             </span>
             <sup>yrs</sup>
           </p>
         </figcaption>
       </figure>
-      <p className="name">
+      <p className="FlipCard-name">
         {label}
       </p>
     </div>

@@ -1,0 +1,114 @@
+.FlipCard {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.FlipCard-content {
+  --translateY: 0;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: calc(9rem - 3rem);
+  height: calc(11rem - 5rem);
+  padding: 1.5rem;
+  margin: 0;
+
+  background-color: #2a2a2a;
+
+  border-radius: 2px;
+
+  transform: translateY(var(--translateY));
+  transform-style: preserve-3d;
+
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  will-change: transform;
+  cursor: pointer;
+}
+
+.FlipCard-content[flipped] {
+  transform: rotateY(180deg) translateY(var(--translateY));
+}
+
+.FlipCard-content:active,
+.FlipCard-content:focus {
+  --translateY: -0.1rem;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.FlipCard-content:focus {
+  outline: none;
+}
+
+@media (hover: hover) {
+  .FlipCard-content:hover {
+    --translateY: -0.1rem;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+}
+
+.FlipCard-content > *:nth-last-child(n + 2) {
+  display: block;
+
+  width: 100%;
+
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  z-index: 1;
+}
+
+.FlipCard-content-back {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: inline-block;
+
+  width: calc(100% - 1rem);
+  padding-right: 1rem;
+
+  color: #fff;
+
+  font-size: 3rem;
+  font-family: Roboto, var(--default-fonts);
+  font-weight: bold;
+  text-align: center;
+
+  transform: rotateY(180deg) translate(50%, -50%);
+  backface-visibility: hidden;
+
+  z-index: 1;
+}
+
+.FlipCard-content-back sup {
+  position: absolute;
+  font-size: 1rem;
+  transform: translate(0.25rem, -0.125rem);
+}
+
+.FlipCard-name {
+  margin: 0.25rem auto 0;
+  font-family: Roboto, var(--default-fonts);
+}
+
+@media print {
+  .FlipCard-content-back {
+    display: none;
+  }
+
+  .FlipCard-content {
+    transform: unset !important;
+  }
+}
