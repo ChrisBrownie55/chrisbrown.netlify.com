@@ -64,7 +64,7 @@ const MenuDrawer = ({ children, sections }) => {
   }, [sections]);
 
   return (
-      <nav className="menu" role="navigation" onClick={toggleOpen} open={isOpen}>
+      <nav className="menu-drawer" role="navigation" onClick={toggleOpen} open={isOpen}>
         { /**
           onClick will only be fired when a child (including <button>)
           is clicked because of `pointer-events: none;`.
