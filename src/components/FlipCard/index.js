@@ -23,23 +23,23 @@ const FlipCard = ({ years, label, ...props }) => {
     <div>
       <figure class="content" role="switch"
         tabindex="0"
-        onClick={this.toggle}
-        onKeyup={this._handleKeyUp}
-        onKeydown={this._handleKeyDown}
-        flipped={this.flipped}
-        aria-checked={!!this.flipped}>
+        onClick={toggleFlipped}
+        onKeyup={handleKeyUp}
+        onKeydown={handleKeyDown}
+        flipped={isFlipped}
+        aria-checked={isFlipped}>
         {props.children}
         <figcaption className="content-back">
           <p>
             <span className="years">
-              ${this.years}
+              {years}
             </span>
             <sup>yrs</sup>
           </p>
         </figcaption>
       </figure>
       <p className="name">
-        ${this.name}
+        {label}
       </p>
     </div>
   );
