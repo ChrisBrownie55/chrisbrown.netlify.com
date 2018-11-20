@@ -12,6 +12,7 @@ storiesOf('MenuDrawer', module)
         <button>Ipsum</button>
         <button>Dolor</button>
         <button>Sit Amet</button>
+        <button>Lor Em</button>
       </MenuDrawer>
     </div>
   ));
