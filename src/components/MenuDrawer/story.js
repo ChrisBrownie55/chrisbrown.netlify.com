@@ -6,10 +6,12 @@ import MenuDrawer from './';
 
 storiesOf('MenuDrawer', module)
   .add('basic setup', () => (
-    <MenuDrawer>
-      <button>Lorem</button>
-      <button>Ipsum</button>
-      <button>Dolor</button>
-      <button>Sit Amet</button>
-    </MenuDrawer>
+    <div style={{width: "100vw", height: "500vh", backgroundColor: "#222"}}>
+      <MenuDrawer>
+        <button>Lorem</button>
+        <button>Ipsum</button>
+        <button>Dolor</button>
+        <button>Sit Amet</button>
+      </MenuDrawer>
+    </div>
   ));
