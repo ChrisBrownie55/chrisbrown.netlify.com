@@ -25,11 +25,11 @@ const FlipCard = ({ years, label, ...props }) => {
     <div className="FlipCard">
       <figure className="FlipCard-content"
         role="switch"
-        tabindex="0"
+        tabIndex="0"
         onClick={toggleFlipped}
-        onKeyup={handleKeyUp}
-        onKeydown={handleKeyDown}
-        flipped={isFlipped}
+        onKeyUp={handleKeyUp}
+        onKeyDown={handleKeyDown}
+        flipped={isFlipped ? "" : undefined}
         aria-checked={isFlipped}>
         {props.children}
         <figcaption className="FlipCard-content-back">
