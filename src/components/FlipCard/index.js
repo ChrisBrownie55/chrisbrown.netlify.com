@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import './index.css';
+
 const FlipCard = ({ years, label, ...props }) => {
   const { 0: isFlipped, 1: setFlipped } = useState(false);
   function toggleFlipped() {
