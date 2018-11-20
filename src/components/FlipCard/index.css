@@ -82,7 +82,7 @@
   color: #fff;
 
   font-size: 3rem;
-  font-family: Roboto, var(--default-fonts);
+  font-family: Roboto, system-ui;
   font-weight: bold;
   text-align: center;
 
@@ -100,7 +100,7 @@
 
 .FlipCard-name {
   margin: 0.25rem auto 0;
-  font-family: Roboto, var(--default-fonts);
+  font-family: Roboto, system-ui;
 }
 
 @media print {
