@@ -2,17 +2,18 @@ import React, { useEffect, useRef } from 'react';
 import ThemeButton from '../components/ThemeButton';
 import SmoothScroll from '../components/SmoothScroll';
 
-import { loadImage } from '../utils';
-
 const Hero = () => {
   const headerRef = useRef();
 
   useEffect(() => {
     requestIdleCallback(async () => {
-      await loadImage('../assets/header-background-min.jpeg');
-
-      headerRef.current.setAttribute('loaded', '');
-      headerRef.current.addEventListener('transitionend', () => headerRef.current.style.background = 'unset')
+      try {
+        import('./../assets/header-background-min.jpg');
+        headerRef.current.setAttribute('loaded', '');
+        headerRef.current.addEventListener('transitionend', () => headerRef.current.style.background = 'unset')
+      } catch (error) {
+        console.warn('An error has occurred while fetching the background image', error);
+      }
     });
   });
 
