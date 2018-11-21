@@ -18,28 +18,28 @@ export const traverseUpUntil = (condition, node) => {
   return node
 }
 
-export const traverseDownUntil = (condition, node, isStartNode=true) => {
-  if (isStartNode && condition(node)) {
-    return node
-  }
-
-  const children = [...node.children]
-  if (node.shadowRoot) {
-    children.push(...node.shadowRoot.children)
-  }
-
-  for (const child of children) {
-    if (!condition(child)) {
-      const resultNode = traverseDownUntil(condition, child, false)
-      if (resultNode) {
-        return resultNode
-      }
-    } else {
-      return child
-    }
-  }
-
-  return
-}
+// export const traverseDownUntil = (condition, node, isStartNode=true) => {
+//   if (isStartNode && condition(node)) {
+//     return node
+//   }
+//
+//   const children = [...node.children]
+//   if (node.shadowRoot) {
+//     children.push(...node.shadowRoot.children)
+//   }
+//
+//   for (const child of children) {
+//     if (!condition(child)) {
+//       const resultNode = traverseDownUntil(condition, child, false)
+//       if (resultNode) {
+//         return resultNode
+//       }
+//     } else {
+//       return child
+//     }
+//   }
+//
+//   return
+// }
 
 export const join = (...strings) => strings.filter(s => !!s).join(' ');

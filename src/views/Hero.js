@@ -31,7 +31,7 @@ const Hero = () => {
       </h1>
 
       <SmoothScroll target=".hire">
-        <ThemeButton className="hero__hire-button">
+        <ThemeButton className="hero__hire-button" theme="dark">
           Yes, I'm available for hire
         </ThemeButton>
       </SmoothScroll>
