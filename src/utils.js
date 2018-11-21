@@ -41,3 +41,5 @@ export const traverseDownUntil = (condition, node, isStartNode=true) => {
 
   return
 }
+
+export const join = (...strings) => strings.filter(s => !!s).join(' ');
