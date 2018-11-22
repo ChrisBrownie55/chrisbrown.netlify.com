@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 const targets = new Map();
 
 const io = new IntersectionObserver(entries => {
-  entries.forEach(async ({ isIntersecting, target }) => {
+  entries.forEach(({ isIntersecting, target }) => {
     if (isIntersecting) {
-      const src = await targets.get(target)();
-      target.setAttribute('src', src.default);
+      targets.get(target).forEach(async ({ src, img }) => {
+        img.setAttribute('src', (await src()).default);
+      });
 
       requestIdleCallback(() => {
         io.unobserve(target);
@@ -17,13 +18,20 @@ const io = new IntersectionObserver(entries => {
   })
 });
 
-const LazyImg = ({ src, alt, ...props }) => {
+const LazyImg = ({ src, alt, target, ...props }) => {
   const imgRef = useRef();
 
   useEffect(() => {
-    targets.set(imgRef.current, src);
-    io.observe(imgRef.current);
-  }, [imgRef, src]);
+    const observeTarget = target
+      ? document.querySelector(target)
+      : imgRef.current;
+
+    targets.set(observeTarget, (targets.get(observeTarget) || []).concat({
+      src,
+      img: imgRef.current
+    }));
+    io.observe(observeTarget);
+  }, [imgRef, src, target]);
 
   return (
     <img
@@ -37,7 +45,8 @@ const LazyImg = ({ src, alt, ...props }) => {
 
 LazyImg.propTypes = {
   src: PropTypes.func.isRequired,
-  alt: PropTypes.string.isRequired
+  alt: PropTypes.string.isRequired,
+  target: PropTypes.string
 };
 
 export default React.memo(LazyImg);
