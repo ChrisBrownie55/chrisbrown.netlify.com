@@ -5,7 +5,7 @@ import FlatButton from '../components/FlatButton';
 async function flipAllCards() {
   let count = 0;
   const delay = () => new Promise(resolve => setTimeout(resolve, 50*count++));
-  const flipCards = document.getElementsByClasslabel('FlipCard-content');
+  const flipCards = document.getElementsByClassName('FlipCard-content');
 
   for (const flipCard of flipCards) {
     await delay();
