@@ -1,4 +1,16 @@
 import React from 'react';
+import FlipCard from '../components/FlipCard';
+import FlatButton from '../components/FlatButton';
+
+async function flipAllCards() {
+  let count = 0;
+  const delay = () => new Promise(resolve => setTimeout(resolve, 50*count++));
+  const flipCards = document.getElementsByClassName('FlipCard-content');
+  for (const flipCard of flipCards) {
+    await delay();
+    flipCard.click();
+  }
+}
 
 const Expertise = () => (
   <section className="expertise">
@@ -49,7 +61,7 @@ const Expertise = () => (
         </svg>
       </flip-card>
     </section>
-    <flat-button className="expertise__flip-button" onclick="flipAllCards()">Flip all cards</flat-button>
+    <FlatButton className="expertise__flip-button" onClick={flipAllCards}>Flip all cards</FlatButton>
   </section>
 );
 
