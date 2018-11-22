@@ -6,8 +6,11 @@ const About = () => (
     <h1 className="title about__title">About Me</h1>
     <div className="about__content">
      <article>
-       <LazyImg src="assets/senior1-min.jpg"
-         alt="A portrait photo of me" id="senior1" />
+       <LazyImg
+         src="assets/senior1-min.jpg"
+         alt="A portrait photo of me"
+         id="senior1"
+       />
        <p>
          For the past few years, I have been working as a Web Developer in
          educational, professional, and hobbyist capacities. Over these years,
@@ -16,8 +19,11 @@ const About = () => (
        </p>
      </article>
      <article>
-       <LazyImg src="assets/senior2-min.jpg"
-         alt="A headshot of me sitting on some steps" id="senior2" />
+       <LazyImg
+         src="assets/senior2-min.jpg"
+         alt="A headshot of me sitting on some steps"
+         id="senior2"
+       />
        <p>
          During my time as a Full Stack Web Developer, I have designed and
          developed many different projects that use the following frameworks: Vue, React, Node,
@@ -26,8 +32,10 @@ const About = () => (
        </p>
      </article>
      <article>
-       <LazyImg src="assets/graduation.svg"
-         alt="Graduation cap logo" />
+       <LazyImg
+         src="assets/graduation.svg"
+         alt="Graduation cap logo"
+       />
        <p>
          I am also a graduate of Idaho Arts Charter school and
          <a href='https://boisecodeworks.com/'>Boise CodeWorks</a>. I am now currently working on
