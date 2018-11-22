@@ -37,10 +37,10 @@ const About = () => (
          alt="Graduation cap logo"
        />
        <p>
-         I am also a graduate of Idaho Arts Charter school and
-         <a href='https://boisecodeworks.com/'>Boise CodeWorks</a>. I am now currently working on
-         personal projects
-         while pursuing job opportunities in the field of Web Development.
+         I am also a graduate of Idaho Arts Charter school and&nbsp;
+         <a href='https://boisecodeworks.com/'>Boise CodeWorks</a>. I am now
+         currently working on personal projects while pursuing job opportunities
+         in the field of Web Development.
        </p>
      </article>
    </div>
