@@ -53,7 +53,7 @@ body {
   height: 100vh;
   margin: 0;
   overflow-x: hidden;
-  background-color: white;
+  background-color: #eee;
 }
 
 main.app-container {
@@ -212,7 +212,7 @@ main.app-container {
   }
 }
 
-body > section {
+.app-container > section {
   width: calc(98vw - 14rem);
   padding: 4.5rem calc(7rem + 1vw);
   background-color: #fff;
@@ -224,7 +224,7 @@ body > section {
   font-family: "Montserrat", var(--default-fonts);
 }
 
-.expertise {
+.app-container > .expertise {
   background-color: #eee;
   display: flex;
   flex-direction: column;
@@ -232,65 +232,67 @@ body > section {
   align-items: center;
   padding-top: 0;
 
-  &__title {
-    padding: 0.8rem 1rem;
-    border: solid 4px #222;
-    width: fit-content;
-  }
-
-  &__subtitle {
-    margin-bottom: 0.1rem;
-    font-family: "Montserrat", var(--default-fonts);
-    font-size: 1.85rem;
-    text-align: center;
-  }
-
-  &__hint {
-    margin-top: 0;
-    margin-bottom: 2.5rem;
-    font-family: Roboto, var(--default-fonts);
-    font-size: 0.85rem;
-  }
-
-  &__skills {
-    --card-width: 9rem;
-    --card-height: 11rem;
-
-    --column-count: 4;
-    --row-count: 2;
-
-    display: grid;
-    grid-template: repeat(var(--row-count), var(--card-height)) / repeat(
-        var(--column-count),
-        var(--card-width)
-      );
-    grid-gap: 1rem;
-
-    // width and height of each card is 9rem
-    // extra 2rem on height is for `name`
-    // another 1rem for gap
-
-    width: calc(
-      calc(var(--card-width) * var(--column-count)) +
-        calc(1rem * calc(var(--column-count) - 1))
-    );
-    height: calc(
-      calc(var(--card-height) * var(--row-count)) +
-        calc(1rem * calc(var(--row-count) - 1))
-    );
-    margin-bottom: 1.5rem;
-  }
-
-  &__flip-button {
-    opacity: 0.75;
-
-    &:active {
-      opacity: 1;
+  .expertise {
+    &__title {
+      padding: 0.8rem 1rem;
+      border: solid 4px #222;
+      width: fit-content;
     }
 
-    @media (hover: hover) {
-      &:hover {
+    &__subtitle {
+      margin-bottom: 0.1rem;
+      font-family: "Montserrat", var(--default-fonts);
+      font-size: 1.85rem;
+      text-align: center;
+    }
+
+    &__hint {
+      margin-top: 0;
+      margin-bottom: 2.5rem;
+      font-family: Roboto, var(--default-fonts);
+      font-size: 0.85rem;
+    }
+
+    &__skills {
+      --card-width: 9rem;
+      --card-height: 11rem;
+
+      --column-count: 4;
+      --row-count: 2;
+
+      display: grid;
+      grid-template: repeat(var(--row-count), var(--card-height)) / repeat(
+          var(--column-count),
+          var(--card-width)
+        );
+      grid-gap: 1rem;
+
+      // width and height of each card is 9rem
+      // extra 2rem on height is for `name`
+      // another 1rem for gap
+
+      width: calc(
+        calc(var(--card-width) * var(--column-count)) +
+          calc(1rem * calc(var(--column-count) - 1))
+      );
+      height: calc(
+        calc(var(--card-height) * var(--row-count)) +
+          calc(1rem * calc(var(--row-count) - 1))
+      );
+      margin-bottom: 1.5rem;
+    }
+
+    &__flip-button {
+      opacity: 0.75;
+
+      &:active {
         opacity: 1;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          opacity: 1;
+        }
       }
     }
   }
@@ -410,7 +412,7 @@ body > section {
   }
 }
 
-.about {
+.app-container > .about {
   padding-bottom: 10rem;
   position: relative;
 
@@ -662,7 +664,7 @@ footer {
     font-size: 14px;
   }
 
-  body > section {
+  .app-container > section {
     width: calc(99vw - 8rem);
     padding: 4.5rem calc(4rem + 0.5vw);
   }
