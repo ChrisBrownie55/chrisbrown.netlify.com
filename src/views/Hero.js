@@ -8,7 +8,7 @@ const Hero = () => {
   useEffect(() => {
     requestIdleCallback(async () => {
       try {
-        import('./../assets/header-background-min.jpg');
+        await import('./../assets/header-background-min.jpg');
         headerRef.current.setAttribute('loaded', '');
         headerRef.current.addEventListener('transitionend', () => headerRef.current.style.background = 'unset')
       } catch (error) {
