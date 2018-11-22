@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { join } from '../utils';
+
 import './index.css';
 
-const FlatButton = props => <button className="flat-button" {...props}></button>;
+const FlatButton = ({ className, ...props }) => (
+  <button {...props} className={join("flat-button", className)}></button>
+);
 
 FlatButton.propTypes = {
   theme: PropTypes.oneOf(['dark'])
