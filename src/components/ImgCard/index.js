@@ -5,7 +5,7 @@ import { join } from '../../utils';
 
 import './index.css';
 
-const ImgCard = ({ src, alt, children, className, ...props}) => {
+const ImgCard = ({ src, alt, href, children, className, ...props}) => {
   return (
     <div className={join("ImgCard", className)} {...props}>
       <img className="ImgCard-image" src={src} alt={alt} />
@@ -13,7 +13,7 @@ const ImgCard = ({ src, alt, children, className, ...props}) => {
         <p className="ImgCard-description">
           {children}
         </p>
-        <a className="ImgCard-explore-link" href=${this.href}>Explore</a>
+        <a className="ImgCard-explore-link" href={href}>Explore</a>
       </div>
     </div>
   );
@@ -21,7 +21,8 @@ const ImgCard = ({ src, alt, children, className, ...props}) => {
 
 ImgCard.propTypes = {
   src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired
+  alt: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired
 }
 
 export default React.memo(ImgCard);

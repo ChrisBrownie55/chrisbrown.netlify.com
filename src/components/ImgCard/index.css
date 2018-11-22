@@ -1,0 +1,77 @@
+.ImgCard {
+  position: relative;
+  grid-column: span 1;
+  grid-row: span 1;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.ImgCard:last-child {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.ImgCard-image {
+  width: 100%;
+  height: 100%;
+  transition: filter 0.2s;
+  object-fit: cover;
+}
+
+.ImgCard:hover .ImgCard-image {
+  filter: brightness(50%);
+}
+
+.ImgCard-content {
+  --slide-padding: 1rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: calc(100% - calc(var(--slide-padding) * 2));
+  height: calc(100% - calc(var(--slide-padding) * 2));
+  padding: var(--slide-padding);
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.ImgCard:hover .ImgCard-content {
+  opacity: 1;
+}
+
+.ImgCard:last-child .ImgCard-content {
+  --slide-padding: 1.5rem;
+}
+
+.ImgCard-description {
+  max-width: 23rem;
+  margin: 0;
+  color: #fafafa;
+  font-family: var(--default-fonts);
+  font-size: 0.8rem;
+}
+
+.ImgCard-description>ul {
+  margin-top: 0.15rem;
+  padding-left: 1.5rem;
+}
+
+.ImgCard-explore-link {
+  width: fit-content;
+  padding: 0.25rem 0.65rem;
+  margin-right: auto;
+  color: #fafafa;
+  font-fapremily: var(--default-fonts);
+  text-decoration: none;
+  border: solid 1px var(--theme-primary);
+  border-radius: 2px;
+  transition: background-color 0.175s, color 0.175s;
+}
+
+.ImgCard-explore-link:hover {
+  color: #222;
+  background-color: var(--theme-primary);
+}
