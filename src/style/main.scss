@@ -782,7 +782,7 @@ footer {
 }
 
 @media (min-width: 1024px) {
-  slide-list {
+  .FlickitySlider {
     height: 45rem;
   }
 }
@@ -923,7 +923,7 @@ menu-drawer button {
   }
 }
 
-slide-list {
+.FlickitySlider {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1025,7 +1025,7 @@ slide-list {
 }
 
 @media (max-width: 800px) {
-  slide-list {
+  .FlickitySlider {
     max-width: calc(100% - 0.25rem);
     width: 25rem;
     height: 40rem;
