@@ -5,7 +5,7 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(({ isIntersecting, target }) => {
     if (isIntersecting) {
       io.unobserve(target);
-      target.setAttribute('src', 'data-src');
+      target.setAttribute('src', target.getAttribute('data-src'));
       target.removeAttribute('data-src');
     }
   })
