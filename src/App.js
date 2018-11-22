@@ -5,6 +5,7 @@ import './style/system-font.css';
 
 import Hero from './views/Hero';
 const About = React.lazy(() => import('./views/About'));
+const Expertise = React.lazy(() => import('./views/Expertise'));
 
 const App = () => {
   return (
@@ -12,6 +13,9 @@ const App = () => {
       <Hero></Hero>
       <React.Suspense fallback={<p>Loading...</p>}>
         <About></About>
+      </React.Suspense>
+      <React.Suspense fallback={<p>Loading...</p>}>
+        <Expertise></Expertise>
       </React.Suspense>
     </main>
   );
