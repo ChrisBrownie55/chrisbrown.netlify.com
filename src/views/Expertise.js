@@ -3,8 +3,7 @@ import FlipCard from '../components/FlipCard';
 import FlatButton from '../components/FlatButton';
 
 async function flipAllCards() {
-  let count = 0;
-  const delay = () => new Promise(resolve => setTimeout(resolve, 50*count++));
+  const delay = () => new Promise(resolve => setTimeout(resolve, 50));
   const flipCards = document.getElementsByClassName('FlipCard-content');
 
   for (const flipCard of flipCards) {
@@ -14,11 +13,11 @@ async function flipAllCards() {
 }
 
 const Expertise = () => (
-  <section classlabel="expertise">
-    <h1 classlabel="expertise__title title">Expertise</h1>
-    <h2 classlabel="expertise__subtitle">What am I skilled at?</h2>
-    <p classlabel="expertise__hint">You can click the cards to flip them.</p>
-    <section classlabel="expertise__skills">
+  <section className="expertise">
+    <h1 className="expertise__title title">Expertise</h1>
+    <h2 className="expertise__subtitle">What am I skilled at?</h2>
+    <p className="expertise__hint">You can click the cards to flip them.</p>
+    <section className="expertise__skills">
       <FlipCard label="CSS3" years="3">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220.5 199.5">
           <path fill="var(--theme-primary)" d="M32.8 0l-7.4 37H176l-4.7 23.9H20.6l-7.3 37h150.6l-8.4 42.2-60.7 20.1-52.6-20.1 3.6-18.3h-37L0 166.2l87 33.3 100.3-33.3 13.3-66.8 2.7-13.4 17.1-86z" />
@@ -62,7 +61,7 @@ const Expertise = () => (
         </svg>
       </FlipCard>
     </section>
-    <FlatButton classlabel="expertise__flip-button" onClick={flipAllCards}>Flip all cards</FlatButton>
+    <FlatButton className="expertise__flip-button" onClick={flipAllCards}>Flip all cards</FlatButton>
   </section>
 );
 

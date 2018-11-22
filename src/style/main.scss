@@ -53,7 +53,7 @@ body {
   height: 100vh;
   margin: 0;
   overflow-x: hidden;
-  background-color: #eee;
+  background-color: white;
 }
 
 main.app-container {
@@ -879,7 +879,7 @@ paper-input:defined {
   opacity: 1;
 }
 
-flip-card svg {
+.FlipCard svg {
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
 }
