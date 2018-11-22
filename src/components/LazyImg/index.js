@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(({ intersectionRatio, target }) => {
-    if (intersectionRatio >= 0.05) {
+  entries.forEach(({ isIntersecting, target }) => {
+    if (isIntersecting) {
       observer.unobserve(target);
       target.setAttribute('src', 'data-src');
       target.removeAttribute('data-src');
     }
   })
-})
+});
+
 const LazyImg = ({ src, alt, ...props }) => {
   return (
     <img
