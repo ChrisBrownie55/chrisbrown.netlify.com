@@ -10,7 +10,7 @@ const App = () => {
   return (
     <main className="app-container">
       <Hero></Hero>
-      <React.Suspense fallback={() => <p>Loading...</p>}>
+      <React.Suspense fallback={<p>Loading...</p>}>
         <About></About>
       </React.Suspense>
     </main>
