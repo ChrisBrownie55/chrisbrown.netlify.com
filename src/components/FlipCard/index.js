@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { join } from '../utils';
+
 import './index.css';
 
-const FlipCard = ({ years, label, ...props }) => {
+const FlipCard = ({ years, label, className, children, ...props }) => {
   const { 0: isFlipped, 1: setFlipped } = useState(false);
   function toggleFlipped() {
     setFlipped(!isFlipped);
@@ -22,14 +24,14 @@ const FlipCard = ({ years, label, ...props }) => {
   }
 
   return (
-    <div className="FlipCard">
+    <div {...props} className={join("FlipCard", className)}>
       <figure className="FlipCard-content"
         tabIndex="0"
         onClick={toggleFlipped}
         onKeyUp={handleKeyUp}
         onKeyDown={handleKeyDown}
         flipped={isFlipped ? "" : undefined}>
-        {props.children}
+        {children}
         <figcaption className="FlipCard-content-back">
           <p>
             <span className="FlipCard-years">
