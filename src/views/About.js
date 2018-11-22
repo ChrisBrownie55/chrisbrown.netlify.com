@@ -7,7 +7,7 @@ const About = () => (
     <div className="about__content">
      <article>
        <LazyImg
-         src="assets/senior1-min.jpg"
+         src={() => import("../assets/senior1-min.jpg")}
          alt="A portrait photo of me"
          id="senior1"
        />
@@ -20,7 +20,7 @@ const About = () => (
      </article>
      <article>
        <LazyImg
-         src="assets/senior2-min.jpg"
+         src={() => import("../assets/senior2-min.jpg")}
          alt="A headshot of me sitting on some steps"
          id="senior2"
        />
@@ -33,7 +33,7 @@ const About = () => (
      </article>
      <article>
        <LazyImg
-         src="assets/graduation.svg"
+         src={() => import("../assets/graduation.svg")}
          alt="Graduation cap logo"
        />
        <p>
