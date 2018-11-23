@@ -755,14 +755,14 @@ footer {
     }
   }
 
-  .expertise__skills {
+  .app-container > .expertise .expertise__skills {
     --column-count: 3;
     --row-count: 3;
   }
 }
 
 @media (max-width: 500px) {
-  .expertise__skills {
+  .app-container > .expertise .expertise__skills {
     --column-count: 2;
     --row-count: 4;
   }

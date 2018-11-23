@@ -50,7 +50,7 @@
   max-width: 23rem;
   margin: 0;
   color: #fafafa;
-  font-family: var(--default-fonts);
+  font-family: system-ui;
   font-size: 0.8rem;
 }
 
@@ -64,7 +64,7 @@
   padding: 0.25rem 0.65rem;
   margin-right: auto;
   color: #fafafa;
-  font-fapremily: var(--default-fonts);
+  font-family: system-ui;
   text-decoration: none;
   border: solid 1px var(--theme-primary);
   border-radius: 2px;
