@@ -13,7 +13,7 @@ export default React.memo(() => (
 
     <h1 className="footer__title">
       <span className="no-break">Get in contact or</span>
-      <span className="no-break">see what I"m up to.</span>
+      <span className="no-break">see what I'm up to.</span>
     </h1>
 
     <article>
@@ -50,7 +50,7 @@ export default React.memo(() => (
     </article>
 
     <small aria-label="copyright">
-      © <time datetime="2018">2018</time> Christopher H. Brown
+      © <time dateTime="2018">2018</time> Christopher H. Brown
     </small>
   </footer>
 ));
