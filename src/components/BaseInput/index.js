@@ -18,9 +18,11 @@ const BaseInput = ({ label, theme, ...props }) => {
     }
   };
 
+  const Tag = props.type === 'textarea' ? 'textarea' : 'input';
+
   return (
-    <div className="base-input" theme={theme}>
-      <input id={"base-input-"+(counter)} {...props} onChange={onChange} />
+    <div className="base-input" type={Tag} theme={theme}>
+      <Tag id={"base-input-"+(counter)} {...props} onChange={onChange} />
       <label htmlFor={"base-input-"+counter++}>{label}</label>
     </div>
   );

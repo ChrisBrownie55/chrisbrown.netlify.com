@@ -8,6 +8,7 @@ const About = React.lazy(() => import('./views/About'));
 const Expertise = React.lazy(() => import('./views/Expertise'));
 const ChallengeSolution = React.lazy(() => import('./views/ChallengeSolution'));
 const MyWork = React.lazy(() => import('./views/MyWork'));
+const Hire = React.lazy(() => import('./views/Hire'));
 
 const App = () => {
   return (
@@ -24,6 +25,9 @@ const App = () => {
       </React.Suspense>
       <React.Suspense fallback={<p>Loading...</p>}>
         <MyWork></MyWork>
+      </React.Suspense>
+      <React.Suspense fallback={<p>Loading...</p>}>
+        <Hire></Hire>
       </React.Suspense>
     </main>
   );
