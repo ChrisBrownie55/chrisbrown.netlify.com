@@ -14,7 +14,7 @@
   --load-will-change: opacity;
 }
 
-.mywork {
+.app-container > .mywork {
   --side-padding: calc(5vw * 1.1);
 
   width: calc(100vw - calc(var(--side-padding) * 2));
@@ -23,17 +23,19 @@
 
   background-color: #eee;
 
-  &__title {
-    text-align: right;
-    margin-right: calc(calc(7rem + 1vw) - var(--side-padding));
-  }
-
-  @media (max-width: 800px) {
-    --side-padding: 0;
-
+  .mywork {
     &__title {
-      text-align: center !important;
-      margin-right: 0;
+      text-align: right;
+      margin-right: calc(calc(7rem + 1vw) - var(--side-padding));
+    }
+
+    @media (max-width: 800px) {
+      --side-padding: 0;
+
+      &__title {
+        text-align: center !important;
+        margin-right: 0;
+      }
     }
   }
 }
