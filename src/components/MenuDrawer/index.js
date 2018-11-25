@@ -58,8 +58,8 @@ const MenuDrawer = ({ children, sections }) => {
       colorMap.clear();
 
       for (const section of sections) {
-        if (section.current) {
-          sectionElements.push(section.current);
+        if (section) {
+          sectionElements.push(section);
           colorMap.set(section, brightnessFromElementBackground(section) > 200 ? 'black' : 'white');
         }
       }
@@ -68,10 +68,10 @@ const MenuDrawer = ({ children, sections }) => {
 
       // cleanup
       return () => {
-        window.removeListener('scroll', updateColor);
+        window.removeEventListener('scroll', updateColor);
       }
     }
-  }, [sections]);
+  }, sections);
 
   return (
       <nav className="menu-drawer" role="navigation" onClick={toggleOpen} open={isOpen}>

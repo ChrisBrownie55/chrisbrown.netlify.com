@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import FlipCard from '../components/FlipCard';
 import FlatButton from '../components/FlatButton';
 
@@ -12,8 +12,8 @@ async function flipAllCards() {
   }
 }
 
-const Expertise = () => (
-  <section className="expertise">
+const Expertise = forwardRef((props, ref) => (
+  <section ref={ref} className="expertise">
     <h1 className="expertise__title title">Expertise</h1>
     <h2 className="expertise__subtitle">What am I skilled at?</h2>
     <p className="expertise__hint">You can click the cards to flip them.</p>
@@ -63,6 +63,6 @@ const Expertise = () => (
     </section>
     <FlatButton className="expertise__flip-button" onClick={flipAllCards}>Flip all cards</FlatButton>
   </section>
-);
+));
 
 export default React.memo(Expertise);

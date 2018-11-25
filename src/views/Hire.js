@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import BaseInput from '../components/BaseInput';
 import FlatButton from '../components/FlatButton';
@@ -12,8 +12,8 @@ function reset(event) {
   })
 }
 
-const Hire = () => (
-  <section className="hire">
+const Hire = forwardRef((props, ref) => (
+  <section ref={ref} className="hire">
     <div className="before"></div>
     <h1 className="hire__title title">Contact Form</h1>
     <p className="hire__subtitle">Get in touch about a project</p>
@@ -29,6 +29,6 @@ const Hire = () => (
       </section>
     </form>
   </section>
-);
+));
 
 export default React.memo(Hire);

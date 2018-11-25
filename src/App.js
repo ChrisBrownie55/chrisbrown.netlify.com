@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useEffect } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 
 import './style/main.css';
 import './style/system-font.css';
@@ -20,26 +20,22 @@ const SmoothScroll = React.lazy(() => import('./components/SmoothScroll'));
 
 const App = () => {
   const [
-    hero,
-    about,
-    expertise,
-    mywork,
-    hire,
-    contact
+    [hero, setHero],
+    [about, setAbout],
+    [expertise, setExpertise],
+    [mywork, setMywork],
+    [hire, setHire],
+    [hireBefore, setHireBefore],
+    [contact, setContact]
   ] = [
-    useRef(),
-    useRef(),
-    useRef(),
-    useRef(),
-    useRef(),
-    useRef()
+    useState(),
+    useState(),
+    useState(),
+    useState(),
+    useState(),
+    useState(),
+    useState()
   ];
-
-  useEffect(() => {
-    if (hire.current) {
-      console.log(hire.current.querySelector('> .before'));
-    }
-  }, [hire])
 
   return (
     <main className="app-container">
@@ -48,7 +44,7 @@ const App = () => {
         style={{position: 'absolute', top: '1rem', left: '1rem'}}
         size={10} singleColor="white" />
       }>
-        <MenuDrawer sections={[ hero, about, expertise, mywork, hire, contact ]}>
+        <MenuDrawer sections={[ hero, about, expertise, mywork, hire, hireBefore, contact ]}>
           <SmoothScroll target=".about">
             <button>About</button>
           </SmoothScroll>
@@ -66,24 +62,24 @@ const App = () => {
           </SmoothScroll>
         </MenuDrawer>
       </Suspense>
-      <Hero ref={hero} />
+      <Hero ref={setHero} />
       <Suspense fallback={Spinner}>
-        <About ref={about} />
+        <About ref={setAbout} />
       </Suspense>
       <Suspense fallback={Spinner}>
-        <Expertise ref={expertise} />
+        <Expertise ref={setExpertise} />
       </Suspense>
       <Suspense fallback={Spinner}>
         <ChallengeSolution />
       </Suspense>
       <Suspense fallback={Spinner}>
-        <MyWork ref={mywork} />
+        <MyWork ref={setMywork} />
       </Suspense>
       <Suspense fallback={Spinner}>
-        <Hire ref={hire} />
+        <Hire ref={node => setHire(node) && setHireBefore(node.querySelector('.before'))} />
       </Suspense>
       <Suspense fallback={Spinner}>
-        <Contact ref={contact} />
+        <Contact ref={setContact} />
       </Suspense>
     </main>
   );
