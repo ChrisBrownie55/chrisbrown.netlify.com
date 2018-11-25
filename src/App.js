@@ -33,6 +33,7 @@ const App = () => {
     useRef(),
     useRef(),
     useRef(),
+    useRef(),
     useRef()
   ];
 
@@ -43,7 +44,7 @@ const App = () => {
         style={{position: 'absolute', top: '1rem', left: '1rem'}}
         size={10} singleColor="white" />
       }>
-        <MenuDrawer sections={{ hero, about, expertise, mywork, hire, hireBefore, contact }}>
+        <MenuDrawer sections={[ contact, hireBefore, hire, mywork, expertise, about, hero ]}>
           <SmoothScroll target=".about">
             <button>About</button>
           </SmoothScroll>
@@ -77,7 +78,7 @@ const App = () => {
       <Suspense fallback={Spinner}>
         <Hire ref={node => {
           hire.current = node;
-          hireBefore.current = node;
+          hireBefore.current = node.querySelector('.before');
         }} />
       </Suspense>
       <Suspense fallback={Spinner}>

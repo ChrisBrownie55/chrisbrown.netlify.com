@@ -25,8 +25,9 @@ const MenuDrawer = ({ children, sections }) => {
   // changes color of burger menu icon to contrast background
   const updateColor = throttle(() => {
     const { y, height } = burgerRect;
-    Object.values(sections).some(({ current: section }) => {
+    sections.some(({ current: section }) => {
       if (!section) { return false; }
+      console.log(section);
       const { y: sectionY, height: sectionHeight } = section.getBoundingClientRect();
 
       if (y >= sectionY && y + height < sectionY + sectionHeight) {
