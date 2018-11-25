@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import './style/main.css';
 import './style/system-font.css';
@@ -15,28 +15,54 @@ const Contact = React.lazy(() => import('./views/Contact'));
 
 const Spinner = <MDSpinner style={{margin: "calc(20vh - 40px) calc(50vw - 40px)"}} size={80} singleColor="var(--theme-secondary)" />;
 
+const MenuDrawer = React.lazy(() => import('./components/MenuDrawer'));
+const SmoothScroll = React.lazy(() => import('./components/SmoothScroll'));
+
 const App = () => {
   return (
     <main className="app-container">
-      <Hero></Hero>
-      <React.Suspense fallback={Spinner}>
-        <About></About>
-      </React.Suspense>
-      <React.Suspense fallback={Spinner}>
-        <Expertise></Expertise>
-      </React.Suspense>
-      <React.Suspense fallback={Spinner}>
-        <ChallengeSolution></ChallengeSolution>
-      </React.Suspense>
-      <React.Suspense fallback={Spinner}>
-        <MyWork></MyWork>
-      </React.Suspense>
-      <React.Suspense fallback={Spinner}>
-        <Hire></Hire>
-      </React.Suspense>
-      <React.Suspense fallback={Spinner}>
-        <Contact></Contact>
-      </React.Suspense>
+      <Suspense fallback={
+        <MDSpinner
+        style={{position: 'absolute', top: '1rem', left: '1rem'}}
+        size={10} singleColor="white" />
+      }>
+        <MenuDrawer sections=".hero, .about, .expertise, .mywork, .hire, .hire > .before, .contact">
+          <SmoothScroll target=".about">
+            <button>About</button>
+          </SmoothScroll>
+          <SmoothScroll target=".expertise">
+            <button>Expertise</button>
+          </SmoothScroll>
+          <SmoothScroll target=".mywork">
+            <button>My Work</button>
+          </SmoothScroll>
+          <SmoothScroll target=".hire">
+            <button>Contact</button>
+          </SmoothScroll>
+          <SmoothScroll target=".contact">
+            <button>Info</button>
+          </SmoothScroll>
+        </MenuDrawer>
+      </Suspense>
+      <Hero />
+      <Suspense fallback={Spinner}>
+        <About />
+      </Suspense>
+      <Suspense fallback={Spinner}>
+        <Expertise />
+      </Suspense>
+      <Suspense fallback={Spinner}>
+        <ChallengeSolution />
+      </Suspense>
+      <Suspense fallback={Spinner}>
+        <MyWork />
+      </Suspense>
+      <Suspense fallback={Spinner}>
+        <Hire />
+      </Suspense>
+      <Suspense fallback={Spinner}>
+        <Contact />
+      </Suspense>
     </main>
   );
 };
