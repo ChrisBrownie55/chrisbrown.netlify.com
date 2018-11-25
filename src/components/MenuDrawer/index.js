@@ -57,10 +57,12 @@ const MenuDrawer = ({ children, sections }) => {
       sectionElements = [];
       colorMap.clear();
 
-      for (const section of sections) {
-        if (section) {
+      for (const key in sections) {
+        const section = sections[key];
+        console.log(section, key);
+        if (section.current) {
           sectionElements.push(section);
-          colorMap.set(section, brightnessFromElementBackground(section) > 200 ? 'black' : 'white');
+          colorMap.set(section.current, brightnessFromElementBackground(section.current) > 200 ? 'black' : 'white');
         }
       }
 
