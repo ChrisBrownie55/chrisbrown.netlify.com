@@ -14,7 +14,6 @@ const MenuDrawer = ({ children, sections }) => {
     height: 0
   };
 
-  let sectionElements = []
   const colorMap = new Map();
 
   const { 0: isOpen, 1: setOpen } = useState(false);
