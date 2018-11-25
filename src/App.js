@@ -45,19 +45,19 @@ const App = () => {
         size={10} singleColor="white" />
       }>
         <MenuDrawer sections={[ contact, hireBefore, hire, mywork, expertise, about, hero ]}>
-          <SmoothScroll target=".about">
+          <SmoothScroll target={about}>
             <button>About</button>
           </SmoothScroll>
-          <SmoothScroll target=".expertise">
+          <SmoothScroll target={expertise}>
             <button>Expertise</button>
           </SmoothScroll>
-          <SmoothScroll target=".mywork">
+          <SmoothScroll target={mywork}>
             <button>My Work</button>
           </SmoothScroll>
-          <SmoothScroll target=".hire">
+          <SmoothScroll target={hire}>
             <button>Contact</button>
           </SmoothScroll>
-          <SmoothScroll target=".contact">
+          <SmoothScroll target={contact}>
             <button>Info</button>
           </SmoothScroll>
         </MenuDrawer>

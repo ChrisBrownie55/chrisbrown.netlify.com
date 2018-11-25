@@ -11,7 +11,7 @@ const SmoothScroll = ({ target, children: element }) => {
         ? target.current
         : document.querySelector(target);
     if (!element) { return; }
-    element.scrollIntoView({ behavior: prefersReducedMotion ? 'instant' : 'smooth' })
+    element.scrollIntoView({ behavior: prefersReducedMotion ? 'instant' : 'smooth', block: 'start' })
   }
 
   const elementWithListener = React.cloneElement(
