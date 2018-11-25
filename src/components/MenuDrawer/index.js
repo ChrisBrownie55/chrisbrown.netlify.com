@@ -25,17 +25,20 @@ const MenuDrawer = ({ children, sections }) => {
   // changes color of burger menu icon to contrast background
   const updateColor = throttle(() => {
     const { y, height } = burgerRect;
-    console.log(sections, sectionElements);
-    sectionElements.some(section => {
+    Object.values(sections).some(({ current: section }) => {
+      if (!section) { return false; }
       const { y: sectionY, height: sectionHeight } = section.getBoundingClientRect();
 
       if (y >= sectionY && y + height < sectionY + sectionHeight) {
         let color = colorMap.get(section);
-        if (!color) { return false; }
-
-        if (section.classList.contains('hire') && window.innerWidth > 800) {
-          color = 'black';
+        if (!color) {
+          color = brightnessFromElementBackground(section) > 200 ? 'black' : 'white';
+          if (section.classList.contains('hire') && window.innerWidth > 800) {
+            color = 'black';
+          }
+          colorMap.set(section, color);
         }
+
         burgerRef.current.style.color = color;
         return true;
       }
@@ -54,18 +57,7 @@ const MenuDrawer = ({ children, sections }) => {
   // Setup sectionElements array and colors
   useEffect(() => {
     if (sections) {
-      sectionElements = [];
       colorMap.clear();
-
-      for (const key in sections) {
-        const section = sections[key];
-        console.log(section, key);
-        if (section.current) {
-          sectionElements.push(section);
-          colorMap.set(section.current, brightnessFromElementBackground(section.current) > 200 ? 'black' : 'white');
-        }
-      }
-
       window.addEventListener('scroll', updateColor);
 
       // cleanup

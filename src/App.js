@@ -28,12 +28,12 @@ const App = () => {
     hireBefore,
     contact
   ] = [
-    useRef({}),
-    useRef({}),
-    useRef({}),
-    useRef({}),
-    useRef({}),
-    useRef({})
+    useRef(),
+    useRef(),
+    useRef(),
+    useRef(),
+    useRef(),
+    useRef()
   ];
 
   return (
