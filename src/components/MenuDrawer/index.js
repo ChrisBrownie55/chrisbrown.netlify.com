@@ -27,7 +27,6 @@ const MenuDrawer = ({ children, sections }) => {
     const { y, height } = burgerRect;
     sections.some(({ current: section }) => {
       if (!section) { return false; }
-      console.log(section);
       const { y: sectionY, height: sectionHeight } = section.getBoundingClientRect();
 
       if (y >= sectionY && y + height < sectionY + sectionHeight) {
