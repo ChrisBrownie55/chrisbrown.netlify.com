@@ -18,6 +18,7 @@ const MenuDrawer = ({ children, sections }) => {
 
   const { 0: isOpen, 1: setOpen } = useState(false);
   function toggleOpen() {
+    document.body.style.overflow = isOpen ? '' : 'hidden';
     setOpen(!isOpen);
   }
 
