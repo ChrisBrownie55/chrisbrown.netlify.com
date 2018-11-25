@@ -12,8 +12,9 @@ export default React.memo(forwardRef((props, ref) => (
     </svg>
 
     <h1 className="footer__title">
-      <span className="no-break">Get in contact or</span>
-      <span className="no-break">see what I'm up to.</span>
+      <span style={{ display: "inline-block" }}>Get in contact or</span>
+      &nbsp;
+      <span style={{ display: "inline-block" }}>see what I'm up to.</span>
     </h1>
 
     <article>
