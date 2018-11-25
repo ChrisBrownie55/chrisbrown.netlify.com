@@ -17,7 +17,7 @@
 
   background-color: var(--theme-primary, rgba(254, 215, 102, 0.95));
 
-  transition: left 0.2s;
+  transition: left 0.2s, box-shadow 0.2s;
 
   z-index: 998;
 }
@@ -71,6 +71,10 @@
 /* Open styles */
 .menu-drawer[open] {
   left: 0;
+  box-shadow:
+    0px 8px 10px -5px rgba(0, 0, 0, 0.2),
+    0px 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0px 6px 30px 5px rgba(0, 0, 0, 0.12);
 }
 
 .menu-drawer[open] .burger {
