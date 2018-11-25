@@ -7,10 +7,14 @@ import { brightnessFromElementBackground } from '../../utils.js';
 import './index.css';
 
 const MenuDrawer = ({ children, sections }) => {
+  // Variables setup
   const burgerRef = useRef();
-  let burgerRect;
+  let burgerRect = {
+    y: 0,
+    height: 0
+  };
 
-  let sectionElements = sections;
+  let sectionElements = []
   const colorMap = new Map();
 
   const { 0: isOpen, 1: setOpen } = useState(false);
@@ -18,9 +22,10 @@ const MenuDrawer = ({ children, sections }) => {
     setOpen(!isOpen);
   }
 
+  // changes color of burger menu icon to contrast background
   const updateColor = throttle(() => {
     const { y, height } = burgerRect;
-
+    console.log(sections, sectionElements);
     sectionElements.some(section => {
       const { y: sectionY, height: sectionHeight } = section.getBoundingClientRect();
 
@@ -39,24 +44,29 @@ const MenuDrawer = ({ children, sections }) => {
     })
   }, 200);
 
+  // get position and height of menu burger
   useEffect(() => {
-    burgerRect = burgerRef.current.getBoundingClientRect();
-  });
+    if (burgerRef.current) {
+      burgerRect = burgerRef.current.getBoundingClientRect();
+    }
+  }, [burgerRef]);
 
+  // Setup sectionElements array and colors
   useEffect(() => {
     if (sections) {
-      if (typeof sectionElements === 'string') {
-        sectionElements = document.querySelector(sections)
+      sectionElements = [];
+      colorMap.clear();
+
+      for (const section of sections) {
+        if (section.current) {
+          sectionElements.push(section.current);
+          colorMap.set(section, brightnessFromElementBackground(section) > 200 ? 'black' : 'white');
+        }
       }
 
-      sectionElements = Array.from(sectionElements);
-
-      colorMap.clear();
-      sectionElements.forEach(el => {
-        colorMap.set(el, brightnessFromElementBackground(el) > 200 ? 'black' : 'white');
-      });
-
       window.addEventListener('scroll', updateColor);
+
+      // cleanup
       return () => {
         window.removeListener('scroll', updateColor);
       }
@@ -86,11 +96,8 @@ MenuDrawer.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.element
   ]).isRequired,
-  sections: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.instanceOf(HTMLElement)),
-    PropTypes.instanceOf(HTMLCollection),
-    PropTypes.instanceOf(NodeList)
+  sections: PropTypes.oneOfType([ // sections uses Refs
+    PropTypes.arrayOf(PropTypes.shape({ current: PropTypes.any.isRequired }))
   ])
 };
 

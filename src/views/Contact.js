@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import SocialMediaLink from '../components/SocialMediaLink';
 const ThemedLink = props => <SocialMediaLink theme="dark" {...props}></SocialMediaLink>;
 
-export default React.memo(() => (
-  <footer className="contact">
+export default React.memo(forwardRef((props, ref) => (
+  <footer ref={ref} className="contact">
     <svg className="logo secondary" aria-label="My logo, the letter C in a square" xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 400 400">
       <rect className="logo__square" x="15" y="15" width="370" height="370" rx="40" />
@@ -53,4 +53,4 @@ export default React.memo(() => (
       © <time dateTime="2018">2018</time> Christopher H. Brown
     </small>
   </footer>
-));
+)));

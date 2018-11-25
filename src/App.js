@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useRef, useEffect } from 'react';
 
 import './style/main.css';
 import './style/system-font.css';
@@ -19,6 +19,28 @@ const MenuDrawer = React.lazy(() => import('./components/MenuDrawer'));
 const SmoothScroll = React.lazy(() => import('./components/SmoothScroll'));
 
 const App = () => {
+  const [
+    hero,
+    about,
+    expertise,
+    mywork,
+    hire,
+    contact
+  ] = [
+    useRef(),
+    useRef(),
+    useRef(),
+    useRef(),
+    useRef(),
+    useRef()
+  ];
+
+  useEffect(() => {
+    if (hire.current) {
+      console.log(hire.current.querySelector('> .before'));
+    }
+  }, [hire])
+
   return (
     <main className="app-container">
       <Suspense fallback={
@@ -26,7 +48,7 @@ const App = () => {
         style={{position: 'absolute', top: '1rem', left: '1rem'}}
         size={10} singleColor="white" />
       }>
-        <MenuDrawer sections=".hero, .about, .expertise, .mywork, .hire, .hire > .before, .contact">
+        <MenuDrawer sections={[ hero, about, expertise, mywork, hire, contact ]}>
           <SmoothScroll target=".about">
             <button>About</button>
           </SmoothScroll>
@@ -44,24 +66,24 @@ const App = () => {
           </SmoothScroll>
         </MenuDrawer>
       </Suspense>
-      <Hero />
+      <Hero ref={hero} />
       <Suspense fallback={Spinner}>
-        <About />
+        <About ref={about} />
       </Suspense>
       <Suspense fallback={Spinner}>
-        <Expertise />
+        <Expertise ref={expertise} />
       </Suspense>
       <Suspense fallback={Spinner}>
         <ChallengeSolution />
       </Suspense>
       <Suspense fallback={Spinner}>
-        <MyWork />
+        <MyWork ref={mywork} />
       </Suspense>
       <Suspense fallback={Spinner}>
-        <Hire />
+        <Hire ref={hire} />
       </Suspense>
       <Suspense fallback={Spinner}>
-        <Contact />
+        <Contact ref={contact} />
       </Suspense>
     </main>
   );

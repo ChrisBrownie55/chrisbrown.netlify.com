@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import LazyImg from '../components/LazyImg';
 
-const About = () => (
-  <section className="about">
+const About = forwardRef((props, ref) => (
+  <section ref={ref} className="about">
     <h1 className="title about__title">About Me</h1>
     <div className="about__content">
       <article>
@@ -48,6 +48,6 @@ const About = () => (
       </article>
       </div>
       </section>
-);
+));
 
 export default About;
