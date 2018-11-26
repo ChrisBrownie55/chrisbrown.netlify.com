@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useEffect } from 'react';
+import React, { Suspense, useRef } from 'react';
 
 import './style/main.css';
 import './style/system-font.css';
