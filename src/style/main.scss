@@ -155,25 +155,38 @@ main.app-container {
     user-select: none;
     cursor: pointer;
 
-    svg {
-      width: 0.95rem;
-      height: 0.95rem;
+    &--arrows {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
       margin-top: 0.75rem;
 
-      fill: rgba(255, 255, 255, 0.702);
-      transition: fill 0.2s linear;
+      svg {
+        transition: fill 0.2s linear;
+        animation: mqn-down-arrow 1s ease-in-out infinite;
+      }
 
-      animation: arrow-shake 1.75s ease-in-out infinite;
+      svg:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+
+      @keyframes mqn-down-arrow {
+        0%,
+        100% {
+          opacity: 0.25;
+          transform: translate3d(0, 0, 0);
+        }
+        50% {
+          opacity: 1;
+          transform: translate3d(0, 3px, 0);
+        }
+      }
     }
 
     &:active {
       color: #fff;
-
       -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-
-      svg {
-        fill: #fff;
-      }
     }
 
     @media (hover: hover) {
@@ -202,12 +215,18 @@ main.app-container {
 
   &__learn-more::after {
     content: "";
+
     position: absolute;
     left: 50%;
+    top: 1rem;
+
     width: 0;
     height: 1px;
+
     background-color: #fff;
+
     border-radius: 14px;
+
     transform: translateX(-50%);
     transition: width 0.35s ease;
   }
@@ -831,20 +850,6 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: #293347;
   outline: 1px solid #7f7f7f;
-}
-
-@keyframes arrow-shake {
-  from {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(0.45rem);
-  }
-
-  to {
-    transform: translateY(0);
-  }
 }
 
 .logo {

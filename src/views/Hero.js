@@ -41,12 +41,22 @@ const Hero = forwardRef((props, ref) => {
       </SmoothScroll>
 
       <SmoothScroll target=".about">
-        <button className='hero__learn-more'>
+        <button className="hero__learn-more">
           Learn More About What I Do
           <br />
-          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 448'>
-            <path d='M420.75 202l-185.5 185.25c-6.25 6.25-16.25 6.25-22.5 0l-185.5-185.25c-6.25-6.25-6.25-16.5 0-22.75l41.5-41.25c6.25-6.25 16.25-6.25 22.5 0l132.75 132.75 132.75-132.75c6.25-6.25 16.25-6.25 22.5 0l41.5 41.25c6.25 6.25 6.25 16.5 0 22.75z' />
-          </svg>
+          {
+            // <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 448'>
+            //   <path d='M420.75 202l-185.5 185.25c-6.25 6.25-16.25 6.25-22.5 0l-185.5-185.25c-6.25-6.25-6.25-16.5 0-22.75l41.5-41.25c6.25-6.25 16.25-6.25 22.5 0l132.75 132.75 132.75-132.75c6.25-6.25 16.25-6.25 22.5 0l41.5 41.25c6.25 6.25 6.25 16.5 0 22.75z' />
+            // </svg>
+          }
+          <div className="hero__learn-more--arrows">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10">
+              <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.35" d="M15.5 1.01L8 8.51.5 1.01"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10">
+              <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.35" d="M15.5 1.01L8 8.51.5 1.01"/>
+            </svg>
+          </div>
         </button>
       </SmoothScroll>
     </header>
