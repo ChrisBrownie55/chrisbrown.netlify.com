@@ -51,10 +51,10 @@ const Hero = forwardRef((props, ref) => {
           }
           <div className="hero__learn-more--arrows">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10">
-              <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.35" d="M15.5 1.01L8 8.51.5 1.01"/>
+              <path fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="1.35" d="M15.5 1.01L8 8.51.5 1.01"/>
             </svg>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10">
-              <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.35" d="M15.5 1.01L8 8.51.5 1.01"/>
+              <path fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="1.35" d="M15.5 1.01L8 8.51.5 1.01"/>
             </svg>
           </div>
         </button>
