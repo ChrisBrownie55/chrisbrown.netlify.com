@@ -455,10 +455,12 @@ main.app-container {
   padding-bottom: 10rem;
   position: relative;
 
-  &__title {
-    text-align: center;
-    &:focus {
-      outline: none;
+  .about {
+    &__title {
+      text-align: center;
+      &:focus {
+        outline: none;
+      }
     }
   }
 
