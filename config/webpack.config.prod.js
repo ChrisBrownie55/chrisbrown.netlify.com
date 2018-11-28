@@ -493,6 +493,7 @@ module.exports = {
         // public/ and not a SPA route
         new RegExp('/[^/]+\\.[^/]+$'),
       ],
+      skipWaiting: true,
     }),
     // TypeScript type checking
     fs.existsSync(paths.appTsConfig) &&
