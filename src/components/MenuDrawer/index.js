@@ -107,10 +107,7 @@ const MenuDrawer = ({ children, sections }) => {
 MenuDrawer.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
     .isRequired,
-  sections: PropTypes.oneOfType([
-    // sections uses Refs
-    PropTypes.arrayOf(PropTypes.shape({ current: PropTypes.any.isRequired }))
-  ])
+  sections: PropTypes.any.isRequired
 };
 
 export default MenuDrawer;
