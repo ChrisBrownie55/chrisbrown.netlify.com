@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Observer from '@researchgate/react-intersection-observer';
 
 const useIntersectionObserver = (threshold, Placeholder) => {
-  const { 0: isIntersecting, 1: setIntersecting } = useState(false);
+  const [isIntersecting, setIntersecting] = useState(false);
 
   function handleChange({ isIntersecting, intersectionRatio }) {
     setIntersecting(isIntersecting && intersectionRatio <= threshold);
@@ -11,10 +11,10 @@ const useIntersectionObserver = (threshold, Placeholder) => {
   return props => {
     return (
       <Observer onChange={handleChange} threshold={threshold}>
-        { isIntersecting ? props.children :  <Placeholder></Placeholder> }
+        {isIntersecting ? props.children : <Placeholder />}
       </Observer>
-    )
-  }
-}
+    );
+  };
+};
 
 export default useIntersectionObserver;

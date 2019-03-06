@@ -6,7 +6,7 @@ import { join } from '../../utils';
 import './index.css';
 
 const FlipCard = ({ years, label, className, children, ...props }) => {
-  const { 0: isFlipped, 1: setFlipped } = useState(false);
+  const [isFlipped, setFlipped] = useState(false);
   function toggleFlipped() {
     setFlipped(!isFlipped);
   }

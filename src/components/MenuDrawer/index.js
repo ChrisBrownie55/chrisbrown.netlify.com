@@ -16,7 +16,7 @@ const MenuDrawer = ({ children, sections }) => {
 
   const colorMap = new Map();
 
-  const { 0: isOpen, 1: setOpen } = useState(false);
+  const [isOpen, setOpen] = useState(false);
   function toggleOpen() {
     document.body.style.overflow = isOpen ? '' : 'hidden';
     setOpen(!isOpen);
@@ -26,7 +26,9 @@ const MenuDrawer = ({ children, sections }) => {
   const updateColor = throttle(() => {
     const { y, height } = burgerRect;
     sections.some(({ current: section }) => {
-      if (!section) { return false; }
+      if (!section) {
+        return false;
+      }
       const { y: sectionY, height: sectionHeight } = section.getBoundingClientRect();
 
       if (y >= sectionY && y + height < sectionY + sectionHeight) {
@@ -44,7 +46,7 @@ const MenuDrawer = ({ children, sections }) => {
       }
 
       return false;
-    })
+    });
   }, 200);
 
   // get position and height of menu burger
@@ -63,34 +65,38 @@ const MenuDrawer = ({ children, sections }) => {
       // cleanup
       return () => {
         window.removeEventListener('scroll', updateColor);
-      }
+      };
     }
   }, sections);
 
   return (
-      <nav className="menu-drawer" role="navigation" onClick={toggleOpen} open={isOpen}>
-        { /**
+    <nav className="menu-drawer" role="navigation" onClick={toggleOpen} open={isOpen}>
+      {/**
           onClick will only be fired when a child (including <button>)
           is clicked because of `pointer-events: none;`.
-        **/ }
-        <button className="burger" aria-label="menu" title="menu">
-          <svg ref={burgerRef} className="burger-icon" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path className="bar" d="M4,8h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z" />
-            <path className="bar" d="M0,10h4c-1,0,-2,0,-2,2s1,2,2,2h16c1,0,2,0,2,-2s-1,-2,-2,-2z" />
-            <path className="bar" d="M4,20h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z" />
-          </svg>
-        </button>
-        { children }
-      </nav>
+        **/}
+      <button className="burger" aria-label="menu" title="menu">
+        <svg
+          ref={burgerRef}
+          className="burger-icon"
+          xmlns="https://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path className="bar" d="M4,8h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z" />
+          <path className="bar" d="M0,10h4c-1,0,-2,0,-2,2s1,2,2,2h16c1,0,2,0,2,-2s-1,-2,-2,-2z" />
+          <path className="bar" d="M4,20h12c1,0,2,0,2,-2s-1,-2,-2,-2h-12c-1,0,-2,0,-2,2s1,2,2,2z" />
+        </svg>
+      </button>
+      {children}
+    </nav>
   );
 };
 
 MenuDrawer.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.element),
-    PropTypes.element
-  ]).isRequired,
-  sections: PropTypes.oneOfType([ // sections uses Refs
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
+    .isRequired,
+  sections: PropTypes.oneOfType([
+    // sections uses Refs
     PropTypes.arrayOf(PropTypes.shape({ current: PropTypes.any.isRequired }))
   ])
 };
