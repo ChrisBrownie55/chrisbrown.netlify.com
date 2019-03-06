@@ -8,6 +8,7 @@ import './index.css';
 
 const MenuDrawer = ({ children, sections }) => {
   // Variables setup
+  const menuDrawerRef = useRef();
   const burgerRef = useRef();
   let burgerRect = {
     y: 0,
@@ -17,7 +18,12 @@ const MenuDrawer = ({ children, sections }) => {
   const colorMap = new Map();
 
   const [isOpen, setOpen] = useState(false);
-  function toggleOpen() {
+  function toggleOpen(event) {
+    /* Do nothing if only the menu itself was clicked */
+    if (event.target === menuDrawerRef.current) {
+      return;
+    }
+
     document.body.style.overflow = isOpen ? '' : 'hidden';
     setOpen(!isOpen);
   }
@@ -70,7 +76,13 @@ const MenuDrawer = ({ children, sections }) => {
   }, sections);
 
   return (
-    <nav className="menu-drawer" role="navigation" onClick={toggleOpen} open={isOpen}>
+    <nav
+      className="menu-drawer"
+      role="navigation"
+      onClick={toggleOpen}
+      open={isOpen}
+      ref={menuDrawerRef}
+    >
       {/**
           onClick will only be fired when a child (including <button>)
           is clicked because of `pointer-events: none;`.
