@@ -43,7 +43,6 @@
 
 .FlipCard-content:active,
 .FlipCard-content:focus {
-  --translateY: -0.1rem;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
@@ -51,10 +50,22 @@
   outline: none;
 }
 
+.FlipCard-content--wrapper {
+  transition: transform 0.3s;
+}
+
+.FlipCard-content--wrapper:active,
+.FlipCard-content--wrapper:focus {
+  transform: translateY(-0.1rem);
+}
+
 @media (hover: hover) {
   .FlipCard-content:hover {
-    --translateY: -0.1rem;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+
+  .FlipCard-content--wrapper:hover {
+    transform: translateY(-0.1rem);
   }
 }
 

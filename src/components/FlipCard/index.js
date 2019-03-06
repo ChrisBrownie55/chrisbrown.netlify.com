@@ -24,26 +24,26 @@ const FlipCard = ({ years, label, className, children, ...props }) => {
   }
 
   return (
-    <div {...props} className={join("FlipCard", className)}>
-      <figure className="FlipCard-content"
-        tabIndex="0"
-        onClick={toggleFlipped}
-        onKeyUp={handleKeyUp}
-        onKeyDown={handleKeyDown}
-        flipped={isFlipped ? "" : undefined}>
-        {children}
-        <figcaption className="FlipCard-content-back">
-          <p>
-            <span className="FlipCard-years">
-              {years}
-            </span>
-            <sup>yrs</sup>
-          </p>
-        </figcaption>
-      </figure>
-      <p className="FlipCard-name">
-        {label}
-      </p>
+    <div {...props} className={join('FlipCard', className)}>
+      <div className="FlipCard-content--wrapper">
+        <figure
+          className="FlipCard-content"
+          tabIndex="0"
+          onClick={toggleFlipped}
+          onKeyUp={handleKeyUp}
+          onKeyDown={handleKeyDown}
+          flipped={isFlipped ? '' : undefined}
+        >
+          {children}
+          <figcaption className="FlipCard-content-back">
+            <p>
+              <span className="FlipCard-years">{years}</span>
+              <sup>yrs</sup>
+            </p>
+          </figcaption>
+        </figure>
+      </div>
+      <p className="FlipCard-name">{label}</p>
     </div>
   );
 };
