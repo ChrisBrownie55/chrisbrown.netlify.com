@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './index.css';
 
-const SocialMediaLink = props => <a className="social-media-link" {...props}></a>;
+const SocialMediaLink = ({ children, ...props }) => <a className="social-media-link" {...props}>{children}</a>;
 
 SocialMediaLink.propTypes = {
   href: PropTypes.string.isRequired,
