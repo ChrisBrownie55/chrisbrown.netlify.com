@@ -6,7 +6,7 @@
   color: black;
 }
 
-.base-input[theme="dark"] {
+.base-input[theme='dark'] {
   color: white;
 }
 
@@ -26,7 +26,7 @@
   transition: width 0.2s;
 }
 
-.base-input[type="textarea"]::after {
+.base-input[type='textarea']::after {
   bottom: 4px;
 }
 
@@ -49,6 +49,7 @@
 .base-input textarea {
   width: 100%;
   height: 100%;
+  padding: 0;
   padding-bottom: 0.35rem;
 
   color: currentColor;
@@ -82,7 +83,7 @@
   caret-color: black;
 }
 
-.base-input[theme="dark"] input:-webkit-autofill,
+.base-input[theme='dark'] input:-webkit-autofill,
 .base-input textarea:-webkit-autofill {
   -webkit-text-fill-color: white;
   text-fill-color: white;
@@ -101,13 +102,13 @@
   border-bottom-color: hsl(120, 83%, 45%);
 }
 
-.base-input[theme="dark"] input.notempty:invalid,
-.base-input[theme="dark"] textarea.notempty:invalid {
+.base-input[theme='dark'] input.notempty:invalid,
+.base-input[theme='dark'] textarea.notempty:invalid {
   border-bottom-color: hsl(0, 100%, 71%);
 }
 
-.base-input[theme="dark"] input.notempty:valid,
-.base-input[theme="dark"] textarea.notempty:valid {
+.base-input[theme='dark'] input.notempty:valid,
+.base-input[theme='dark'] textarea.notempty:valid {
   border-bottom-color: hsl(120, 83%, 65%);
 }
 
@@ -133,22 +134,22 @@
   color: darkslategrey;
   font-size: 0.8rem;
 }
-.base-input input:-webkit-autofill~label,
-.base-input textarea:-webkit-autofill~label {
+.base-input input:-webkit-autofill ~ label,
+.base-input textarea:-webkit-autofill ~ label {
   /* Move label up if input was autofilled */
   top: -15%;
   color: darkslategrey;
   font-size: 0.8rem;
 }
 
-.base-input[theme="dark"] input:focus ~ label,
-.base-input[theme="dark"] textarea:focus ~ label,
-.base-input[theme="dark"] input.notempty ~ label,
-.base-input[theme="dark"] textarea.notempty ~ label {
+.base-input[theme='dark'] input:focus ~ label,
+.base-input[theme='dark'] textarea:focus ~ label,
+.base-input[theme='dark'] input.notempty ~ label,
+.base-input[theme='dark'] textarea.notempty ~ label {
   color: lightgrey;
 }
-.base-input[theme="dark"] input:-webkit-autofill~label,
-.base-input[theme="dark"] textarea:-webkit-autofill~label {
+.base-input[theme='dark'] input:-webkit-autofill ~ label,
+.base-input[theme='dark'] textarea:-webkit-autofill ~ label {
   color: lightgrey;
 }
 
