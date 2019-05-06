@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Questrial:400,700");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Questrial:400,700');
 
 :root {
   --theme-primary: #fed766;
@@ -77,7 +77,7 @@ main.app-container {
   z-index: 0;
 
   &::before {
-    content: "";
+    content: '';
 
     position: absolute;
     top: 0;
@@ -99,7 +99,7 @@ main.app-container {
   }
 
   &[loaded]::before {
-    content: "";
+    content: '';
 
     top: -5px;
     left: -5px;
@@ -109,7 +109,6 @@ main.app-container {
 
     background-image: url(../assets/header-background-min.jpg);
     opacity: 1;
-    filter: blur(4px);
   }
 
   & > * {
@@ -121,7 +120,7 @@ main.app-container {
   }
 
   &__title {
-    font-family: "Montserrat", system-ui;
+    font-family: 'Montserrat', system-ui;
     color: #fff;
     text-align: center;
     margin-bottom: 2.5rem;
@@ -143,7 +142,7 @@ main.app-container {
     background-color: transparent;
 
     font-size: 0.95rem;
-    font-family: "Questrial", system-ui;
+    font-family: 'Questrial', system-ui;
     text-align: center;
     white-space: nowrap;
 
@@ -214,7 +213,7 @@ main.app-container {
   }
 
   &__learn-more::after {
-    content: "";
+    content: '';
 
     position: absolute;
     left: 50%;
@@ -255,7 +254,7 @@ main.app-container {
 .title {
   margin-bottom: 5rem;
   font-size: 2.25rem;
-  font-family: "Montserrat", system-ui;
+  font-family: 'Montserrat', system-ui;
 }
 
 .app-container > .expertise {
@@ -275,7 +274,7 @@ main.app-container {
 
     &__subtitle {
       margin-bottom: 0.1rem;
-      font-family: "Montserrat", system-ui;
+      font-family: 'Montserrat', system-ui;
       font-size: 1.85rem;
       text-align: center;
     }
@@ -370,11 +369,11 @@ main.app-container {
       margin-bottom: 5rem;
       margin-top: 0;
 
-      font-family: "Montserrat", system-ui;
+      font-family: 'Montserrat', system-ui;
       font-weight: bold;
 
       &::before {
-        content: "";
+        content: '';
 
         display: inline-block;
         vertical-align: middle;
@@ -401,10 +400,10 @@ main.app-container {
     min-height: 28rem;
     margin: 0 auto;
 
-    .base-input[type="input"] {
+    .base-input[type='input'] {
       grid-area: span 1;
     }
-    .base-input[type="textarea"] {
+    .base-input[type='textarea'] {
       grid-area: span 1 / span 2;
     }
 
@@ -513,7 +512,7 @@ main.app-container {
       color: #444;
 
       font-size: 1.1rem;
-      font-family: "Georgia", system-ui;
+      font-family: 'Georgia', system-ui;
 
       a[href] {
         color: #1f77da;
@@ -537,7 +536,7 @@ main.app-container {
 }
 
 .about::after {
-  content: "";
+  content: '';
 
   position: absolute;
   bottom: -1px;
@@ -582,7 +581,7 @@ main.app-container {
       margin: unset;
 
       font-size: 0.95em;
-      font-family: "Georgia", system-ui;
+      font-family: 'Georgia', system-ui;
     }
   }
 }
